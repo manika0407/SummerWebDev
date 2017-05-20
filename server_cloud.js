@@ -12,7 +12,7 @@ var app = express();
 var port      = process.env.PORT || 3000;
 
 app.use(express.static(__dirname+'/public')); //it will find html file from 'public' directory.
-app.listen(port, ipaddress);
+//app.listen(port, ipaddress);
 
 //When we push to heroku, heroku wont know our ip address. So we will have to comment our local ip and then write
 app.listen(port);
