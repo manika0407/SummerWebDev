@@ -1,0 +1,23 @@
+{
+  "name": "webdevsummer",
+  "version": "1.0.0",
+  "description": "web dev summer ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manika0407/SummerWebDev.git"
+  },
+  "author": "Manika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manika0407/SummerWebDev/issues"
+  },
+  "homepage": "https://github.com/manika0407/SummerWebDev#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
