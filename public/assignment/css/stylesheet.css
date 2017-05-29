@@ -1,0 +1,38 @@
+.top-buffer {
+    margin-top:20px;
+}
+.control-margin {
+    margin-top: 10px;
+}
+.navbar-color{
+    background-color: deepskyblue;
+}
+.c1-color-white{
+    color: #ffffff;
+
+}
+.c1-text-bold{
+    font-weight: 700;
+}
+.c1-list-item-borderless{
+    border-top: 0 none;
+    border-left: 0 none;
+    border-right: 0 none;
+    border-bottom: 0 none;
+}
+.top-margin{
+    margin-top: 70px;
+}
+.cl-icon-padding {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.navbar-offwhite-color{
+    background-color: #d9d9d9;
+}
+.c1-color-black{
+    color: #000000;
+}
+.font-large{
+    font-size: 25px;
+}
