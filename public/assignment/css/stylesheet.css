@@ -5,7 +5,7 @@
     margin-top: 10px;
 }
 .navbar-color{
-    background-color: deepskyblue;
+    background-color: #d9d9d9;
 }
 .c1-color-white{
     color: #ffffff;
@@ -36,3 +36,13 @@
 .font-large{
     font-size: 25px;
 }
+/*html,*/
+/*body {*/
+    /*height: 100%;*/
+    /*background: #333 url(../../pictures/backgroundImage.jpg) no-repeat fixed center center;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+    /*overflow: hidden;*/
+/*}*/
