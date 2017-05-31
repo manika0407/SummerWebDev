@@ -8,70 +8,148 @@
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
-<nav class="navbar navbar-fixed-top navbar-color">
+<nav class="navbar navbar-fixed-top">
     <div class="row">
         <div class="col-xs-4 hidden-xs">
-            <div class="container-fluid">
-                <p class="navbar-text pull-left">
-                    <a href="website-list.html" class="navbar-link c1-color-black">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                </p>
-                <a class="c1-color-black navbar-brand c1-text-bold" href="#">
-                    Websites
-                </a>
-                <a href="#" class="navbar-link navbar-text pull-right c1-color-black cl-icon-padding">
-                    <span class="glyphicon glyphicon-plus"></span>
-                </a>
-            </div>
+            <a class="navbar-brand" href="website-list.html"><span
+                    class="glyphicon glyphicon-chevron-left c1-text-bold font-little-large c1-color-black pull-left"></span></a>
+            <span class="navbar-brand c1-text-bold font-little-large c1-color-black">
+                Websites
+            </span>
+            <a class="navbar-brand c1-text-bold font-little-large c1-color-black pull-right" href="website-new.html"><span
+                    class="glyphicon glyphicon-plus"></span></a>
+
+
         </div>
-        <div class="col-xs-8">
-            <div class="container-fluid">
-                <a class="c1-color-black navbar-brand c1-text-bold" href="#">
-                    Edit Website
-                </a>
-                <a href="website-list.html" class="navbar-link navbar-text pull-right c1-color-black cl-icon-padding">
-                    <span class="glyphicon glyphicon-ok"></span>
-                </a>
-            </div>
+        <div class="col-xs-12 col-sm-8">
+            <a class="navbar-brand visible-xs" href="website-list.html"><span
+                    class="glyphicon c1-text-bold font-little-large c1-color-black glyphicon-chevron-left pull-left"></span></a>
+            <span class="navbar-brand c1-text-bold font-little-large c1-color-black">
+               Edit Website
+            </span>
+            <a class="navbar-brand pull-right c1-text-bold font-little-large c1-color-black" href="website-list.html"><span class="glyphicon glyphicon-ok"></span></a>
         </div>
     </div>
 </nav>
-<div class="container-fluid">
-    <div class="col-xs-4 hidden-xs">
-        <ul class="list-group top-margin">
-            <li class="list-group-item c1-list-item-borderless">
-                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right c1-text-bold"></span></a>
-                <a href="page-list.html" class="c1-text-bold">Address Book App</a>
-            </li>
-            <li class="list-group-item c1-list-item-borderless">
-                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right c1-text-bold"></span></a>
-                <a href="page-list.html" class="c1-text-bold">Blogger</a>
-            </li>
-            <li class="list-group-item c1-list-item-borderless">
-                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right c1-text-bold"></span></a>
-                <a href="page-list.html" class="c1-text-bold">Script Testing app</a>
-            </li>
-            <li class="list-group-item c1-list-item-borderless">
-                <a href="website-edit.html"><span class="glyphicon glyphicon-cog pull-right c1-text-bold"></span></a>
-                <a href="page-list.html" class="c1-text-bold">Blogging App</a>
-            </li>
-        </ul>
-    </div>
 
-    <div class="col-xs-8">
-        <form class="top-margin">
-        <label for="websiteName">Website Name</label>
-        <input type="text" class="form-control" id="websiteName">
-            <label for="websiteDesc" class="top-buffer">Website Description</label>
-            <textarea rows="6" cols="50" class="form-control" name="comment" id="websiteDesc">
-Enter text here...</textarea>
-        <a href="website-list.html" class="btn btn-lg btn-danger btn-block top-buffer">Delete</a>
-        </form>
+<div class="container-fluid top-margin full-height">
+    <div class="row full-height">
+        <div class="col-xs-4 hidden-xs right-border full-height">
+            <div class="list-group">
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-xs-10 ">
+                            <span class="">
+                                <a href="page-list.html" class="c1-text-bold black-link">University Messenger System</a>
+                            </span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="#" class="black-link"><span
+                                    class="glyphicon glyphicon-cog glyphicon-size pull-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-xs-10 ">
+                            <span class="">
+                                <a href="page-list.html" class="c1-text-bold black-link">3-Tier Cryptographic System</a>
+                            </span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="#" class="black-link"><span
+                                    class="glyphicon glyphicon-cog glyphicon-size pull-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <span class="">
+                                <a href="page-list.html" class="c1-text-bold black-link">Blogger</a>
+                            </span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="#" class="black-link"><span
+                                    class="glyphicon glyphicon-size glyphicon-cog pull-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-xs-10 ">
+                            <span class="">
+                                <a href="page-list.html" class="c1-text-bold black-link">Blogging App</a>
+                            </span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="#" class="black-link"><span
+                                    class="glyphicon glyphicon-cog glyphicon-size pull-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <span class="">
+                                <a href="page-list.html" class="c1-text-bold black-link">Location Recommender System</a>
+                            </span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="#" class="black-link"><span
+                                    class="glyphicon glyphicon-cog glyphicon-size pull-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <span class="">
+                                <a href="page-list.html" class="c1-text-bold black-link">Saffron Spice-Manika's Kitchen Blog</a>
+                            </span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="#" class="black-link"><span
+                                    class="glyphicon glyphicon-cog glyphicon-size pull-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <span class="">
+                                <a href="page-list.html" class="c1-text-bold black-link">Script Testing App</a>
+                            </span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="#" class="black-link"><span
+                                    class="glyphicon glyphicon-cog glyphicon-size pull-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 full-height">
+            <form class="">
+                <div class="form-group">
+                    <label for="name" class="c1-text-bold font-little-large c1-color-black">Name</label>
+                    <input type="text" id="name" class="form-control" value="UMS" placeholder="Name"  required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="c1-text-bold font-little-large c1-color-black">Description</label>
+                    <textarea id="description" rows="6" class="form-control" placeholder="Description"
+                               required>University Messenger System is a closed social network through which Teachers and Students can interact with each other. University Messenger System is similar to Piazza. We have used servelets, MySQL to built this.</textarea>
+                </div>
+                <div class="form-group">
+                    <a href="page-list.html" class="btn btn-lg btn-block btn-danger" type="submit">Delete</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-<nav class="navbar navbar-color navbar-fixed-bottom">
-    <div class="container-fluid">
+<nav class="navbar navbar-fixed-bottom">
+    <div class="container-fuild">
         <a href="profile.html" class="navbar-link navbar-text pull-right c1-color-black c1-text-bold cl-icon-padding">
             <span class="glyphicon glyphicon-user"></span>
         </a>

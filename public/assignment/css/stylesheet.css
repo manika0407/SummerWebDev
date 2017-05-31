@@ -64,8 +64,10 @@ body {
     }
 }
 
-
-a:hover, a:visited, a:link, a:active
+a:hover{
+    color: darkslategray;
+}
+a:visited, a:link, a:active
 {
     text-decoration: none;
 }
@@ -75,7 +77,10 @@ a:hover, a:visited, a:link, a:active
     border-color: transparent;
 }
 .overflow{
-    overflow-y:scroll; height:860px;
+    overflow-y:scroll; max-height:100%;
+}
+.container-overflow{
+    overflow-y:scroll; max-height:900px;
 }
 .container-fluid{
     background-color: transparent;
@@ -91,6 +96,52 @@ a:hover, a:visited, a:link, a:active
 .black-link{
     color: #000;
 }
+.white-link{
+    color: #fff;
+}
 .glyphicon-size{
     font-size: 25px
+}
+.widget-toolbar {
+    color: #ffff;
+    position: absolute;
+    background: gray;
+    right: 10px;
+    border-radius: 4px;
+    padding: 5px;
+}
+.widget-border{
+
+border-style: solid;
+    border-color: black;
+    border-width:3px;
+    margin-top: 5px;
+}
+.widget {
+    color:black;
+    margin: 5px;
+
+}
+.widget-toolbar-ontop {
+    z-index: 1;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.right-border {
+    border-right: 1px solid black;
+}
+.full-height{
+    height:100% ;
 }
