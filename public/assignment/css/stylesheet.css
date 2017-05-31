@@ -12,14 +12,16 @@
 
 }
 .c1-text-bold{
-    font-weight: 700;
+    font-weight: 900;
+    font-size: 18px;
 }
+
 .c1-list-item-borderless{
     border-top: 0 none;
     border-left: 0 none;
     border-right: 0 none;
     border-bottom: 0 none;
-}
+    }
 .top-margin{
     margin-top: 70px;
 }
@@ -36,13 +38,59 @@
 .font-large{
     font-size: 25px;
 }
-/*html,*/
-/*body {*/
-    /*height: 100%;*/
-    /*background: #333 url(../../pictures/backgroundImage.jpg) no-repeat fixed center center;*/
-    /*-webkit-background-size: cover;*/
-    /*-moz-background-size: cover;*/
-    /*-o-background-size: cover;*/
-    /*background-size: cover;*/
-    /*overflow: hidden;*/
-/*}*/
+.font-little-large{
+    font-size: 20px;
+}
+html,
+body {
+    height: 100%;
+    background: #333 url(../../pictures/goodbg.jpg) no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+@media only screen and (min-width: 400px) {
+    html,
+    body {
+        height: 100%;
+        background: #333 url(../../pictures/goodbg.jpg) no-repeat fixed center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        overflow: hidden;
+    }
+}
+
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+.navbar {
+    background-color: transparent;
+    background: transparent;
+    border-color: transparent;
+}
+.overflow{
+    overflow-y:scroll; height:860px;
+}
+.container-fluid{
+    background-color: transparent;
+}
+.list-group-item{
+    background-color: transparent;
+}
+.border-black{
+    border-color: black;
+    border-width: 3px;
+    margin-top: 5px;
+}
+.black-link{
+    color: #000;
+}
+.glyphicon-size{
+    font-size: 25px
+}
