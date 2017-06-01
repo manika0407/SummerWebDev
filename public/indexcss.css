@@ -1,37 +1,27 @@
+html,
 body {
-    font: 10px Georgia, serif;
-    line-height: 1.8;
-    color: #f5f6f7;
+    height: 100%;
+    background: #333 url(pictures/goodbg.jpg) no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
 }
-p {font-size: 16px;}
-.margin {margin-bottom: 45px;}
-.x1{
-    background-color: #a0acbc; /* Green */
-    color: #ffffff;
+.navbar{
+    background: transparent;
 }
-.bg-4 {
-    background-color: white; /* Black Gray */
-    color: gray;
+.text{
+    font-size: 20px;
+    font-weight: 900;
+    color: black;
+    font-family: "Comic Sans MS";
 }
-.container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
+.top-margin{
+    margin-top: 150px;
 }
-.navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-    background-color: #1f252d;
+.containertext{
+    font-size: 30px;
+    font-family: Arial;
 
-}
-.navbar-nav  li a:hover {
-    color: #1abc9c !important;
-}
-.centered{
-    width: 1400px;
-    margin:auto;
 }
