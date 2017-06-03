@@ -79,17 +79,25 @@ a:visited, a:link, a:active
 .overflow{
     overflow-y:scroll; max-height:100%;
 }
-.container-overflow{
-    overflow-y:scroll; max-height:900px;
+
+.container-overflow {
+    overflow-y: scroll;
+    position: relative;
+    height: 880px;
 }
+
+
 .container-fluid{
+    overflow: auto;
     background-color: transparent;
 }
 .list-group-item{
     background-color: transparent;
 }
 .border-black{
-    border-color: black;
+    /*border-color: black;*/
+    /*border-style: dotted;*/
+    border-radius: 3px;
     border-width: 3px;
     margin-top: 5px;
 }
@@ -112,10 +120,11 @@ a:visited, a:link, a:active
 }
 .widget-border{
 
-border-style: solid;
-    border-color: black;
+/*border-style: dotted;*/
+    /*border-color: black;*/
     border-width:3px;
     margin-top: 5px;
+    border-radius: 3px;
 }
 .widget {
     color:black;
@@ -144,4 +153,35 @@ border-style: solid;
 }
 .full-height{
     height:100% ;
+}
+.mybody {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.mycenter-container {
+    max-height: 100%;
+    overflow-y: scroll;
+}
+.mywidget {
+    color: black;
+    margin: 5px;
+
+}
+
+.mywidget .col-xs-12 {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 5px;
+}
+.my-widget-toolbar {
+    color: #ffff;
+    position: absolute;
+    background:black;
+    right: 10px;
+    border-radius: 4px;
+    padding: 5px;
+}
+.my-widget-toolbar-ontop {
+    z-index: 1;
 }

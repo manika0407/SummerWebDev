@@ -8,6 +8,7 @@ body {
     background-size: cover;
     overflow: hidden;
 }
+
 .navbar{
     background: transparent;
 }
@@ -18,10 +19,13 @@ body {
     font-family: "Comic Sans MS";
 }
 .top-margin{
-    margin-top: 150px;
+    margin-top: 70px;
 }
 .containertext{
     font-size: 30px;
     font-family: Arial;
 
+}
+.overflow{
+    overflow-y:scroll; max-height:100%;
 }
