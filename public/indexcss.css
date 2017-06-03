@@ -29,3 +29,9 @@ body {
 .overflow{
     overflow-y:scroll; max-height:100%;
 }
+.black-background{
+    background-color: black;
+}
+.c1-text-white{
+    color: white;
+}
