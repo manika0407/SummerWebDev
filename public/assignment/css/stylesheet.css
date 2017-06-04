@@ -1,3 +1,25 @@
+html,
+body {
+    height: 100%;
+    background: #333 url(../../pictures/goodbg.jpg) no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+@media only screen and (min-width: 400px) {
+    html,
+    body {
+        height: 100%;
+        background: #333 url(../../pictures/goodbg.jpg) no-repeat fixed center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        overflow: hidden;
+    }
+}
 .top-buffer {
     margin-top:20px;
 }
@@ -41,28 +63,7 @@
 .font-little-large{
     font-size: 20px;
 }
-html,
-body {
-    height: 100%;
-    background: #333 url(../../pictures/goodbg.jpg) no-repeat fixed center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    overflow: hidden;
-}
-@media only screen and (min-width: 400px) {
-    html,
-    body {
-        height: 100%;
-        background: #333 url(../../pictures/goodbg.jpg) no-repeat fixed center center;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        overflow: hidden;
-    }
-}
+
 
 a:hover{
     color: darkslategray;
@@ -87,60 +88,29 @@ a:visited, a:link, a:active
     overflow-y:scroll; max-height:100%;
 }
 
-.container-overflow {
-    overflow-y: scroll;
-    position: relative;
-    height: 880px;
-}
 
 
 .container-fluid{
-    overflow: auto;
     background-color: transparent;
 }
 .list-group-item{
     background-color: transparent;
 }
-.border-black{
-    /*border-color: black;*/
-    /*border-style: dotted;*/
-    /*border-radius: 3px;*/
-    /*border-width: 3px;*/
-    margin-top: 5px;
-}
 .black-link{
     color: #000;
 }
-.white-link{
-    color: #fff;
-}
+
 .glyphicon-size{
     font-size: 25px
 }
-.widget-toolbar {
-    color: #ffff;
-    position: absolute;
-    background: gray;
-    right: 10px;
-    border-radius: 4px;
-    padding: 5px;
-}
-.widget-border{
 
-/*border-style: dotted;*/
-    /*border-color: black;*/
+.widget-border{
     border-width:3px;
     margin-top: 5px;
     border-radius: 3px;
 }
-.widget {
-    color:black;
-    margin: 5px;
 
-}
-.widget-toolbar-ontop {
-    z-index: 1;
-}
+
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
