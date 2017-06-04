@@ -7,36 +7,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="../css/stylesheet.css">
 </head>
+
 <body>
+
 <nav class="navbar navbar-default navbar-fixed-top navbar-color">
     <div class="control-margin">
-        <a class="navbar-brand" href="#">
-            <p class="c1-color-black font-large">Profile</p>
+        <span class="navbar-brand c1-color-black font-little-large c1-text-bold">
+            Profile
+        </span>
+
+        <a href="profile.html"
+           class="navbar-link navbar-text pull-right">
+        <span class="glyphicon glyphicon-ok c1-color-black font-little-large">
+        </span>
         </a>
-        <a href="profile.html" class="navbar-link navbar-text pull-right">
-        <span class="glyphicon glyphicon-ok c1-color-black font-little-large"></span>
-        </a>
+
     </div>
     </div>
 </nav>
+
 <div class="container">
     <form class="form-signin top-margin">
-        <label for="username">Username</label>
+        <label for="username">
+            Username
+        </label>
         <input type="text" id="username"
                class="form-control"
                placeholder="Manika" required autofocus>
-        <label for="email">Email</label>
+
+        <label for="email">
+            Email
+        </label>
         <input type="email" id="email"
                class="form-control"
                placeholder="manikasharma2211@gmail.com" >
-        <label for="FirstName">First Name</label>
-        <input type="text" id="FirstName" class="form-control" placeholder="Manika" required>
+
+        <label for="FirstName">
+            First Name
+        </label>
+        <input type="text" id="FirstName"
+               class="form-control"
+               placeholder="Manika" required>
+
         <label for="LastName">Last Name</label>
-        <input type="text" id="LastName" class="form-control" placeholder="Sharma" required>
-        <a href="../website/website-list.html" class="btn btn-lg btn-success btn-block top-buffer" type="submit">Websites</a>
-        <a href="login.html" class="btn btn-lg btn-block btn-danger">Logout</a>
+        <input type="text" id="LastName"
+               class="form-control"
+               placeholder="Sharma" required>
+
+        <a href="../website/website-list.html"
+           class="btn btn-lg btn-success btn-block top-buffer"
+           type="submit">
+            Websites
+        </a>
+
+        <a href="login.html"
+           class="btn btn-lg btn-block btn-danger">
+            Logout
+        </a>
     </form>
 </div>
-<nav class="navbar navbar-default navbar-fixed-bottom navbar-color"></nav>
+
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-color">
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="../user/profile.html">
+                <span class="glyphicon-size c1-color-black glyphicon glyphicon-user pull-right">
+                </span>
+            </a>
+        </li>
+    </ul>
+</nav>
 </body>
 </html>
