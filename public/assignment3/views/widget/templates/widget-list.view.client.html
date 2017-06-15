@@ -1,7 +1,33 @@
 <div class="container-fluid mycenter-container full-height
 widget-overflow">
 
-    <div ng-include="'views/common/header.view.client.html'"></div>
+    <nav class="navbar transparent navbar-toggleable-xl navbar-inverse navbar-fixed-top affix">
+        <div class="container-fluid">
+            <a class="navbar-brand"
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                <span
+                        class="glyphicon c1-color-black glyphicon-chevron-left pull-left">
+                </span>
+            </a>
+
+            <span
+                    class="navbar-brand c1-color-black c1-text-bold">
+                <h4
+                        class="c1-text-bold c1-color-black">
+                    Widgets
+                </h4>
+            </span>
+            <a class="navbar-brand pull-right c1-color-black"
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
+                <span
+                        class="glyphicon glyphicon-plus c1-color-black">
+                </span>
+            </a>
+
+
+        </div>
+    </nav>
+
 
     <div class="row mybody mywidget">
 
@@ -14,7 +40,7 @@ widget-overflow">
                     </span>
                 </a>
                 <a class="black-link"
-                   href="widget-heading.view.client.html">
+                   href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                     <span
                             class="glyphicon glyphicon-cog pull-right">
                     </span>

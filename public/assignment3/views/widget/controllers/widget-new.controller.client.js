@@ -11,9 +11,9 @@
         model.website=$routeParams.websiteId;
         model.pageId=$routeParams.pageId;
         model.widgetTypeList = ['Header', 'Image', 'YouTube', 'HTML', 'Label', 'Text Input', 'Link', 'Button', 'Data Table', 'Repeater'];
-        model.createNewWidget=createNewWidget;
+        model.createWidget=createWidget;
 
-        function createNewWidget(widgetType) {
+        function createWidget(widgetType) {
             widgetType = widgetType.toUpperCase();
             if (widgetType === 'HEADER') {
                 widgetType = 'HEADING';
