@@ -1,0 +1,50 @@
+<div class="container">
+        <h1>
+            Register
+        </h1>
+
+    <div ng-show="model.error"
+            class="alert alert-danger">
+        {{model.error}}
+    </div>
+    <div ng-show="model.message"
+         class="alert alert-info">
+        {{model.message}}
+    </div>
+
+        <label for="inputUsername" class="sr-only">
+            Username
+        </label>
+        <input type="text"
+               ng-model="username"
+               id="inputUsername"
+               class="form-control control-margin" placeholder="Username" required autofocus>
+
+        <label for="inputPassword"
+               class="sr-only">
+            Password
+        </label>
+        <input type="password"
+               ng-model="password"
+               id="inputPassword"
+               class="form-control control-margin" placeholder="Password" required>
+
+        <label for="inputPasswordConfirm"
+               class="sr-only">
+            Password Confirmation
+        </label>
+        <input type="password"
+               ng-model="password2"
+               id="inputPasswordConfirm"
+               class="form-control control-margin" placeholder="Re-enter Password" required>
+
+        <a ng-click="model.register(username,password,password2)"
+           class="btn btn-lg btn-primary btn-block top-buffer">
+            Register
+        </a>
+        <a href="#!/login"
+           type="button" class="btn btn-lg btn-block btn-danger">
+            Cancel
+        </a>
+
+</div>

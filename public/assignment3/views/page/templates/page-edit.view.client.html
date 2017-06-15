@@ -1,0 +1,110 @@
+<nav class="navbar navbar-fixed-top">
+     <div class="row">
+        <div class="col-xs-4 hidden-xs">
+            <a class="navbar-brand"
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+                <span
+                    class="glyphicon glyphicon-chevron-left c1-text-bold font-little-large c1-color-black pull-left">
+                </span>
+            </a>
+
+            <span class="navbar-brand c1-text-bold font-little-large c1-color-black">
+                Pages
+            </span>
+
+            <a class="navbar-brand c1-text-bold font-little-large c1-color-black pull-right"
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
+                <span
+                    class="glyphicon glyphicon-plus">
+                </span>
+            </a>
+        </div>
+
+        <div class="col-xs-12 col-sm-8">
+            <a class="navbar-brand visible-xs"
+               href="page-list.view.client.html">
+                <span
+                    class="glyphicon c1-text-bold font-little-large c1-color-black glyphicon-chevron-left pull-left">
+                </span>
+            </a>
+            <span
+                    class="navbar-brand c1-text-bold font-little-large c1-color-black">
+               Edit Page
+            </span>
+            <a class="navbar-brand pull-right c1-text-bold font-little-large c1-color-black"
+               href ng-click="model.updatePage()">
+                <span class="glyphicon glyphicon-ok">
+                </span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid top-margin full-height">
+    <div class="row full-height">
+        <div class="col-xs-4 hidden-xs overflow right-border full-height">
+            <div class="list-group ">
+
+                <div ng-repeat="page in model.pages" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="row">
+                        <div class="col-xs-10 ">
+                            <span class="">
+                                <a href="#"
+                                   class="c1-text-bold black-link">
+                                    {{page.name}}
+                                </a>
+                            </span>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href ng-if="model.pageId === page._id" ng-click="model.pageReload()"
+                               class="black-link"><span
+                                    class="glyphicon glyphicon-cog glyphicon-size pull-right"></span></a>
+                            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}"
+                               ng-if="model.pageId !== page._id" class="black-link"><span
+                                    class="glyphicon glyphicon-cog glyphicon-size pull-right"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-8 overflow full-height">
+            <div ng-show="model.error" class="alert alert-danger shr-alert-style">
+                <strong>{{model.error}}</strong>
+            </div>
+                <div>
+                    <label for="name"
+                           class="c1-text-bold font-little-large c1-color-black">
+                        Name
+                    </label>
+                    <input ng-model="model.page.name"
+                            type="text"
+                           id="name"
+                           class="form-control"
+                            required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="title"
+                           class="c1-text-bold font-little-large c1-color-black">
+                        Title
+                    </label>
+                    <input ng-model="model.page.title"
+                            type="text"
+                           id="title"
+                           class="form-control"
+
+                            required>
+                </div>
+                <div class="form-group">
+                    <a href ng-click="model.deletePage()"
+                       class="btn btn-lg btn-block btn-danger"
+                       type="submit">
+                        Delete
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/common/websitefooter.view.client.html'"></div>

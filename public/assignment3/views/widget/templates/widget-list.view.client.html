@@ -1,0 +1,46 @@
+<div class="container-fluid mycenter-container full-height
+widget-overflow">
+
+    <div ng-include="'views/common/header.view.client.html'"></div>
+
+    <div class="row mybody mywidget">
+
+        <div ng-repeat="widget in model.widgets" class="col-xs-12">
+            <div class="mywidget-toolbar">
+                <a class="black-link"
+                   href="#">
+                    <span
+                            class="glyphicon glyphicon-menu-hamburger pull-right">
+                    </span>
+                </a>
+                <a class="black-link"
+                   href="widget-heading.view.client.html">
+                    <span
+                            class="glyphicon glyphicon-cog pull-right">
+                    </span>
+                </a>
+            </div>
+
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADING">
+                    <div ng-include="'views/widget/templates/widgetTypeTemplates/widget-heading.view.client.html'"></div>
+                </div>
+                <div ng-switch-when="IMAGE">
+                    <div ng-include="'views/widget/templates/widgetTypeTemplates/widget-image.view.client.html'"></div>
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    <div ng-include="'views/widget/templates/widgetTypeTemplates/widget-youtube.view.client.html'"></div>
+                </div>
+                <div ng-switch-when="HTML"
+                     ng-bind-html="model.trustThisContent(widget.text)">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div ng-include="'views/common/footer.view.client.html'"></div>
+
+</div>

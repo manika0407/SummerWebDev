@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Edit Youtube Widget
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../../../css/stylesheet.css">
+</head>
+<body>
+<nav class="navbar navbar-fixed-top navbar-offwhite-color">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../../website/templates/website-list.view.client.html"><span
+                class="glyphicon c1-color-black glyphicon-chevron-left pull-left"></span></a>
+        <span class="navbar-brand c1-text-bold c1-color-black">
+                Widget Edit
+            </span>
+        <a class="navbar-brand pull-right c1-color-black" href="widget-list.view.client.html"><span
+                class="glyphicon glyphicon-ok"></span></a>
+    </div>
+</nav>
+<div class="container-fluid top-margin">
+    <div class="row">
+        <div class="col-xs-12">
+            <form>
+                <div class="form-group">
+                    <label for="name" >
+                        Name
+                    </label>
+                    <input
+                            type="text"
+                            id="name"
+                            class="form-control"
+                            placeholder="Name"
+                            value="Triple H"
+                           required autofocus>
+                </div>
+                <div class="form-group">
+                    <label for="text"
+                           class="c1-text-bold">
+                        Text
+                    </label>
+                    <input
+                            type="text"
+                            id="text"
+                            class="form-control"
+                            placeholder="Title"
+                           data-toggle="tooltip"
+                           title="Enter Widget Text"
+                           value="Triple H defeated John Cena" required>
+                </div>
+                <div class="form-group">
+                    <label for="url" class="c1-text-bold">
+                        URL
+                    </label>
+                    <input type="text"
+                           id="url"
+                           class="form-control"
+                           placeholder="URL"
+                           data-toggle="tooltip"
+                           title="Enter Widget URL"
+                           value="https://www.youtube.com/watch?v=DY4UFCkNesc"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="width"
+                           class="c1-text-bold">
+                        Width
+                    </label>
+                    <select id="width"
+                            class="form-control"
+                            data-toggle="tooltip"
+                            title="Enter Widget width" required>
+                             <option value="50">
+                                 50%
+                             </option>
+
+                        <option value="100" selected>
+                            100%
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <a href="widget-list.view.client.html"
+                       class="btn btn-lg btn-block btn-danger"
+                       type="submit">
+                        Delete
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-fixed-bottom">
+    <div class="container-fuild">
+        <a href="../../user/templates/profile.view.client.html"
+           class="navbar-link navbar-text pull-right c1-color-black c1-text-bold cl-icon-padding">
+            <span class="glyphicon glyphicon-user">
+            </span>
+        </a>
+    </div>
+</nav>
+</body>
