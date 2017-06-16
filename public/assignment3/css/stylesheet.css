@@ -88,7 +88,9 @@ a:visited, a:link, a:active
 .overflow{
     overflow-y:scroll; max-height:100%;
 }
-
+.center {
+    text-align: center;
+}
 
 
 .container-fluid{

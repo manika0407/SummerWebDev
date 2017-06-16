@@ -8,7 +8,7 @@
     function widgetNewController($location, widgetService, $routeParams) {
         var model=this;
         model.userId=$routeParams.userId;
-        model.website=$routeParams.websiteId;
+        model.websiteId=$routeParams.websiteId;
         model.pageId=$routeParams.pageId;
         model.widgetTypeList = ['Header', 'Image', 'YouTube', 'HTML', 'Label', 'Text Input', 'Link', 'Button', 'Data Table', 'Repeater'];
         model.createWidget=createWidget;
