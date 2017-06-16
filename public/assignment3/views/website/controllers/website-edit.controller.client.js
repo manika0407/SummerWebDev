@@ -23,7 +23,8 @@
 
             function init() {
                 model.websites =websiteService.findWebsitesByUser(model.userId);
-                model.website=websiteService.findWebsiteById(model.websiteId);
+                model.website=angular.copy(websiteService.findWebsiteById(model.websiteId));
+
             }
             init();
 
@@ -37,7 +38,7 @@
             function updateWebsite() {
                 if (( typeof model.website === 'undefined' ) || model.website.name === null ||
                     ( typeof model.website.name === 'undefined' ) || model.website.name === '') {
-                    model.error = " Website name is mandatory ";
+                    model.error = "Website name is mandatory. Please try again with valid website name" ;
                     // $anchorScroll('top');
                     return;
                 }

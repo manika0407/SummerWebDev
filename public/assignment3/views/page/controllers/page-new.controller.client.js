@@ -23,7 +23,7 @@
         
         function createPage() {
             if (( typeof model.newPage === 'undefined' ) || model.newPage.name === null || ( typeof model.newPage.name === 'undefined' ) || model.newPage.name === '') {
-                model.error = " Page name is mandatory ";
+                model.error = " Page Name is Mandatory. Please Try again with valid Page name";
                 return;
             }
             pageService.createPage(model.websiteId, model.newPage);

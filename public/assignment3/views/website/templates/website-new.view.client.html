@@ -32,7 +32,7 @@
                New Website
             </span>
             <a class="navbar-brand pull-right c1-text-bold font-little-large c1-color-black"
-              href ng-click="model.createWebsite(website)">
+              href ng-click="model.createWebsite()">
                 <span class="glyphicon glyphicon-ok">
                 </span>
             </a>
@@ -48,9 +48,13 @@
                         class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="row">
                         <div class="col-xs-10 ">
+                            <div class="crop">
                             <span class="c1-color-black">
-                                <h4><strong>{{website.name}}</strong></h4>
+                                <h4 class="c1-text-bold">
+                                    {{website.name}}
+                                </h4>
                             </span>
+                            </div>
                         </div>
                         <div class="col-xs-2">
                             <a href="#!/user/{{model.userId}}/website/{{website._id}}" class="black-link"><h4>
@@ -65,10 +69,13 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-8 overflow full-height">
-                <div>
+            <div ng-show="model.error" class="alert alert-danger shr-alert-style">
+                <strong>{{model.error}}</strong>
+            </div>
+            <div>
                     <label for="name"
                            class="c1-text-bold font-little-large c1-color-black">Name</label>
-                    <input  ng-model="website.name"
+                    <input  ng-model="model.website.name"
                             type="text"
                             id="name"
                             class="form-control"
@@ -77,7 +84,7 @@
                 <div>
                     <label for="description"
                            class="c1-text-bold font-little-large c1-color-black">Description</label>
-                    <textarea ng-model="website.description"
+                    <textarea ng-model="model.website.description"
                               id="description"
                               rows="6"
                               class="form-control"

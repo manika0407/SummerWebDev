@@ -22,9 +22,12 @@
             init();
 
             //implementation
-            function createWebsite(website) {
-                website.developerId=model.userId;
-                websiteService.createWebsite(website);
+            function createWebsite() {
+                if (( typeof model.website === 'undefined' ) || model.website.name === null || ( typeof model.website.name === 'undefined' ) || model.website.name === '') {
+                    model.error = " Website name is mandatory. Please try again with valid website name ";
+                    return;
+                }
+                websiteService.createWebsite(model.userId,model.website);
                 $location.url('/user/'+model.userId+'/website')
             }
 

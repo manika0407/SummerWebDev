@@ -172,3 +172,9 @@ a:visited, a:link, a:active
     height: 950px;
     overflow-y: scroll;
 }
+.crop {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    width:100%;
+}​

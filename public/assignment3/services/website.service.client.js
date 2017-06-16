@@ -61,9 +61,11 @@
         };
         return api;
 
-        function createWebsite(website) {
+        function createWebsite(userId,website) {
            website._id=(new Date()).getTime()+"";
-           websites.push(website);
+            website.developerId = userId;
+            websites.push(website);
+            return;
         }
 
         function findWebsitesByUser(userId){

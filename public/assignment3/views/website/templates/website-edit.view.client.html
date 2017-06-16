@@ -47,9 +47,13 @@
                 <div ng-repeat="website in model.websites" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="row">
                         <div class="col-xs-10 ">
+                            <div class="crop">
                             <span class="c1-color-black">
-                                <h4><strong>{{website.name}}</strong></h4>
+                                <h4 class="c1-text-bold">
+                                    {{website.name}}
+                                </h4>
                             </span>
+                            </div>
                         </div>
                         <div class="col-xs-2">
                             <a ng-if="website._id === model.websiteId" href ng-click="model.reloadPage()"
@@ -92,10 +96,6 @@
                               class="form-control"
                               required></textarea>
                 </div>
-                <!--<a ng-click="model.updateWebsite(model.website)"-->
-                   <!--class="btn btn-block btn-success">-->
-                    <!--Update-->
-                <!--</a>-->
             <a ng-click="model.deleteWebsite(model.websiteId)"
                class="btn btn-block btn-danger">
                 Delete
