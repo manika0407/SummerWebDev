@@ -69,8 +69,8 @@
             </div>
         </div>
         <div class="col-xs-12 col-sm-8 overflow full-height">
-            <div ng-show="model.error" class="alert alert-danger shr-alert-style">
-                <strong>{{model.error}}</strong>
+            <div ng-show="model.error" class="alert alert-danger">
+                <div class="c1-text-bold">{{model.error}}</div>
             </div>
             <div>
                     <label for="name"
@@ -80,7 +80,8 @@
                             id="name"
                             class="form-control"
                             title="Enter Website Name"
-                            required autofocus>
+                            autofocus
+                            required>
                 </div>
                 <div>
                     <label for="description"

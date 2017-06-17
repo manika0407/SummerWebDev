@@ -11,14 +11,14 @@
                 class="navbar-brand c1-text-bold c1-color-black">
                 Edit Widget
         </span>
-        <a class="navbar-brand pull-right c1-color-black" href ng-click="model.updateWidget()">
-            <span class="glyphicon glyphicon-ok glyphicon-size">
+        <a class="navbar-brand pull-right" href ng-click="model.updateWidget()">
+            <span class="glyphicon glyphicon-ok glyphicon-size c1-color-black">
             </span>
         </a>
     </div>
 </nav>
 <div class="container-fluid top-margin">
-    <div ng-show="model.error" class="alert alert-warning">
+    <div ng-show="model.error" class="alert alert-danger">
         {{model.error}}
     </div>
     <div ng-switch="model.widget.widgetType">

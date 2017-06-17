@@ -14,6 +14,7 @@
         model.createWidget=createWidget;
 
         function createWidget(widgetType) {
+
             widgetType = widgetType.toUpperCase();
             if (widgetType === 'HEADER') {
                 widgetType = 'HEADING';
