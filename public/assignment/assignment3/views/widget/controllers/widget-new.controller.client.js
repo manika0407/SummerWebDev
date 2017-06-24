@@ -11,12 +11,9 @@
         model.websiteId=$routeParams.websiteId;
         model.pageId=$routeParams.pageId;
         model.widgetType=$routeParams.widgetType;
-        //model.widgetTypeList = ['Header', 'Image', 'YouTube', 'HTML', 'Label', 'Text Input', 'Link', 'Button', 'Data Table', 'Repeater'];
+        model.createWidget=createWidget;
 
-        model.createNewWidget=createNewWidget;
-        //model.deleteWidget=deleteWidget;
-
-        function createNewWidget() {
+        function createWidget() {
 
             if (model.widget === null || typeof model.widget === 'undefined' || model.widget === '') {
                 model.widget = {

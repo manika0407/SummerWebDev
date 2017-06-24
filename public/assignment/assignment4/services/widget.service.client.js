@@ -31,21 +31,29 @@
 
 
         function createWidget(pageId, widget) {
-            widget._id = new Date().getTime() + "";
-            widget.pageId = pageId;
-            widgets.push(widget);
-            return widget;
+            var url="/api/page/"+pageId+"/widget";
+            return $http.post(url, widget)
+                .then(function (response) {
+                    return response.data;
+                })
+
         }
 
         function findWidgetById(widgetId) {
-            var widget = widgets.find(function (widget) {
-                return widget._id === widgetId;
-            });
+            // var widget = widgets.find(function (widget) {
+            //     return widget._id === widgetId;
+            // });
+            //
+            // if (typeof widget === 'undefined') {
+            //     return null;
+            // }
+            // return widget;
 
-            if (typeof widget === 'undefined') {
-                return null;
-            }
-            return widget;
+            var url="/api/widget/"+widgetId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                })
         }
 
         function findWidgetByPageId(pageId) {
@@ -56,28 +64,23 @@
                     return response.data;
                 })
 
-
-            // var results = [];
-            // for (var widget in widgets) {
-            //     if (widgets[widget].pageId == pageId) {
-            //         results.push(widgets[widget]);
-            //     }
-            // }
-            // return results;
         }
 
         function updateWidget(widgetId, widget) {
-            var widgetToBeUpdated = findWidgetById(widgetId);
-            var index = widgets.indexOf(widgetToBeUpdated);
-            widgets[index] = widget;
-            return;
+            var url="/api/widget/"+widgetId;
+            return $http.put(url, widget)
+                .then(function (response) {
+                    return response.data;
+                })
+
         }
 
         function deleteWidget(widgetId) {
-            var widgetToBeDeleted = findWidgetById(widgetId);
-            var index = widgets.indexOf(widgetToBeDeleted);
-            widgets.splice(index, 1);
-            return;
+            var url="/api/widget/"+widgetId;
+            return $http.delete(url)
+                .then(function (response) {
+                    return response.data;
+                })
         }
 
     }

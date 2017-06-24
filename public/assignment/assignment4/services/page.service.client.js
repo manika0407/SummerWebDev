@@ -50,14 +50,6 @@
                     return response.data;
                 })
 
-            // var page = pages.find(function (page) {
-            //     return page._id === pageId;
-            // });
-            //
-            // if (typeof page === 'undefined') {
-            //     return null;
-            // }
-            // return page;
         }
 
         function findPageByWebsiteId(websiteId) {

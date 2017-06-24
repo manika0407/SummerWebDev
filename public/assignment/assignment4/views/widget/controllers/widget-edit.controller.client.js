@@ -17,14 +17,23 @@
 
 
         function init() {
-            model.widget = widgetService.findWidgetById(model.widgetId);
+            //model.widget = widgetService.findWidgetById(model.widgetId);
+            widgetService
+                .findWidgetById(model.widgetId)
+                .then(function (widget) {
+                    model.widget=widget;
+                })
         }
 
         init();
 
         function deleteWidget() {
-            widgetService.deleteWidget(model.widgetId);
-            $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
+            widgetService
+                .deleteWidget(model.widgetId)
+                .then(function () {
+                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
+                })
+
 
         }
 
@@ -37,8 +46,12 @@
                 model.error = " URL is mandatory ";
                 return;
             }
-            widgetService.updateWidget(model.widgetId, model.widget);
-            $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
+            widgetService
+                .updateWidget(model.widgetId, model.widget)
+                .then(function () {
+                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
+                })
+
         }
     }
 })();

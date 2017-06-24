@@ -19,6 +19,10 @@ module.exports=function (app) {
         ];
 
     app.get('/api/page/:pageId/widget', findWidgetByPageId);
+    app.get('/api/widget/:widgetId', findWidgetById);
+    app.post('/api/page/:pageId/widget', createWidget);
+    app.put('/api/widget/:widgetId', updateWidget);
+    app.delete('/api/widget/:widgetId', deleteWidget);
 
     function findWidgetByPageId(req,res) {
         var pageId=req.params.pageId;
@@ -29,6 +33,61 @@ module.exports=function (app) {
             }
         }
         res.json(results);
+    }
+
+    function createWidget(req, res) {
+        var pageId=req.params.pageId;
+        var widget=req.body;
+        widget._id = new Date().getTime() + "";
+        widget.pageId = pageId;
+        widgets.push(widget);
+        res.sendStatus(200);
+    }
+
+    function findWidgetById(req, res) {
+        var widgetId=req.params.widgetId;
+        var widget = findWidget(widgetId);
+        if(widget)
+            res.json(widget);
+        else
+            res.sendStatus(404);
+    }
+
+    function findWidget(widgetId) {
+        var widget = widgets.find(function (widget) {
+            return widget._id === widgetId;
+        });
+
+        if (typeof widget === 'undefined') {
+            return null;
+        }
+        return widget;
+    }
+
+    function updateWidget(req, res) {
+        var widgetId=req.params.widgetId;
+        var widget=req.body;
+        var widgetToBeUpdated = findWidget(widgetId);
+        if(widgetToBeUpdated) {
+            var index = widgets.indexOf(widgetToBeUpdated);
+            widgets[index] = widget;
+            res.sendStatus(200);
+        }
+        else
+            res.sendStatus(404);
+    }
+
+    function deleteWidget(req, res) {
+        var widgetId=req.params.widgetId;
+        var widgetToBeDeleted = findWidget(widgetId);
+        if(widgetToBeDeleted){
+            var index = widgets.indexOf(widgetToBeDeleted);
+            widgets.splice(index, 1);
+            res.sendStatus(200);
+        }
+        else {
+            res.sendStatus(404);
+        }
     }
 }
 
