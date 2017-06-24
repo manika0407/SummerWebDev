@@ -5,7 +5,7 @@
     angular
         .module("WebAppMaker")
         .service("widgetService", widgetService);
-    function widgetService() {
+    function widgetService($http) {
 
         this.createWidget = createWidget;
         this.findWidgetById = findWidgetById;
@@ -27,10 +27,7 @@
                     "url": "https://youtu.be/m_5g_D_iP2s"
                 },
                 {"_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Confident England had to face a defeat against Pakistan</p>"}
-            ]
-
-
-        ;
+            ];
 
 
         function createWidget(pageId, widget) {
@@ -52,13 +49,21 @@
         }
 
         function findWidgetByPageId(pageId) {
-            var results = [];
-            for (var widget in widgets) {
-                if (widgets[widget].pageId == pageId) {
-                    results.push(widgets[widget]);
-                }
-            }
-            return results;
+
+            var url="/api/page/"+pageId+ "/widget";
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                })
+
+
+            // var results = [];
+            // for (var widget in widgets) {
+            //     if (widgets[widget].pageId == pageId) {
+            //         results.push(widgets[widget]);
+            //     }
+            // }
+            // return results;
         }
 
         function updateWidget(widgetId, widget) {
@@ -77,3 +82,4 @@
 
     }
 })();
+

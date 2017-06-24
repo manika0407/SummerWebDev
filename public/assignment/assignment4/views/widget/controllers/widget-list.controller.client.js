@@ -15,7 +15,11 @@
         model.getYoutubeEmbedUrl=getYoutubeEmbedUrl;
 
         function init() {
-            model.widgets=widgetService.findWidgetByPageId(model.pageId);
+            widgetService
+                .findWidgetByPageId(model.pageId)
+                .then(function (widgets) {
+                    model.widgets=widgets;
+                })
         }
         init();
 
