@@ -1,0 +1,79 @@
+<div ng-include="'views/common/commonheader.view.client.html'"></div>
+
+<div class="container top-margin">
+        <h1 class="c1-color-white">
+            Register
+        </h1>
+
+    <div ng-show="model.error"
+            class="alert alert-danger">
+        {{model.error}}
+    </div>
+    <div ng-show="model.message"
+         class="alert alert-info">
+        {{model.message}}
+    </div>
+
+        <label for="inputUsername"  class="c1-color-white">
+            Username
+        </label>
+        <input type="text"
+               ng-model="username"
+               id="inputUsername"
+               class="form-control control-margin" placeholder="Username" required autofocus>
+
+        <label for="inputPassword"
+               class="c1-color-white top-buffer">
+            Password
+        </label>
+        <input type="password"
+               ng-model="password"
+               id="inputPassword"
+               class="form-control control-margin" placeholder="Password" required>
+
+        <label for="inputPasswordConfirm"
+               class="c1-color-white top-buffer">
+            Password Confirmation
+        </label>
+        <input type="password"
+               ng-model="password2"
+               id="inputPasswordConfirm"
+               class="form-control control-margin" placeholder="Re-enter Password" required>
+
+        <label for="FirstName" class="c1-color-white top-buffer">
+        First Name
+        </label>
+        <input type="text"
+           ng-model="firstName"
+           id="FirstName"
+           class="form-control control-margin" placeholder="Enter First Name" required>
+
+        <label for="LastName"
+               class="c1-color-white top-buffer">
+        Last Name
+        </label>
+        <input type="text"
+           ng-model="lastName"
+           id="LastName"
+           class="form-control control-margin" placeholder="Enter Last Name" required>
+
+        <label for="Email"
+               class="c1-color-white top-buffer">
+        Email
+        </label>
+        <input type="email"
+           ng-model="email"
+           id="Email"
+           class="form-control control-margin" placeholder="Enter email" required>
+
+        <a ng-click="model.register(username,password,password2)"
+           class="btn btn-lg btn-primary btn-block top-buffer">
+            Register
+        </a>
+        <a href="#!/login"
+           type="button" class="btn btn-lg btn-block btn-danger top-buffer">
+            Cancel
+        </a>
+
+</div>
+<div ng-include="'views/common/commonfooter.view.client.html'"></div>

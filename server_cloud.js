@@ -3,10 +3,14 @@
  */
 //using express with node js
 var express = require('express');
-//var bodyParser=require('body-parser');
+var bodyParser= require('body-parser');
+
 
 //initialize app as an express application
 var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 //var ipaddress = '127.0.0.1';
 var port      = process.env.PORT || 3000;
@@ -17,4 +21,6 @@ app.use(express.static(__dirname+'/public')); //it will find html file from 'pub
 //When we push to heroku, heroku wont know our ip address. So we will have to comment our local ip and then write
 app.listen(port);
 
-console.log("hello world!");
+require("./assignment/app.js")(app);
+
+console.log("hello world! Listening from "+port);

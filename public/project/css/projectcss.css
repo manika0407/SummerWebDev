@@ -1,0 +1,49 @@
+html,
+body {
+    height: 100%;
+    background: #333 url(../../pictures/restaurant2.jpg) no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+
+}
+
+.top-margin{
+    margin-top: 60px;
+}
+
+.c1-text-bold{
+    font-weight: 900;
+    font-size: 18px;
+}
+
+.c1-color-black{
+    color: black;
+}
+
+.c1-color-white{
+    color: white;
+}
+
+
+
+.navbar {
+    background-color: transparent;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: transparent;
+}
+
+.glyphicon-size{
+    font-size: 25px
+}
+
+.top-buffer{
+    margin-top: 10px;
+}
+
+
+.fontsize{
+    font-size: 50px;
+}
