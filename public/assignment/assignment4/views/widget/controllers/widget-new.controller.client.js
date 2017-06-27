@@ -31,12 +31,8 @@
                 return;
             }
 
-            widgetService
-                .createWidget(model.pageId, model.widget)
-                .then(function (widget) {
-                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
-                })
-
+            widgetService.createWidget(model.pageId, model.widget);
+            $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
 
         }
 

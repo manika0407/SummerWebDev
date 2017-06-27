@@ -37,6 +37,12 @@
                    title="Enter Widget URL"
                    required>
         </div>
+
+        <label class="c1-text-bold">Photos from Flickr</label>
+        <a class="btn btn-lg btn-info btn-block" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/search">
+            Search
+        </a>
+
         <div class="form-group">
             <label for="width"
                    class="c1-text-bold">
@@ -55,27 +61,23 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="upload"
+            <label
                    class="c1-text-bold">
-                URL
+                Upload From Computer
             </label>
-            <input
-                    type="file"
-                    id="upload"
-                    multiple class="form-control"
-                    data-toggle="tooltip"
-                    title="Select Widget image"
-                    required>
+            <form action="/api/upload"   method="post" enctype="multipart/form-data">
+                <input  name="myFile" type="file"  class="form-control"/>
+                <input  name="width"  value="{{model.widget.width}}" style="display: none"/>
+                <input  name="userId" value="{{model.userId}}" style="display: none"/>
+                <input  name="websiteId" value="{{model.websiteId}}" style="display: none"/>
+                <input name="pageId" value="{{model.pageId}}" style="display: none" />
+                <input  name="widgetId"  value="{{model.widget._id}}"  style="display: none"/>
+                <button type="submit"    class="btn btn-lg btn-block btn-primary top-buffer">Upload Image</button>
+            </form>
         </div>
+
         <div class="form-group">
-            <a href=""
-               class="btn btn-lg btn-block btn-primary"
-               type="submit">
-                Upload Image
-            </a>
-        </div>
-        <div ng-show="model.widget" class="form-group">
-            <a href ng-click="model.deleteWidget()"
+            <a ng-class="model.widget" href ng-click="model.deleteWidget()"
                class="btn btn-lg btn-block btn-danger"
                type="submit">
                 Delete

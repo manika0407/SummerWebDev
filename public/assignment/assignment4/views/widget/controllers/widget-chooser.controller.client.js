@@ -1,13 +1,10 @@
-/**
- * Created by manika on 6/24/17.
- */
 (function () {
     angular
         .module("WebAppMaker")
         .controller("WidgetChooseController", widgetChooseController);
     function widgetChooseController($location, $routeParams) {
 
-        var model= this;
+        var model = this;
         model.userId = $routeParams.userId;
         model.websiteId = $routeParams.websiteId;
         model.pageId = $routeParams.pageId;
