@@ -61,12 +61,12 @@ module.exports=function (app) {
     }
 
     function createWidget(req, res) {
-        var pageId=req.params.pageId;
-        var widget=req.body;
-        widget._id = new Date().getTime() + "";
+        var pageId=req.body.pageId;
+        var widget=req.body.widget;
+
         widget.pageId = pageId;
         widgets.push(widget);
-        res.json(widget);
+       // res.json(widget);
     }
 
     function findWidgetById(req, res) {
