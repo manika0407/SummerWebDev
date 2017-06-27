@@ -49,12 +49,19 @@
         }
         
         function findUserByUsername(username) {
-           var user= users.find(function (user) {
-               return user.username===username
-           });
-           if(typeof user==='undefined')
-               return null;
-            return user;
+           // var user= users.find(function (user) {
+           //     return user.username===username
+           // });
+           // if(typeof user==='undefined')
+           //     return null;
+           //  return user;
+
+            var url = "/api/user?username="+username;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
+
         }
         
 

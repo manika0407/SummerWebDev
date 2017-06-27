@@ -28,7 +28,26 @@ module.exports=function (app) {
     app.put('/api/widget/:widgetId', updateWidget);
     app.delete('/api/widget/:widgetId', deleteWidget);
     app.post("/api/upload", upload.single('myFile'), uploadImage);
+    app.put('/page/:pageId/widget', sortWidget);
 
+    function sortWidget(req, res) {
+        var initial = req.query.initial;
+        var final = req.query.final;
+        var widgetContainer=[];
+        var pageId = req.params.pageId;
+        var length = widgets.length;
+        for (var i =  length - 1; i >= 0; i--){
+            if (widgets[i].pageId === pageId){
+                widgetContainer.unshift(widgets[i]);
+                widgets.splice(i, 1);
+            }
+        }
+        var widget = widgetContainer[initial];
+        widgetContainer.splice(initial, 1);
+        widgetContainer.splice(final, 0, widget);
+        widgets = widgets.concat(widgetContainer);
+        res.sendStatus(200);
+    }
 
     function findWidgetByPageId(req,res) {
         var pageId=req.params.pageId;
@@ -47,7 +66,7 @@ module.exports=function (app) {
         widget._id = new Date().getTime() + "";
         widget.pageId = pageId;
         widgets.push(widget);
-        res.sendStatus(200);
+        res.json(widget);
     }
 
     function findWidgetById(req, res) {

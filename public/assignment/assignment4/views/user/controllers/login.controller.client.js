@@ -30,6 +30,7 @@
                     }
                     else{
                         model.message="Username "+ username + "Not found";
+                        return;
                     }
                 }
 
