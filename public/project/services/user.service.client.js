@@ -6,14 +6,14 @@
         .module("RestaurantSearch")
         .factory('userService', userService);
     
-    function userService() {
-        var users = [
-            {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},
-            {_id: "100", username: "a", password: "a", firstName: "a", lastName: "a", email: "a@gmail.com"},
-            {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley", email: "bob@regge.com"},
-            {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia", email: "charles@bing.com"},
-            {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi", email: "jose@neu.com"}
-        ];
+    function userService($http) {
+        // var users = [
+        //     {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},
+        //     {_id: "100", username: "a", password: "a", firstName: "a", lastName: "a", email: "a@gmail.com"},
+        //     {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley", email: "bob@regge.com"},
+        //     {_id: "345", username: "charly", password: "charly", firstName: "Charly", lastName: "Garcia", email: "charles@bing.com"},
+        //     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi", email: "jose@neu.com"}
+        // ];
         var api={
             createUser: createUser,
             findUserById:findUserById,
@@ -25,54 +25,51 @@
         return api;
 
         function createUser(user) {
-            user._id=(new Date()).getTime()+"";
-            users.push(user);
+            var url="/api/project/user/";
+            return $http.post(url, user)
+                .then(function (response) {
+                    return response.data;
+                })
         }
 
         function findUserById(userId){
-
-            var user = users.find(function (user) {
-                return user._id === userId;
-            });
-
-            if (typeof user === 'undefined') {
-                return null;
-            }
-            return user;
+            var url="/api/project/user/"+userId;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
         
         function findUserByCredentials(username,password) {
-            for(var u in users){
-                var user=users[u];
-                if(user.username==username && user.password==password){
-                    return user;
-                }
-            }
-            return null;
+            var url="/api/project/user?username=" + username+"&password="+password;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
         
         function findUserByUsername(username) {
-           var user= users.find(function (user) {
-               return user.username===username
-           });
-           if(typeof user==='undefined')
-               return null;
-            return user;
+            var url = "/api/project/user?username="+username;
+            return $http.get(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
         
 
         function updateUser(userId, user){
-            var userToBeUpdated = findUserById(userId);
-            var index = users.indexOf(userToBeUpdated);
-            users[index] = user;
-            return;
+            var url="/api/project/user/"+ userId;
+            return $http.put(url, user)
+                .then(function (response) {
+                    return response.data;
+                });
         }
         function deleteUser(userId){
-           var user=users.find(function(user){
-               return user._id=== userId;
-           });
-           var index=users.indexOf(user);
-           users.splice(index,1);
+            var url="/api/project/user/"+ userId;
+            return $http.delete(url)
+                .then(function (response) {
+                    return response.data;
+                });
         }
     }
 })();

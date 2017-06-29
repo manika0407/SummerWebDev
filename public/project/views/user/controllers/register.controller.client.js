@@ -14,22 +14,15 @@
 
             model.register=register;
 
-
             //implementation
             function register(username,password,password2){
-
-                if(username==null || password==null || password2==null || username=="" || password=="" || password2=="")
-                {
-                    model.error="Username, password and verify password details are mandatory. Please enter the valid details";
-                    return;
-                }
 
                 if(password!==password2){
                     model.error="Passwords must match";
                     return;
                 }
 
-                var found=userService.findUserByUsername(username);
+                var found=null; //userService.findUserByUsername(username);
 
                 if(found!==null){
                     model.error="Username "+username+  " is not available";
@@ -40,8 +33,12 @@
                         password: password
                     };
 
-                    userService.createUser(user);
-                    $location.url('/user/'+ user._id);
+                    userService
+                        .createUser(user)
+                        .then(function (user) {
+                            $location.url('/user/'+ user._id);
+                        });
+
                 }
 
 

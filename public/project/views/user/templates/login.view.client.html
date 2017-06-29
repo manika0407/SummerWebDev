@@ -1,11 +1,11 @@
-<div ng-include="'views/common/commonheader.view.client.html'"></div>
+<div ng-include="'views/common/homeheader.view.client.html'"></div>
 
 <div class="container top-margin">
     <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
-    <h1 class="form-signin-heading c1-color-white">
+    <h1 class="form-signin-heading c1-color-black text-center">
         Login
     </h1>
-    <label for="username"  class="c1-color-white top-buffer">
+    <label for="username"  class="c1-color-black top-buffer">
         Username
     </label>
     <input ng-model="username" type="text" id="username"
@@ -15,7 +15,7 @@
            required>
 
 
-    <label for="inputPassword"  class="c1-color-white top-buffer">
+    <label for="inputPassword"  class="c1-color-black">
         Password
     </label>
     <input type="password" ng-model="password"

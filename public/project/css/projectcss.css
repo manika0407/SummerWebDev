@@ -1,17 +1,48 @@
-html,
-body {
-    height: 100%;
-    background: #333 url(../../pictures/restaurant2.jpg) no-repeat fixed center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    overflow: hidden;
+/*html,*/
+/*body {*/
+    /*height: 100%;*/
+    /*background: #333 url(../../pictures/restaurant2.jpg) no-repeat fixed center center;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+    /*overflow: hidden;*/
 
+/*}*/
+
+/*.bg {*/
+    /*!* The image used *!*/
+    /*background-image: url("../../pictures/food3.jpg");*/
+
+    /*!* Half height *!*/
+    /*height: 50%;*/
+
+    /*!* Center and scale the image nicely *!*/
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    /*-o-background-size: cover;*/
+/*}*/
+
+.home{
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.7)),url(../../pictures/food3.jpg);
+    opacity:0.8;
+    background-size: cover;
+    height: 60vh;
+    background-position: center;
 }
 
 .top-margin{
     margin-top: 60px;
+}
+
+.navbar.navbar-static-top {
+    margin-bottom: 0px;
+    padding-right: 15px;
+}
+.navbar.navbar-static-top,
+.navbar-nav li a {
+    height: 74px;
 }
 
 .c1-text-bold{
@@ -28,13 +59,6 @@ body {
 }
 
 
-
-.navbar {
-    background-color: transparent;
-    background: rgba(255, 255, 255, 0.2);
-    border-color: transparent;
-}
-
 .glyphicon-size{
     font-size: 25px
 }
@@ -46,4 +70,28 @@ body {
 
 .fontsize{
     font-size: 50px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.caption {text-align:center;margin-top:4px;font-size:12px; }
+
+
+#content ul {
+    list-style: none;
+}
+#content ul li {
+    display: inline-block;
+    color: red;
+}
+.border-image{
+    border:1px solid #021a40;
+    background-color:#bfbfbf;
+    margin-bottom: 20px;
+}
+
+a {
+    color: black;
 }

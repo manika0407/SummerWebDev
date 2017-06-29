@@ -1,0 +1,99 @@
+<div ng-include="'views/common/homeheader.view.client.html'"></div>
+<div class="container top-margin">
+    <h1 class="form-signin-heading c1-color-black text-center">
+        Profile
+    </h1>
+    <div class="row">
+        <div class="btn-group-vertical col-xs-4 col-md-2" role="group" aria-label="...">
+            <a class="btn btn-embossed c1-color-black" href="">
+                <span class="glyphicon glyphicon-user glyphicon-size"></span><br>
+                Profile
+            </a>
+            <a class="btn btn-embossed c1-color-black" href="">
+                <span class="glyphicon glyphicon-thumbs-up glyphicon-size"></span><br>
+                Following
+            </a>
+            <a class="btn btn-embossed c1-color-black" href="">
+                <span class="glyphicon glyphicon-star glyphicon-size"></span><br>
+                Orders
+            </a>
+        </div>
+    <div class="container-fluid col-xs-8 col-md-10">
+        <form class="form-signin">
+            <label for="username">
+                Username
+            </label>
+            <input readonly
+                   ng-model="model.user.username"
+                   type="text" id="username"
+                   class="form-control"
+                   required autofocus>
+
+            <label for="email">
+                Email
+            </label>
+            <input
+                    ng-model="model.user.email"
+                    type="email" id="email"
+                    class="form-control">
+
+            <label for="FirstName">
+                First Name
+            </label>
+            <input
+                    ng-model="model.user.firstName"
+                    type="text" id="FirstName"
+                    class="form-control" required>
+
+            <label for="LastName">
+                Last Name
+            </label>
+            <input type="text"
+                   ng-model="model.user.lastName"
+                   id="LastName"
+                   class="form-control"
+                   required>
+
+            <label for="inputPassword">
+                Password
+            </label>
+            <input type="password"
+                   ng-model="model.password"
+                   id="inputPassword"
+                   class="form-control"
+                   placeholder="password"
+                   required>
+
+            <label for="verifyInputPassword">
+                Verify Password
+            </label>
+            <input type="password"
+                   ng-model="model.verifyPassword"
+                   id="verifyInputPassword"
+                   class="form-control"
+                   placeholder="password"
+                   required>
+
+
+
+            <a href="#!/user/{{model.user._id}}/website"
+               class="btn btn-lg btn-primary btn-block top-buffer"
+               type="submit">
+                Websites
+            </a>
+            <a ng-click="model.updateUser(model.user)"
+               class="btn btn-lg btn-success btn-block top-buffer"
+               type="submit">
+                Update User
+            </a>
+
+            <a ng-click="model.deleteUser(model.user)"
+               class="btn btn-lg btn-danger btn-block top-buffer"
+               type="submit">
+                Unsubscribe
+            </a>
+
+        </form>
+    </div>
+
+</div>
