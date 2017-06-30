@@ -76,6 +76,23 @@
     margin-bottom: 0;
 }
 
+/*.images{*/
+    /*text-align:center;*/
+    /*margin:50px auto;*/
+/*}*/
+/*.images a{*/
+    /*margin:0px 20px;*/
+    /*display:inline-block;*/
+    /*text-decoration:none;*/
+    /*color:black;*/
+/*}*/
+
+/*.img-frame-cap {*/
+    /*width:200px;*/
+    /*background:#fff;*/
+    /*padding:18px 18px 2px 18px;*/
+    /*border:1px solid #999; }*/
+
 .caption {text-align:center;margin-top:4px;font-size:12px; }
 
 
@@ -93,5 +110,5 @@
 }
 
 a {
-    color: black;
+    color: #00f;
 }

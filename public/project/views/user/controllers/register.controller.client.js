@@ -17,8 +17,19 @@
             //implementation
             function register(username,password,password2){
 
+                if (( typeof username === 'undefined' ) || username === null ||
+                    ( typeof username === 'undefined' ) || username === ''
+                    || ( typeof password === 'undefined' ) || password === null ||
+                    ( typeof password === 'undefined' ) || password === '' || ( typeof password2 === 'undefined' ) || password2 === null
+                    || ( typeof password2 === 'undefined' ) || password2 === '' ){
+                    model.error="Username, Password and Password Confirmation fields are compulsary. Kindly fill those.";
+                    return;
+                }
+
+
+
                 if(password!==password2){
-                    model.error="Passwords must match";
+                    model.error="Password and Password Confirmation must match";
                     return;
                 }
 
