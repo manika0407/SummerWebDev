@@ -3,5 +3,5 @@
  */
 (function () {
     angular
-        .module('RestaurantSearch',['ngRoute']);
+        .module('MusicSearch',['ngRoute']);
 })();

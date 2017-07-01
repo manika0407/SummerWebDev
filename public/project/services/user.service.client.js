@@ -3,7 +3,7 @@
  */
 (function(){
     angular
-        .module("RestaurantSearch")
+        .module("MusicSearch")
         .factory('userService', userService);
     
     function userService($http) {

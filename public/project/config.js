@@ -3,7 +3,7 @@
  */
 (function () {
         angular
-            .module('RestaurantSearch')
+            .module('MusicSearch')
             .config(configuration);
 
         function configuration($routeProvider){

@@ -16,6 +16,7 @@ module.exports=function (app) {
                 "url": "https://youtu.be/m_5g_D_iP2s"
             },
             {"_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Confident England had to face a defeat against Pakistan</p>"}
+
         ];
 
     var multer=require('multer');

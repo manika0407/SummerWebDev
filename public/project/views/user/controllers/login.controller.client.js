@@ -3,7 +3,7 @@
  */
 (function () {
         angular
-            .module('RestaurantSearch')
+            .module('MusicSearch')
             .controller('loginController',loginController);
 
         function loginController($location, userService){

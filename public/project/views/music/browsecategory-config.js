@@ -3,13 +3,13 @@
  */
 (function () {
         angular
-            .module('RestaurantSearch')
+            .module('MusicSearch')
             .config(configuration);
 
         function configuration($routeProvider){
                 $routeProvider
-                    .when('/restaurants',{
-                        templateUrl:'views/restaurant/templates/restaurant.view.client.html'
+                    .when('/browsecategory',{
+                        templateUrl:'views/music/templates/browsecategory.view.client.html'
                     })
 
         }

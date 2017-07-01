@@ -3,7 +3,7 @@
  */
 (function () {
         angular
-            .module('RestaurantSearch')
+            .module('MusicSearch')
             .controller('profileController',profileController);
 
         function profileController($location, userService, $routeParams, $route) {
