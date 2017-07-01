@@ -32,24 +32,21 @@
                     return;
                 }
 
-                var found=null; //userService.findUserByUsername(username);
+               userService.findUserByUsername(username)
+                   .then(function () {
+                           model.error="Sorry, username "+username+" is taken";
+                       }, function () {
+                           var user={
+                               username: username,
+                               password: password
+                           };
+                           userService
+                               .createUser(user)
+                               .then(function (user) {
+                                   $location.url('/user/'+user._id);
+                               })
+                       })
 
-                if(found!==null){
-                    model.error="Username "+username+  " is not available";
-                }
-                else{
-                    var user={
-                        username: username,
-                        password: password
-                    };
-
-                    userService
-                        .createUser(user)
-                        .then(function (user) {
-                            $location.url('/user/'+ user._id);
-                        });
-
-                }
 
 
             }
