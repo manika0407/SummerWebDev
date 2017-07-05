@@ -1,7 +1,7 @@
 /**
  * Created by manika on 6/24/17.
  */
-module.exports=function (app) {
+var app = require('../../express');
     var widgets = [
             {"_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "India in Finals"},
             {"_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "India facing Pakistan in CT 2017 Finals"},
@@ -146,6 +146,4 @@ module.exports=function (app) {
         res.redirect(callbackUrl);
     }
 
-
-}
 

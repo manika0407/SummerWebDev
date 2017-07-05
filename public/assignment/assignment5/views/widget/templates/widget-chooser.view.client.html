@@ -1,0 +1,72 @@
+<nav class="navbar navbar-fixed-top ">
+    <div class="container-fluid">
+        <a
+                class="navbar-brand"
+                href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+            <span
+                    class="glyphicon c1-color-black glyphicon-chevron-left pull-left">
+            </span>
+        </a>
+        <span
+                class="navbar-brand c1-text-bold c1-color-black">
+                Choose Widget
+        </span>
+    </div>
+</nav>
+
+<div class="container-fluid top-margin">
+<div class="list-group">
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="" ng-click="model.createWidget('HEADING')" class="list-group-item list-group-item-action flex-column align-items-start c1-text-bold black-link">Header </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="" ng-click="model.createWidget('HTML')" class="list-group-item list-group-item-action flex-column align-items-start c1-text-bold black-link">HTML </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="" ng-click="model.createWidget('IMAGE')" class="list-group-item c1-color-black list-group-item-action flex-column align-items-start c1-text-bold black-link">Image </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="" ng-click="model.createWidget('YOUTUBE')" class="list-group-item c1-color-black list-group-item-action flex-column align-items-start c1-text-bold black-link">Youtube </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a href=""class="list-group-item c1-color-black  list-group-item-action flex-column align-items-start c1-text-bold black-link">Label</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="" class="list-group-item c1-color-black  list-group-item-action flex-column align-items-start c1-text-bold black-link">Text Input</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="" class="list-group-item c1-color-black list-group-item-action flex-column align-items-start c1-text-bold black-link">Link</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="" class="list-group-item c1-color-black list-group-item-action flex-column align-items-start c1-text-bold black-link">Button</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="" class="list-group-item c1-color-black list-group-item-action flex-column align-items-start c1-text-bold black-link">Data Table</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <a href="" class="list-group-item c1-color-black list-group-item-action flex-column align-items-start c1-text-bold black-link">Repeater</a>
+        </div>
+    </div>
+</div>
+</div>
+
+<div ng-include="'views/common/websitefooter.view.client.html'"></div>

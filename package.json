@@ -22,6 +22,8 @@
     "bootstrap": "^3.3.7",
     "express": "^4.15.2",
     "min-angular": "^1.2.0",
-    "multer": "^1.3.0"
+    "mongoose": "^4.11.1",
+    "multer": "^1.3.0",
+    "q": "^1.5.0"
   }
 }

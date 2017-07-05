@@ -1,4 +1,4 @@
-module.exports=function(app){
+var app = require('../../express');
     var pages = [
         {"_id": "321", "name": "Games", "websiteId": "456", "title": "Details about Game"},
         {"_id": "231", "name": "Electronics", "websiteId": "456", "title": "Laptops, Tablets"},
@@ -92,4 +92,4 @@ module.exports=function(app){
         else
             res.sendStatus(404);
     }
-}
+

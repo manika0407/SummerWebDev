@@ -1,14 +1,21 @@
 /**
  * Created by manika on 6/21/17.
  */
-module.exports = function(app) {
+var app=require('../express');
+var mongoose= require('mongoose');
+mongoose.connect('mongodb://localhost/webdev_summer_2017',  { useMongoClient: true });
+mongoose.Promise = require('q').Promise;
+
+
 
     // Server side services
-    require('./services/user.service.server.js')(app);
-    require('./services/website.service.server.js')(app);
-    require('./services/page.service.server.js')(app);
-    require('./services/widget.service.server.js')(app);
+    require('./services/user.service.server');
+    require('./services/website.service.server');
+    require('./services/page.service.server');
+    require('./services/widget.service.server');
 
-}
+
+
+
 
 

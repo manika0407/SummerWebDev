@@ -1,5 +1,5 @@
+var app = require('../../express');
 
-module.exports=function (app) {
     var websites = [
         {
             "_id": "456",
@@ -124,4 +124,3 @@ module.exports=function (app) {
     }
 
 
-}
