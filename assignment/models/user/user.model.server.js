@@ -10,8 +10,29 @@ var mongoose= require('mongoose');
     userModel.findUserByCredentials = findUserByCredentials;
     userModel.updateUser = updateUser;
     userModel.deleteUser = deleteUser;
+    userModel.addWebsite = addWebsite;
+    userModel.deleteWebsite = deleteWebsite;
 
     module.exports= userModel;
+
+    function addWebsite(userId, websiteId) {
+        return userModel
+            .findUserById(userId)
+            .then(function (user) {
+                user.websites.push(websiteId);
+                return user.save();
+            });
+    }
+
+    function deleteWebsite(websiteId) {
+        return userModel
+            .findOne({websites: websiteId})
+            .then(function (user) {
+                var index= user.websites.indexOf(websiteId);
+                user.websites.splice(index,1);
+                return user.save();
+            });
+    }
 
     function createUser(user) {
         return userModel.create(user);
