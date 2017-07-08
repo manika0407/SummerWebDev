@@ -22,6 +22,6 @@ app.use(app.express.static(__dirname+'/public')); //it will find html file from 
 app.listen(port);
 
 require("./assignment/app");
-require("./project/app.js")(app);
+require("./project/app");
 
 console.log("hello world! Listening from "+port);

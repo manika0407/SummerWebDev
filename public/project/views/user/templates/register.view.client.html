@@ -1,80 +1,80 @@
-<div ng-include="'views/common/homeheader.view.client.html'"></div>
 
-<div class="container top-margin">
-    <div class="jumbotron top-margin">
-    <h1 class="c1-color-black text-center">
-            Register
-        </h1>
+<link href="../../../../project/css/register-style.css" rel="stylesheet">
 
-    <div ng-show="model.error"
-            class="alert alert-danger">
-        {{model.error}}
-    </div>
-    <div ng-show="model.message"
-         class="alert alert-info">
-        {{model.message}}
-    </div>
 
-        <label for="inputUsername"  class="c1-color-black">
-            Username
-        </label>
-        <input type="text"
-               ng-model="username"
-               id="inputUsername"
-               class="form-control control-margin" placeholder="Username" required autofocus>
+<div class="container-fluid">
 
-        <label for="inputPassword"
-               class="c1-color-black top-buffer">
-            Password
-        </label>
-        <input type="password"
-               ng-model="password"
-               id="inputPassword"
-               class="form-control control-margin" placeholder="Password" required>
+    <div class="testbox">
+        <h1>Registration</h1>
 
-        <label for="inputPasswordConfirm"
-               class="c1-color-black top-buffer">
-            Password Confirmation
-        </label>
-        <input type="password"
-               ng-model="password2"
-               id="inputPasswordConfirm"
-               class="form-control control-margin" placeholder="Re-enter Password" required>
-
-        <label for="FirstName" class="c1-color-black top-buffer">
-        First Name
-        </label>
-        <input type="text"
-           ng-model="firstName"
-           id="FirstName"
-           class="form-control control-margin" placeholder="Enter First Name" required>
-
-        <label for="LastName"
-               class="c1-color-black top-buffer">
-        Last Name
-        </label>
-        <input type="text"
-           ng-model="lastName"
-           id="LastName"
-           class="form-control control-margin" placeholder="Enter Last Name" required>
-
-        <label for="Email"
-               class="c1-color-black top-buffer">
-        Email
-        </label>
-        <input type="email"
-           ng-model="email"
-           id="Email"
-           class="form-control control-margin" placeholder="Enter email" required>
-
-        <a ng-click="model.register(username,password,password2)"
-           class="btn btn-lg btn-primary btn-block top-buffer">
-            Register
-        </a>
-        <a href="#!/login"
-           type="button" class="btn btn-lg btn-block btn-danger top-buffer">
-            Cancel
-        </a>
+        <form action="/">
+            <hr>
+            <hr>
+            <label class="icon" for="username"><i class="glyphicon glyphicon-user"></i></label>
+            <input type="text"
+                   id="username"
+                   name="username"
+                   class="name"
+                   ng-model="username"
+                   ng-class="{submitted:model.submitted1}"
+                   placeholder="Username" required/>
+            <div ng-show="model.error1" class="alert alert-danger">
+                {{model.error1}}</div>
+            <label class="icon" for="password"><i class="glyphicon glyphicon-lock"></i></label>
+            <input type="password"
+                   name="name"
+                   class="name"
+                   id="password"
+                   ng-model="password"
+                   ng-class="{submitted:model.submitted2}"
+                   placeholder="Password" required/>
+            <div ng-show="model.error2" class="alert alert-danger">
+                {{model.error2}}
+            </div>
+            <label class="icon" for="re-enter"><i class="glyphicon glyphicon-lock"></i></label>
+            <input type="password"
+                   name="name"
+                   class="name"
+                   ng-model="password2"
+                   ng-class="{submitted:model.submitted3}"
+                   id="re-enter"
+                   placeholder="Verify Password" required/>
+            <div ng-show="model.error3" class="alert alert-danger">
+                {{model.error3}}
+            </div>
+            <div ng-show="model.error4" class="alert alert-danger">
+                {{model.error4}}
+            </div>
+            <div class="gender">
+                <input type="radio"
+                       value="BUYER"
+                       id="buyer"
+                       ng-model="role"
+                       name="gender" checked />
+                <label for="buyer" class="radio">Buyer</label>
+                <input type="radio"
+                       value="SELLER"
+                       id="seller"
+                       ng-model="role"
+                       ng-class="{submitted:model.submitted4}"
+                       name="gender" />
+                <label for="seller" class="radio">Seller</label>
+                <div ng-show="model.error5" class="alert alert-danger">
+                    {{model.error5}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6">
+                    <a ng-click="model.register(username, password, password2, role)"
+                       class="button btn btn-primary btn-block">
+                        Register
+                    </a>
+                </div>
+                <div class="col-xs-6">
+                    <a class="button btn btn-danger  btn-block"
+                       href="#!/login">Cancel</a>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
-<div ng-include="'views/common/commonfooter.view.client.html'"></div>

@@ -1,6 +1,6 @@
 /**
- * Created by manika on 6/28/17.
+ * Created by manika on 7/6/17.
  */
-module.exports= function (app) {
-    require('./services/user.service.server.js')(app);
-}
+var app=require('../express');
+
+require('./services/user.service.server')

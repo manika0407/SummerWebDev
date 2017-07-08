@@ -1,36 +1,65 @@
-<div ng-include="'views/common/homeheader.view.client.html'"></div>
 
-<div class="container top-margin">
-    <div class="jumbotron top-margin">
+
+
+
+<link href="../../../../project/css/login-style.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container-fluid">
     <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
-    <h1 class="form-signin-heading c1-color-black text-center">
-        Login
-    </h1>
-    <label for="username"  class="c1-color-black top-buffer">
-        Username
-    </label>
-    <input ng-model="username" type="text" id="username"
-           class="form-control"
-           placeholder="manika"
-           autofocus
-           required>
 
-
-    <label for="inputPassword"  class="c1-color-black">
-        Password
-    </label>
-    <input type="password" ng-model="password"
-           id="inputPassword" class="form-control"
-           required>
-    <a ng-click="model.login(username,password)"
-       class="btn btn-lg btn-primary btn-block top-buffer" type="submit">
-        Login
-    </a>
-    <a ng-href="#!/register"
-       class="btn btn-lg btn-block btn-success top-buffer">
-        Register
-    </a>
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form">
+                <input ng-model="username"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       spellcheck="false"
+                       type="text"
+                       id="username"
+                       name="username"
+                       class="form-control"
+                       placeholder="username" required/>
+                <div class="alert alert-danger"
+                     ng-show="form.$submitted && form.username.$error.required">
+                    Username is required
+                </div>
+                <input ng-model="password"
+                       type="password"
+                       id="password"
+                       class="form-control"
+                       name="password"
+                       placeholder="password" required/>
+                <div class="alert alert-danger"
+                     ng-show="form.$submitted && form.password.$error.required">
+                    Password is required
+                </div>
+                <button ng-click="model.login(username, password)"
+                        type="submit"
+                        class="btn btn-primary btn-block">
+                    Login
+                </button>
+                <!--<a href="/auth/google" class="btn btn-primary btn-block">-->
+                    <!--<span class="fa fa-google-plus"></span>-->
+                    <!--Google-->
+                <!--</a>-->
+                <a href="#!/" class="btn btn-danger btn-block">
+                    Cancel
+                </a>
+                <p class="message">Not registered? <a href="#!/register">Create an account</a></p>
+            </form>
+        </div>
+    </div>
 </div>
-</div>
-
-<div ng-include="'views/common/commonfooter.view.client.html'"></div>

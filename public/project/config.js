@@ -1,22 +1,23 @@
-/**
- * Created by manika on 6/12/17.
- */
 (function () {
-        angular
-            .module('MusicSearch')
-            .config(configuration);
+    angular
+        .module('BookAppMaker')
+        .config(configuration);
 
-        function configuration($routeProvider){
-                $routeProvider
-                    .when('/',{
-                        templateUrl: 'views/common/home.view.client.html'
-                    })
-                    .when('default',{
-                        templateUrl: 'views/common/home.view.client.html'
-                    })
+    function configuration($routeProvider) {
+        $routeProvider
+            .when('/',{
+                templateUrl: 'views/home/templates/home.html'
+            })
+            .when('/login',{
+                templateUrl: 'views/user/templates/login.view.client.html',
+                controller: 'loginController',
+                controllerAs: 'model'
+            })
+            .when('/register',{
+                templateUrl: 'views/user/templates/register.view.client.html',
+                controller: 'registerController',
+                controllerAs: 'model'
+            })
 
-
-
-        }
-
+    }
 })();

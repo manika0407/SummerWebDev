@@ -1,7 +1,9 @@
 /**
- * Created by manika on 6/22/17.
+ * Created by manika on 7/6/17.
  */
 (function () {
     angular
-        .module('MusicSearch',['ngRoute']);
+        .module('BookAppMaker', ['ngRoute'])
+
+
 })();

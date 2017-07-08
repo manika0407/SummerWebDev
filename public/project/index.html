@@ -1,45 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="MusicSearch">
+<html lang="en" ng-app="BookAppMaker">
 <head>
     <meta charset="UTF-8">
-    <title>Manika Sharma-Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>-->
 
+    <!--Angular-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+    <title>Project</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <!--App js-->
+    <link href="css/style.css" rel="stylesheet"/>
     <script src="app.js"></script>
-
-    <!--Config Files-->
     <script src="config.js"></script>
-    <script src="views/user/user-config.js"></script>
-    <script src="views/music/browsecategory-config.js"></script>
-
-
-    <!--Scripts-->
 
     <!--controllers-->
+    <!--User controllers-->
     <script src="views/user/controllers/login.controller.client.js"></script>
     <script src="views/user/controllers/register.controller.client.js"></script>
-    <script src="views/user/controllers/profile.controller.client.js"></script>
 
 
-    <!-- Services -->
+    <!--services -->
     <script src="services/user.service.client.js"></script>
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/projectcss.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
 
 </head>
 <body>
-<div ng-view>
-
-
-</div>
+<div ng-view></div>
 </body>
 </html>
