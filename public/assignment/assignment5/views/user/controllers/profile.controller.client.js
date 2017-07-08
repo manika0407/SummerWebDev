@@ -56,7 +56,7 @@
                 userService
                     .deleteUser(user._id)
                     .then(function () {
-                        $location.url('/templates');
+                        $location.url('/login');
                     });
 
             }

@@ -15,12 +15,12 @@
         this.sortWidget = sortWidget;
 
         function sortWidget(initial, final) {
-            var url = "/page/"+ $routeParams.pageId + "/widget?initial=" + initial + "&final=" + final;
+            var url = "/assignment5/page/"+ $routeParams.pageId + "/widget?initial=" + initial + "&final=" + final;
             $http.put(url);
         }
 
         function createWidget(pageId, widget) {
-            var url="/api/page/"+pageId+"/widget";
+            var url="/api/assignment5/page/"+pageId+"/widget";
             var data = {
                 pageId: pageId,
                 widget: widget
@@ -32,7 +32,7 @@
 
         function findWidgetById(widgetId) {
 
-            var url="/api/widget/"+widgetId;
+            var url="/api/assignment5/widget/"+widgetId;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -41,7 +41,7 @@
 
         function findWidgetByPageId(pageId) {
 
-            var url="/api/page/"+pageId+ "/widget";
+            var url="/api/assignment5/page/"+pageId+ "/widget";
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -50,7 +50,7 @@
         }
 
         function updateWidget(widgetId, widget) {
-            var url="/api/widget/"+widgetId;
+            var url="/api/assignment5/widget/"+widgetId;
             return $http.put(url, widget)
                 .then(function (response) {
                     return response.data;
@@ -59,7 +59,7 @@
         }
 
         function deleteWidget(widgetId) {
-            var url="/api/widget/"+widgetId;
+            var url="/api/assignment5/widget/"+widgetId;
             return $http.delete(url)
                 .then(function (response) {
                     return response.data;

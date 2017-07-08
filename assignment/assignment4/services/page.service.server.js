@@ -17,11 +17,11 @@ module.exports=function(app){
         {"_id": "145", "name": "Appliances", "websiteId": "234", "title": "All types of appliances"},
         {"_id": "451", "name": "Books", "websiteId": "234", "title": "Books available in all languages"}
     ];
-    app.get('/api/website/:websiteId/page', findPageByWebsiteId)
-    app.post('/api/website/:websiteId/page', createPage)
-    app.get('/api/page/:pageId', findPageById)
-    app.put('/api/page/:pageId', updatePage)
-    app.delete('/api/page/:pageId', deletePage)
+    app.get('/api/assignment4/website/:websiteId/page', findPageByWebsiteId)
+    app.post('/api/assignment4/website/:websiteId/page', createPage)
+    app.get('/api/assignment4/page/:pageId', findPageById)
+    app.put('/api/assignment4/page/:pageId', updatePage)
+    app.delete('/api/assignment4/page/:pageId', deletePage)
 
     function findPageByWebsiteId(req,res) {
         var websiteId=req.params.websiteId;

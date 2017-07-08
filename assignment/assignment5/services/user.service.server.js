@@ -1,11 +1,11 @@
 var app = require('../../../express');
 var userModel = require('../models/user/user.model.server');
 
-    app.get('/api/user/:userId', findUserById);
-    app.get('/api/user', findUsers);
-    app.post('/api/user', createUser);
-    app.put('/api/user/:userId', updateUser);
-    app.delete('/api/user/:userId', deleteUser);
+    app.get('/api/assignment5/user/:userId', findUserById);
+    app.get('/api/assignment5/user', findUsers);
+    app.post('/api/assignment5/user', createUser);
+    app.put('/api/assignment5/user/:userId', updateUser);
+    app.delete('/api/assignment5/user/:userId', deleteUser);
 
 
     function findUserById(req, res) {

@@ -45,11 +45,11 @@ module.exports=function (app) {
         }
     ];
 
-    app.get('/api/user/:userId/website', findWebsitesByUser)
-    app.get('/api/user/:userId/website/:websiteId', findWebsiteById)
-    app.post('/api/user/:userId/website', createWebsite)
-    app.put('/api/user/:userId/website/:websiteId', updateWebsite)
-    app.delete('/api/user/:userId/website/:websiteId', deleteWebsite)
+    app.get('/api/assignment4/user/:userId/website', findWebsitesByUser)
+    app.get('/api/assignment4/user/:userId/website/:websiteId', findWebsiteById)
+    app.post('/api/assignment4/user/:userId/website', createWebsite)
+    app.put('/api/assignment4/user/:userId/website/:websiteId', updateWebsite)
+    app.delete('/api/assignment4/user/:userId/website/:websiteId', deleteWebsite)
 
 
 

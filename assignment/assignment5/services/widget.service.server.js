@@ -6,16 +6,16 @@ var app = require('../../../express');
 var widgetModel = require('../models/widget/widget.model.server');
 
 var multer=require('multer');
-var upload= multer({dest: __dirname+'/../../public/assignment/uploads'});
+var upload= multer({dest: __dirname+'/../../../public/assignment/assignment5/uploads'});
 
 
-app.get('/api/page/:pageId/widget', findWidgetByPageId);
-app.get('/api/widget/:widgetId', findWidgetById);
-app.post('/api/page/:pageId/widget', createWidget);
-app.put('/api/widget/:widgetId', updateWidget);
-app.delete('/api/widget/:widgetId', deleteWidget);
-app.post("/api/upload", upload.single('myFile'), uploadImage);
-app.put('/page/:pageId/widget', sortWidget);
+app.get('/api/assignment5/page/:pageId/widget', findWidgetByPageId);
+app.get('/api/assignment5/widget/:widgetId', findWidgetById);
+app.post('/api/assignment5/page/:pageId/widget', createWidget);
+app.put('/api/assignment5/widget/:widgetId', updateWidget);
+app.delete('/api/assignment5/widget/:widgetId', deleteWidget);
+app.post("/api/assignment5/upload", upload.single('myFile'), uploadImage);
+app.put('/assignment5/page/:pageId/widget', sortWidget);
 
 function sortWidget(req, res) {
     var start = req.query.initial;
@@ -104,12 +104,12 @@ function uploadImage(req, res) {
     widgetModel
         .findWidgetById(widgetId)
         .then(function (widget) {
-            widget.url = '/assignment/uploads/'+filename;
+            widget.url = '/assignment/assignment5/uploads/'+filename;
 
             widgetModel
                 .updateWidget(widgetId, widget)
                 .then(function () {
-                    var callbackUrl = "/assignment/#!/user/"+userId+"/website/" + websiteId + "/page/" + pageId + "/widget/"+widgetId;
+                    var callbackUrl = "/assignment/assignment5/#!/user/"+userId+"/website/" + websiteId + "/page/" + pageId + "/widget/"+widgetId;
                     res.redirect(callbackUrl);
                 }, function (err) {
                     res.send(err);

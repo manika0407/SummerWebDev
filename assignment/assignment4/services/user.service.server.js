@@ -1,10 +1,10 @@
 module.exports= function (app) {
 
-    app.get('/api/user/:userId', findUserById);
-    app.get('/api/user', findUsers);
-    app.post('/api/user', createUser);
-    app.put('/api/user/:userId', updateUser);
-    app.delete('/api/user/:userId', deleteUser);
+    app.get('/api/assignment4/user/:userId', findUserById);
+    app.get('/api/assignment4/user', findUsers);
+    app.post('/api/assignment4/user', createUser);
+    app.put('/api/assignment4/user/:userId', updateUser);
+    app.delete('/api/assignment4/user/:userId', deleteUser);
 
     var users = [
         {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder", email: "alice@gmail.com"},

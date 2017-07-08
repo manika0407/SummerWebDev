@@ -23,13 +23,13 @@ module.exports=function (app) {
     var upload= multer({dest: __dirname+'/../../../public/assignment/assignment4/uploads'});
 
 
-    app.get('/api/page/:pageId/widget', findWidgetByPageId);
-    app.get('/api/widget/:widgetId', findWidgetById);
-    app.post('/api/page/:pageId/widget', createWidget);
-    app.put('/api/widget/:widgetId', updateWidget);
-    app.delete('/api/widget/:widgetId', deleteWidget);
-    app.post("/api/upload", upload.single('myFile'), uploadImage);
-    app.put('/page/:pageId/widget', sortWidget);
+    app.get('/api/assignment4/page/:pageId/widget', findWidgetByPageId);
+    app.get('/api/assignment4/widget/:widgetId', findWidgetById);
+    app.post('/api/assignment4/page/:pageId/widget', createWidget);
+    app.put('/api/assignment4/widget/:widgetId', updateWidget);
+    app.delete('/api/assignment4/widget/:widgetId', deleteWidget);
+    app.post("/api/assignment4/upload", upload.single('myFile'), uploadImage);
+    app.put('/assignment4/page/:pageId/widget', sortWidget);
 
     function sortWidget(req, res) {
         var initial = req.query.initial;

@@ -1,11 +1,11 @@
 var app = require('../../../express');
 var pageModel = require('../models/page/page.model.server');
 
-    app.get('/api/website/:websiteId/page', findPageByWebsiteId)
-    app.post('/api/website/:websiteId/page', createPage)
-    app.get('/api/page/:pageId', findPageById)
-    app.put('/api/page/:pageId', updatePage)
-    app.delete('/api/page/:pageId', deletePage)
+    app.get('/api/assignment5/website/:websiteId/page', findPageByWebsiteId)
+    app.post('/api/assignment5/website/:websiteId/page', createPage)
+    app.get('/api/assignment5/page/:pageId', findPageById)
+    app.put('/api/assignment5/page/:pageId', updatePage)
+    app.delete('/api/assignment5/page/:pageId', deletePage)
 
     function findPageByWebsiteId(req,res) {
         var websiteId=req.params.websiteId;
