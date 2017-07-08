@@ -20,7 +20,7 @@ module.exports=function (app) {
         ];
 
     var multer=require('multer');
-    var upload= multer({dest: __dirname+'/../../public/assignment/assignment4/uploads'});
+    var upload= multer({dest: __dirname+'/../../../public/assignment/assignment4/uploads'});
 
 
     app.get('/api/page/:pageId/widget', findWidgetByPageId);
