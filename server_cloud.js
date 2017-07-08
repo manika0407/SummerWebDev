@@ -21,7 +21,8 @@ app.use(app.express.static(__dirname+'/public')); //it will find html file from 
 //When we push to heroku, heroku wont know our ip address. So we will have to comment our local ip and then write
 app.listen(port);
 
-require("./assignment/app");
+require("./assignment/assignment4/app.js")(app);
+require("./assignment/assignment5/app");
 require("./project/app");
 
 console.log("hello world! Listening from "+port);
