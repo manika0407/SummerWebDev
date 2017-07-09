@@ -9,7 +9,7 @@
         </a>
         <span
                 class="navbar-brand c1-text-bold c1-color-black">
-                Edit Widget
+                Widget
         </span>
         <a class="navbar-brand pull-right" href ng-click="model.updateWidget()">
             <span class="glyphicon glyphicon-ok glyphicon-size c1-color-black">
@@ -21,6 +21,7 @@
     <div ng-show="model.error" class="alert alert-danger">
         {{model.error}}
     </div>
+    <div class="text-center c1-text-bold">Widget Type: {{model.widget.widgetType}}</div>
     <div ng-switch="model.widget.widgetType">
         <div ng-switch-when="HEADING">
             <div ng-include="'views/widget/templates/widgetEditors/widget-heading-edit.view.client.html'"></div>
