@@ -1,6 +1,3 @@
-/**
- * Created by manika on 6/13/17.
- */
 (function(){
     angular
         .module('WebAppMaker')

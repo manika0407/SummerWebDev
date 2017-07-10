@@ -33,9 +33,14 @@
                 return;
             }
 
-            function login(found){
-                if(found!==null){
-                    $location.url('/user/'+ found._id);
+            function login(user){
+                if(user){
+                    if(user.roles[0] === "BUYER"){
+                        $location.url('/profile/buyer');}
+                    else if(user.roles[0] === "SELLER"){
+                        $location.url('/profile/seller');
+
+                    }
                 }
                 else{
                     model.message="Username "+ username + "Not found";
