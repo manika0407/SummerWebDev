@@ -2,18 +2,18 @@
     <div class="container-fluid">
         <p class="navbar-text pull-left">
             <a href="#!/user/{{model.userId}}"
-               class="navbar-link c1-color-black c1-text-bold font-little-large">
+               class="navbar-link c1-color-black c1-text-bold">
                 <span class="glyphicon glyphicon-chevron-left">
                 </span>
             </a>
         </p>
 
-        <span class="navbar-brand c1-color-black font-little-large c1-text-bold">
+        <span class="navbar-brand c1-color-black c1-text-bold">
             Websites
         </span>
 
         <a href="#!/user/{{model.userId}}/website/new"
-           class="navbar-link navbar-text c1-text-bold pull-right c1-color-black font-little-large cl-icon-padding">
+           class="navbar-link navbar-text c1-text-bold pull-right c1-color-black cl-icon-padding">
             <span class="glyphicon glyphicon-plus"></span>
         </a>
     </div>
@@ -21,7 +21,7 @@
 
 
 <div class="container-fluid center-container top-margin">
-    <div class="list-group overflow">
+    <div class="list-group">
         <div ng-repeat="website in model.websites" class="list-group-item border-black list-group-item-action flex-column align-items-start">
             <div class="row">
                 <div class="col-xs-8" >
