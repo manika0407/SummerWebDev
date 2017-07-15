@@ -1,13 +1,31 @@
-<b>Name</b>
-<div ng-show="model.message" class="alert alert-info">
-            {{model.message}}
-</div>
-<input class="form-control" ng-model="model.widget.name" type="text" placeholder="Text">
-Text
-<input ng-model="model.widget.text" class="form-control"/>
-Rows
-<input ng-model="model.widget.rows" class="form-control" type="number"/>
-Placeholder
-<input ng-model="model.widget.placeholder" class="form-control"/>
-Formatted
-<input ng-model="model.widget.formatted" type="checkbox"/>
+
+<label for="name">Name</label>
+<input type="text"
+       id="name"
+       ng-model="model.widget.name"
+       placeholder="TEXT Name"
+       class="form-control"/>
+
+<label for="text">Text</label>
+<input type="text"
+       id="text"
+       ng-model="model.widget.text"
+       class="form-control"/>
+
+<label for="rows">Rows</label>
+<input id="rows"
+       ng-model="model.widget.rows"
+       class="form-control"
+       type="number"/>
+
+<label for="placeholder">Placeholder</label>
+<input id="placeholder"
+       ng-model="model.widget.placeholder"
+       class="form-control"/>
+
+<label for="formatted">Formatted</label>
+<input id="formatted"
+       ng-model="model.widget.formatted"
+       type="checkbox"/>
+<br>
+<br>

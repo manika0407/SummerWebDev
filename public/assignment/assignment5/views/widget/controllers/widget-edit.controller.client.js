@@ -38,7 +38,7 @@
         }
 
         function updateWidget() {
-            if ((model.widget.widgetType === 'HEADING' || model.widget.widgetType === 'HTML') && (model.widget.text === null || typeof model.widget.text === 'undefined' || model.widget.text === '')) {
+            if ((model.widget.widgetType === 'HEADING' || model.widget.widgetType === 'HTML' || model.widget.widgetType === 'TEXT') && (model.widget.text === null || typeof model.widget.text === 'undefined' || model.widget.text === '')) {
                 model.error = " Text is mandatory ";
                 return;
             }
