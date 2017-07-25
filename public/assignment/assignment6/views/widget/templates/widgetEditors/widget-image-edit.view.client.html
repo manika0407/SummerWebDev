@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-group">
+            <label for="name"
+                   class="c1-text-bold">
+                Name
+            </label>
+            <input
+                    type="text"
+                    ng-model="model.widget.name"
+                    id="name"
+                    class="form-control"
+                    placeholder="Name"
+                    title="Enter Widget Name"
+                    required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="text"
+                   class="c1-text-bold">
+                Text
+            </label>
+            <input type="text"
+                   ng-model="model.widget.text"
+                   id="text" class="form-control" placeholder="Title"
+                   data-toggle="tooltip"
+                   title="Enter Widget Text"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="url"
+                   class="c1-text-bold">
+                URL
+            </label>
+            <input type="text"
+                   ng-model="model.widget.url"
+                   id="url" class="form-control" placeholder="URL"
+                   title="Enter Widget URL"
+                   required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="width"
+                   class="c1-text-bold">
+                Width
+            </label>
+            <select id="width"
+                    ng-model="model.widget.width"
+                    class="form-control"
+                    title="Enter Widget width" required>
+                <option value="25">
+                    25%
+                </option>
+                <option value="50">
+                    50%
+                </option>
+                <option value="75">
+                    75%
+                </option>
+                <option value="100" selected>
+                    100%
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label
+                   class="c1-text-bold">
+                Upload From Computer
+            </label>
+            <form action="/api/assignment5/upload"   method="post" enctype="multipart/form-data">
+                <input  name="myFile" type="file"  class="form-control"/>
+                <input  name="width"  value="{{model.widget.width}}" style="display: none"/>
+                <input  name="userId" value="{{model.userId}}" style="display: none"/>
+                <input  name="websiteId" value="{{model.websiteId}}" style="display: none"/>
+                <input name="pageId" value="{{model.pageId}}" style="display: none" />
+                <input  name="widgetId"  value="{{model.widget._id}}"  style="display: none"/>
+                <button type="submit"    class="btn btn-lg btn-block btn-primary top-buffer">Upload Image</button>
+            </form>
+        </div>
+        <div class="form-group">
+        <label class="c1-text-bold">Photos from Flickr</label>
+        <a class="btn btn-lg btn-info btn-block" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/search">
+            Search
+        </a>
+        </div>
+
+
+
+
+    </div>
+</div>

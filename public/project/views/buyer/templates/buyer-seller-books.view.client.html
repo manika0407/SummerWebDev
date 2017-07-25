@@ -1,0 +1,52 @@
+<div ng-include="'views/common/header-buyer.view.client.html'"></div>
+<div class="container-fluid">
+    <div class="row" style="margin-bottom: 20px; margin-top: 10px;">
+        <div class="col-xs-12 col-sm-2">
+            <div ng-show="!model.follow">
+                <a class="btn btn-success"
+                ng-click="model.followSeller(model.userId, model.sellerId)">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Follow
+                </a>
+            </div>
+            <div ng-show="model.follow">
+                <a class="btn btn-info"
+                ng-click="model.unfollowSeller(model.userId, model.sellerId)">
+                    <span class="glyphicon glyphicon-minus"></span>
+                    Unfollow
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-10">
+            <div style="color: #d43f3a">
+                <h3>Seller: {{model.seller.username}}</h3>
+            </div>
+            <div style="color: deepskyblue">
+                <h3>Email: {{model.seller.email}}</h3>
+            </div>
+        </div>
+    </div>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>More</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="book in model.books">
+            <td><img src="{{book.photo}}" alt="book cover" width="100" height="100" ></td>
+            <td>{{book.name}}</td>
+            <td>
+                <a href="#!/buyer/books/{{book._id}}">
+                    <span class="glyphicon glyphicon-book"></span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>

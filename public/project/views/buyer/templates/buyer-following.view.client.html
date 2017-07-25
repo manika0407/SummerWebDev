@@ -1,0 +1,28 @@
+<div ng-include="'views/common/header-buyer.view.client.html'">
+</div>
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Unfollow</th>
+            <th>Check</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="seller in model.sellers">
+            <td>{{seller.username}}</td>
+            <td>
+                <a ng-click="model.unfollowSeller(model.userId, seller._id)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+            </td>
+            <td>
+                <a href="#!/books/list/seller/{{seller._id}}">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

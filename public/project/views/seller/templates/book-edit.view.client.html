@@ -1,0 +1,70 @@
+
+
+<style>
+    body {
+        overflow-x: hidden;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+</style>
+
+
+
+
+
+
+
+
+<div ng-include="'views/common/header-seller.view.client.html'"></div>
+
+<div class="container-fluid">
+    <div ng-show="model.message" class="alert alert-info">
+        {{model.message}}</div>
+
+    <div>
+        <form>
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text"
+                       class="form-control"
+                       id="isbn"
+                       placeholder="ISBN"
+                       ng-class="{submitted:model.submitted1}"
+                       ng-model="model.book.isbn">
+            </div>
+            <div ng-show="model.error1" class="alert alert-danger">
+                {{model.error1}}</div>
+            <div class="form-group">
+                <label for="inventory">Inventory</label>
+                <input type="number"
+                       class="form-control"
+                       id="inventory"
+                       placeholder="eg.2"
+                       ng-class="{submitted:model.submitted2}"
+                       ng-model="model.book.inventory">
+            </div>
+            <div ng-show="model.error2" class="alert alert-danger">
+                {{model.error2}}</div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="text"
+                       class="form-control"
+                       id="price"
+                       placeholder="$12"
+                       ng-class="{submitted:model.submitted3}"
+                       ng-model="model.book.price">
+            </div>
+            <div ng-show="model.error3" class="alert alert-danger">
+                {{model.error3}}</div>
+            <label for="description">Description</label>
+            <textarea class="form-control"
+                      id="description"
+                      rows="5"
+                      ng-model="model.book.description"></textarea>
+            <br>
+            <a ng-click="model.updateBook(model.bookId,model.book)" class="btn btn-success btn-block">Update</a>
+            <a ng-click="model.deleteBook(model.bookId)" class="btn btn-danger btn-block">Delete</a>
+        </form>
+    </div>
+</div>
+

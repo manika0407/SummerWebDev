@@ -1,0 +1,177 @@
+html,
+body {
+    background: #333 url(../../../pictures/goodbg.jpg) no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.c1-text-bold{
+    font-weight: 900;
+    font-size: 18px;
+}
+.c1-color-black{
+    color: #000000;
+}
+
+
+
+
+.list-group-item{
+    background-color: transparent;
+    border-color: black;
+    margin-top: 6px;
+}
+.black-link{
+    color: #000;
+}
+
+/*.glyphicon-size{*/
+/*font-size: 25px*/
+/*}*/
+
+
+.crop {
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    width:100%;
+}​
+
+
+     /*new*/
+
+ input.form-control,
+ textarea.form-control,
+ select.form-control
+ {
+     margin-bottom: 5px;
+
+ }
+
+nav.navbar.navbar-default.navbar-fixed-top {
+    /*padding-right: 0px;*/
+    /*background-color: black;*/
+    /*background: black;*/
+    background-color: transparent;
+    background: rgba(255, 255, 255, 0.4);
+    border-color: transparent;
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.navbar-default > div{
+    background-color: transparent;
+    background: rgba(255, 255, 255, 0.4);
+    border-color: transparent;
+}
+
+.navbar-default .navbar-brand{
+    color: black;
+}
+
+
+.nvabar-header{
+    width: 100%;
+}
+.navbar-default .navbar-link{
+    color: black;
+}
+.navbar.navbar-default a{
+    color:black;
+
+}
+.wd-widget{
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.wd-widget > img{
+    width:100%;
+
+}
+.wd-widget > .wd-widget-toolbar{
+    position: absolute;
+    right: 5px;
+    background: white;
+    opacity: 0.9;
+    padding: 5px;
+    border-bottom-left-radius: 10px;
+
+}
+
+/*.wd-ok{*/
+/*position: absolute;*/
+/*right: 15px;*/
+/*padding: 15px;*/
+
+/*}*/
+.wd-left{
+    position: absolute;
+    left: 5px;
+    padding: 15px;
+
+}
+.wd-list{
+    position: absolute;
+    left: 50px;
+    padding: 15px;
+}
+
+.wd-list-1{
+    position: relative;
+    left: 50px;
+    padding: 15px;
+}
+a.hover{
+    text-decoration: none;
+    color: black;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.row.navbar-header > .col-xs-8{
+    padding-right: 0;
+}
+
+.navbar.navbar-default.navbar-fixed-top .navbar-header,
+.navbar.navbar-default.navbar-fixed-bottom .navbar-header,
+.row.navbar-text {
+    width: 100%;
+}
+
+.navbar-brand,
+.navbar-header.navbar-brand,
+.row a {
+    white-space: nowrap;
+}
+
+.row .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.wd-widget-toolbar{
+    z-index: 1;
+}
+
+.top-buffer{
+    margin-top: 10px;
+}
