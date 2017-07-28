@@ -85,7 +85,6 @@ app.get('/auth/facebook/callback',
 
 
 function facebookStrategy(token, refreshToken, profile, done) {
-    console.log(profile);
     userModel
         .findUserByFacebookId(profile.id)
         .then(
