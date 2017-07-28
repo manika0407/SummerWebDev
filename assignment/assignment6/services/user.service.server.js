@@ -68,7 +68,7 @@ var facebookConfig = {
     clientID     : process.env.FACEBOOK_CLIENT_ID,
     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
     callbackURL  : process.env.FACEBOOK_CALLBACK_URL,
-    profileFields: ['email']
+    profileFields: ['id', 'emails','displayName', 'name']
 };
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
@@ -85,6 +85,7 @@ app.get('/auth/facebook/callback',
 
 
 function facebookStrategy(token, refreshToken, profile, done) {
+    console.log(profile);
     userModel
         .findUserByFacebookId(profile.id)
         .then(
