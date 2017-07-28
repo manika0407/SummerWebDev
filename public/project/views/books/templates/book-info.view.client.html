@@ -31,63 +31,63 @@
 <div ng-include="'views/common/header.view.client.html'"></div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-md-2">
-            <img style="margin-top: 50px" src={{model.item.imageLinks.smallThumbnail}} alt="book cover">
-        </div>
-        <div class="col-xs-12 col-md-10">
+    <div class="col-xs-12 col-md-2">
+    <img style="margin-top: 50px" src={{model.item.imageLinks.smallThumbnail}} alt="book cover">
+    </div>
+    <div class="col-xs-12 col-md-10">
 
-            <label for="venmo">Venmo</label>
-            <input ng-model="venmo"
-                   type="text"
-                   id="venmo"
-                   class="form-control"
-                   name="venmo"
-                   placeholder="venmo account"/>
-            <label for="email">Email</label>
-            <input ng-model="email"
-                   type="email"
-                   id="email"
-                   class="form-control"
-                   name="email"
-                   placeholder="jc@gmail.com"/>
-            <label for="quantity">Quantity</label>
-            <input type="number"
-                   id="quantity"
-                   class="form-control"
-                   name="quantity"
-                   placeholder="10"/>
-
-
+        <label for="venmo">Venmo</label>
+        <input ng-model="venmo"
+               type="text"
+               id="venmo"
+               class="form-control"
+               name="venmo"
+               placeholder="venmo account"/>
+        <label for="email">Email</label>
+        <input ng-model="email"
+               type="email"
+               id="email"
+               class="form-control"
+               name="email"
+               placeholder="jc@gmail.com"/>
+        <label for="quantity">Quantity</label>
+        <input type="number"
+               id="quantity"
+               class="form-control"
+               name="quantity"
+               placeholder="10"/>
 
 
-            <textarea ng-model="request"
-                      id="request"
-                      class="form-control"
-                      name="request"
-                      placeholder="send buying message to seller"
-                      rows="6"
-                      style="margin-top: 10px"></textarea>
-            <br>
-            <a href="#!/login" class="btn btn-success">Send Buying Request</a>
-        </div>
+
+
+        <textarea ng-model="request"
+                  id="request"
+                  class="form-control"
+                  name="request"
+                  placeholder="send buying message to seller"
+                  rows="6"
+                  style="margin-top: 10px"></textarea>
+        <br>
+     <a href="#!/login" class="btn btn-success">Send Buying Request</a>
+    </div>
     </div>
     <h1 class="text-center">Seller's Introduction</h1>
 
 
-    <div>
-        <h3 style="color: #eea236">Seller:
-            <a class="hover" style="font-size: 350%" href="#!/login">{{model.book._user.username}}
-            </a>More Books From this Seller!!</h3>
-    </div>
-    <div>
+       <div>
+           <h3 style="color: #eea236">Seller:
+           <a class="hover" style="font-size: 350%" href="#!/login">{{model.book._user.username}}
+           </a>More Books From this Seller!!</h3>
+       </div>
+       <div>
         <h3 style="color: #eea236">Seller's Venmo: {{model.book._user.venmo}}</h3>
-    </div>
+       </div>
 
 
-    <div style="color: #d43f3a">
-        <h3>Seller's Description:</h3>
-    </div>
-    <p class="col-xs-12">{{model.book.description}}</p>
+        <div style="color: #d43f3a">
+            <h3>Seller's Description:</h3>
+        </div>
+        <p class="col-xs-12">{{model.book.description}}</p>
     <div>
         <h3 style="color: #eea236">Price: {{model.book.price}}</h3>
     </div>
@@ -98,27 +98,27 @@
 
 
 
-<div class="container-fluid">
-    <h1 class="text-center">Google Book Information</h1>
+    <div class="container-fluid">
+        <h1 class="text-center">Google Book Information</h1>
 
 
-    <div>
-        <h3 style="color: #eea236">Title: {{model.item.title}}</h3>
-    </div>
+        <div>
+            <h3 style="color: #eea236">Title: {{model.item.title}}</h3>
+        </div>
 
 
-    <div style="color: #d43f3a">
-        <h3>Description:</h3>
-    </div>
-    <p class="col-xs-12">{{model.item.description}}</p>
-    <div>
-        <h3 style="color: #eea236">ISBN: {{model.book.isbn}}</h3>
-    </div>
-    <div><h3 style="color: #d43f3a">Authors:</h3>
-        <p ng-repeat="author in model.item.authors">{{author}}</p>
-        &nbsp;
-    </div>
+        <div style="color: #d43f3a">
+            <h3>Description:</h3>
+        </div>
+        <p class="col-xs-12">{{model.item.description}}</p>
+        <div>
+            <h3 style="color: #eea236">ISBN: {{model.book.isbn}}</h3>
+        </div>
+        <div><h3 style="color: #d43f3a">Authors:</h3>
+            <p ng-repeat="author in model.item.authors">{{author}}</p>
+                &nbsp;
+        </div>
 
-</div>
+        </div>
 
 

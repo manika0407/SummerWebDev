@@ -5,7 +5,7 @@ var mongoose= require('mongoose');
 
     userModel.createUser = createUser;
     userModel.findUserById = findUserById;
-    userModel.findAllUsers = findAllUsers;
+    userModel.findAllUser = findAllUser;
     userModel.findUserByUsername = findUserByUsername;
     userModel.findUserByCredentials = findUserByCredentials;
     userModel.updateUser = updateUser;
@@ -45,7 +45,7 @@ var mongoose= require('mongoose');
         return userModel.findById(userId);
     }
 
-    function findAllUsers() {
+    function findAllUser() {
         return userModel.find();
     }
 

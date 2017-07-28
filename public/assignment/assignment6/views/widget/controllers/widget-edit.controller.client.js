@@ -5,10 +5,10 @@
     angular
         .module('WebAppMaker')
         .controller('widgetEditController',widgetEditController);
-    function widgetEditController($location, widgetService, $routeParams) {
+    function widgetEditController($location, widgetService, $routeParams, currentUser) {
 
         var model = this;
-        model.userId = $routeParams.userId;
+        model.userId = currentUser._id;
         model.websiteId = $routeParams.websiteId;
         model.pageId = $routeParams.pageId;
         model.widgetId = $routeParams.widgetId;
@@ -31,7 +31,7 @@
             widgetService
                 .deleteWidget(model.widgetId)
                 .then(function () {
-                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
+                    $location.url('/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
                 })
 
 
@@ -49,7 +49,7 @@
             widgetService
                 .updateWidget(model.widgetId, model.widget)
                 .then(function () {
-                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
+                    $location.url('/website/' + model.websiteId + '/page/' + model.pageId + '/widget');
                 })
 
         }

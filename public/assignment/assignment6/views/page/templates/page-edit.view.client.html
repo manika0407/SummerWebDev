@@ -2,7 +2,7 @@
      <div class="row">
         <div class="col-xs-4 hidden-xs">
             <a class="navbar-brand"
-               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+               href="#!/website/{{model.websiteId}}/page">
                 <span
                     class="glyphicon glyphicon-chevron-left c1-text-bold c1-color-black pull-left">
                 </span>
@@ -13,7 +13,7 @@
             </span>
 
             <a class="navbar-brand c1-text-bold c1-color-black pull-right"
-               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
+               href="#!/website/{{model.websiteId}}/page/new">
                 <span
                     class="glyphicon glyphicon-plus">
                 </span>
@@ -22,7 +22,7 @@
 
         <div class="col-xs-12 col-sm-8">
             <a class="navbar-brand visible-xs"
-               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+               href="#!/website/{{model.websiteId}}/page">
                 <span
                     class="glyphicon c1-text-bold c1-color-black glyphicon-chevron-left pull-left">
                 </span>
@@ -49,7 +49,7 @@
                     <div class="row">
                         <div class="col-xs-10 ">
                             <div class="crop">
-                                <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget"
+                                <a href="#!/website/{{model.websiteId}}/page/{{page._id}}/widget"
                                    class="c1-text-bold black-link">
                                     {{page.name}}
                                 </a>
@@ -59,7 +59,7 @@
                             <a href ng-if="model.pageId === page._id" ng-click="model.pageReload()"
                                class="black-link"><span
                                     class="glyphicon glyphicon-cog glyphicon-size pull-right"></span></a>
-                            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}"
+                            <a href="#!/website/{{model.websiteId}}/page/{{page._id}}"
                                ng-if="model.pageId !== page._id" class="black-link"><span
                                     class="glyphicon glyphicon-cog glyphicon-size pull-right"></span></a>
                         </div>

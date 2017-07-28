@@ -6,9 +6,9 @@
         .module('WebAppMaker')
         .controller('pageEditController', pageEditController);
     
-    function pageEditController($location,pageService,$routeParams,$route) {
+    function pageEditController($location,pageService,$routeParams,$route, currentUser) {
         var model=this;
-        model.userId=$routeParams.userId;
+        model.userId=currentUser._id;
         model.websiteId=$routeParams.websiteId;
         model.pageId=$routeParams.pageId;
         model.updatePage=updatePage;
@@ -44,7 +44,7 @@
             pageService
                 .updatePage(model.pageId, model.page)
                 .then(function () {
-                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
+                    $location.url('/website/'+model.websiteId+'/page');
                 })
 
         }
@@ -52,7 +52,7 @@
             pageService
                 .deletePage(model.pageId)
                 .then(function () {
-                    $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
+                    $location.url('/website/'+model.websiteId+'/page');
                 })
 
         }

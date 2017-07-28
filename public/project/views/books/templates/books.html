@@ -11,21 +11,61 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+
                 <li class="active"><a href="#!/">Home</a></li>
-                <li><a ng-if="model.currentUser.roles.indexOf('Admin')>-1" href="#!/admin">Admin</a></li>
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
                 <li ng-show="!model.currentUser._id"><a ng-click="model.init()">Books</a></li>
-                <li ng-show="!model.curretUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/profile">Profile</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/login">Logout</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
             </ul>
-        </div>
+        </div><!--/.nav-collapse -->
     </div>
 </nav>
 
+
+<div class="container-fluid">
+    <div ng-show="model.message" class="alert alert-info" style="margin-top: 20px">
+        {{model.message}}
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-2">
+            <select ng-model="selectedType" ng-init="selectedType = 'Name'"
+                    style="width: 77%;">
+                <option value="Name">Name</option>
+                <option value="Author">Author</option>
+                <option value="ISBN">ISBN</option>
+            </select>
+        </div>
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="..." ng-model="searchText">
+                <span class="input-group-btn">
+                   <a ng-click="model.searchBook(selectedType, searchText)"
+                      class="btn btn-default form-control"
+                      type="button">
+                   <span class="glyphicon glyphicon-search"></span>
+                   </a>
+                </span>
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+
+    </div><!-- /.row -->
+
+
+</div>
+
+
+
 <div id="content" class="container-fluid" ng-repeat="book in model.books">
+
+
     <div>
         <ul>
+
             <li>
                 <div id="username">
                     <h3 class="username">
@@ -37,8 +77,8 @@
                         {{book.name}}
                     </h3>
                 </div>
-                <div id="abaproduct-image">
-                    <img src={{book.photo}}>
+                <div class="abaproduct-image">
+                        <img src={{book.photo}}>
                 </div>
                 <br>
                 <div id="price">
@@ -46,19 +86,21 @@
                         Price: {{book.price}}
                     </h3>
                 </div>
-                <div id="abaproduct-details">
+                <div class="abaproduct-details">
                     <div id="button">
                         <a href="#!/home/books/{{book._id}}"
-                        class="form-submit btn btn-success form-submit"
-                        id="edit-add-to-cart"
-                        name="op"
-                        type="submit">
-                            Check This Book
+                           class="form-submit btn btn-success form-submit"
+                           id="edit-add-to-cart"
+                           name="op"
+                           type="submit">
+                            Check this Book
                         </a>
                     </div>
                 </div>
-
-            </li>
-        </ul>
-    </div>
+                </li>
+            </ul>
+        </div>
 </div>
+
+
+

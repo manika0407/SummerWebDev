@@ -34,17 +34,17 @@
     <h1 class="text-center">Seller's Introduction</h1>
 
 
-    <div>
-        <h3 style="color: #eea236">Seller: {{model.book._user.username}}</h3>
-    </div>
+       <div>
+           <h3 style="color: #eea236">Seller: {{model.book._user.username}}</h3>
+       </div>
 
     <div>
         <h3 style="color: #eea236">Seller's Venmo: {{model.book._user.venmo}}</h3>
     </div>
-    <div style="color: #d43f3a">
-        <h3>Seller's Description:</h3>
-    </div>
-    <p class="col-xs-12">{{model.book.description}}</p>
+        <div style="color: #d43f3a">
+            <h3>Seller's Description:</h3>
+        </div>
+        <p class="col-xs-12">{{model.book.description}}</p>
     <div>
         <h3 style="color: #eea236">Price: {{model.book.price}}</h3>
     </div>
@@ -55,27 +55,27 @@
 
 
 
-<div class="container-fluid">
-    <h1 class="text-center">Google Book Information</h1>
+    <div class="container-fluid">
+        <h1 class="text-center">Google Book Information</h1>
 
 
-    <div>
-        <h3 style="color: #eea236">Title: {{model.item.title}}</h3>
-    </div>
+        <div>
+            <h3 style="color: #eea236">Title: {{model.item.title}}</h3>
+        </div>
 
 
-    <div style="color: #d43f3a">
-        <h3>Description:</h3>
-    </div>
-    <p class="col-xs-12">{{model.item.description}}</p>
-    <div>
-        <h3 style="color: #eea236">ISBN: {{model.book.isbn}}</h3>
-    </div>
-    <div><h3 style="color: #d43f3a">Authors:</h3>
-        <p ng-repeat="author in model.item.authors">{{author}}</p>
-        &nbsp;
-    </div>
+        <div style="color: #d43f3a">
+            <h3>Description:</h3>
+        </div>
+        <p class="col-xs-12">{{model.item.description}}</p>
+        <div>
+            <h3 style="color: #eea236">ISBN: {{model.book.isbn}}</h3>
+        </div>
+        <div><h3 style="color: #d43f3a">Authors:</h3>
+            <p ng-repeat="author in model.item.authors">{{author}}</p>
+                &nbsp;
+        </div>
 
-</div>
+        </div>
 
 

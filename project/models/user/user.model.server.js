@@ -1,6 +1,3 @@
-/**
- * Created by manika on 7/25/17.
- */
 
 var mongoose = require('mongoose');
 
@@ -58,16 +55,16 @@ function findBuyerForOrderAdmin(userId) {
 
 function findBuyer(userId) {
     return userModel.findById(userId)
-        .populate('follows')
-        .exec();
+                    .populate('follows')
+                    .exec();
 }
 
 
 function userBookUpdate(newUser, oldUser, bookId) {
     return userModel.update({username: newUser}, {$push: {books: bookId}})
-        .then(function (status) {
-            return userModel.update({username: oldUser}, {$pull: {books: bookId}});
-        })
+                    .then(function (status) {
+                       return userModel.update({username: oldUser}, {$pull: {books: bookId}});
+                    })
 }
 
 
@@ -86,7 +83,7 @@ function followSeller(userId, sellerId) {
 function findFollowSellerById(userId, sellerId) {
 
     return userModel
-        .findOne({follows: sellerId, _id:userId});
+             .findOne({follows: sellerId, _id:userId});
 
 
 }
@@ -140,8 +137,8 @@ function addBook(userId, bookId) {
     return userModel
         .findUserById(userId)
         .then(function (user) {
-            user.books.push(bookId);
-            return user.save();
+           user.books.push(bookId);
+           return user.save();
         });
 }
 
@@ -153,7 +150,7 @@ function createUser(user) {
     } else {
         user.roles = ['BUYER'];
     }
-    return userModel.create(user);
+        return userModel.create(user);
 
 
 }

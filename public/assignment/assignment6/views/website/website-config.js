@@ -8,7 +8,7 @@
 
     function configuration($routeProvider){
         $routeProvider
-            .when('/user/:userId/website',{
+            .when('/website',{
                 templateUrl: 'views/website/templates/website-list.view.client.html',
                 controller:'websiteListController',
                 controllerAs: 'model',
@@ -16,7 +16,7 @@
                     currentUser:checkLoggedIn
                 }
             })
-            .when('/user/:userId/website/new',{
+            .when('/website/new',{
                 templateUrl: 'views/website/templates/website-new.view.client.html',
                 controller: 'websiteNewController',
                 controllerAs: 'model',
@@ -24,7 +24,7 @@
                     currentUser:checkLoggedIn
                 }
             })
-            .when('/user/:userId/website/:websiteId',{
+            .when('/website/:websiteId',{
                 templateUrl: 'views/website/templates/website-edit.view.client.html',
                 controller: 'websiteEditController',
                 controllerAs: 'model',

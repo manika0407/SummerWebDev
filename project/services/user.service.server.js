@@ -18,7 +18,7 @@ passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
 app.get('/api/project/user/:userId', findUserById);
 app.get    ('/api/project/user', findUser);
-app.get    ('/api/project/user', isAdmin, findAllUsers);
+app.get    ('/api/project/users', isAdmin, findAllUsers);
 app.post('/api/project/user',isAdmin, createUser);
 app.put('/api/project/user/:userId', updateUser);
 app.delete('/api/project/user/:userId', isAdmin, deleteUser);
@@ -38,9 +38,6 @@ app.get('/api/project/admin/seller/order/:userId', findSellerForOrderAdmin);
 
 
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile','email'] }));
-//from client to facebook
-
-//coming back from facebook
 
 app.get('/auth/google/callback',
     passport.authenticate('google', {
@@ -86,9 +83,6 @@ function googleStrategy(token, refreshToken, profile, done) {
             }
         );
 }
-
-
-
 
 
 
@@ -209,18 +203,18 @@ function register(req, res) {
 
 
 function logout(req, res) {
-    req.logout();
-    res.sendStatus(200);
+     req.logout();
+     res.sendStatus(200);
 }
 
 
 function checkLoggedIn(req, res) {
     // passport function
-    if(req.isAuthenticated()) {
-        res.json(req.user);
-    } else {
-        res.send('0');
-    }
+      if(req.isAuthenticated()) {
+          res.json(req.user);
+      } else {
+          res.send('0');
+      }
 
 }
 
@@ -295,15 +289,15 @@ function createUser(req, res) {
 
     var user = req.body;
     if(user.username){
-        user.created = new Date();
-        userModel
-            .createUser(user)
-            .then(function (user) {
-                res.json(user);
+    user.created = new Date();
+    userModel
+        .createUser(user)
+        .then(function (user) {
+            res.json(user);
 
-            }, function (err) {
-                res.send(err);
-            });} else {
+        }, function (err) {
+            res.send(err);
+        });} else {
         res.sendStatus(404);
     }
 }

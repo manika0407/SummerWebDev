@@ -7,16 +7,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 <div class="container-fluid">
     <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
 
@@ -47,14 +37,14 @@
                     Password is required
                 </div>
                 <button ng-click="model.login(username, password)"
-                        type="submit"
-                        class="btn btn-primary btn-block">
-                    Login
+                type="submit"
+                class="btn btn-primary btn-block">
+                Login
                 </button>
-                <!--<a href="/auth/google" class="btn btn-primary btn-block">-->
-                    <!--<span class="fa fa-google-plus"></span>-->
-                    <!--Google-->
-                <!--</a>-->
+                <a href="/auth/google" class="btn btn-primary btn-block">
+                    <span class="fa fa-google-plus"></span>
+                    Google
+                </a>
                 <a href="#!/" class="btn btn-danger btn-block">
                     Cancel
                 </a>

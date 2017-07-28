@@ -1,4 +1,6 @@
-<nav class="navbar-navbar-inverse navbar-fixed-top">
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -7,19 +9,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand c1-color-black" href="#">Book Finder</a>
+            <div class="navbar-brand">ReadGood</div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-
-                <li class="active"><a href="#!/" class="c1-color-black">Home</a></li>
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin" class="c1-color-black">Admin</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/login" class="c1-color-black">Login</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/home/books" class="c1-color-black">Books</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register" class="c1-color-black">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile" class="c1-color-black">Profile</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/login" class="c1-color-black">Logout</a></li>
+                <li class="active"><a href="#!/seller/home">Home</a></li>
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/seller/header/books">Books</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/seller">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
             </ul>
-        </div>
+        </div><!--/.nav-collapse -->
     </div>
 </nav>

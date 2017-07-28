@@ -6,13 +6,13 @@
         .module('WebAppMaker')
         .controller('widgetListController',widgetListController);
 
-    function widgetListController($location, widgetService, $routeParams, $sce) {
+    function widgetListController($location, widgetService, $routeParams, $sce, currentUser) {
         var model=this;
-        model.userId=$routeParams.userId;
-        model.websiteId=$routeParams.websiteId;
-        model.pageId=$routeParams.pageId;
-        model.trustThisContent=trustThisContent;
-        model.getYoutubeEmbedUrl=getYoutubeEmbedUrl;
+        model.userId = currentUser._id;
+        model.websiteId = $routeParams.websiteId;
+        model.pageId = $routeParams.pageId;
+        model.trustThisContent = trustThisContent;
+        model.getYoutubeEmbedUrl = getYoutubeEmbedUrl;
 
         function init() {
             widgetService

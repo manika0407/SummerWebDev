@@ -6,7 +6,7 @@
         .module('WebAppMaker')
         .controller('homeController', homeController)
     
-    function homeController(currentUser) {
+    function homeController(currentUser, userService) {
         var model=this;
         model.currentUser = currentUser;
         model.logout = logout;

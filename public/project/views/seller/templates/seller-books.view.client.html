@@ -1,15 +1,12 @@
-
-
-
 <div ng-include="'views/common/header-seller.view.client.html'"></div>
 <div class="container-fluid">
 
-    <table class="table table-striped">
+    <table class="table table-hover table-bordered">
         <thead>
         <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>Edit</th>
+            <th class="text-center">Photo</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Edit</th>
         </tr>
         </thead>
         <tbody>
@@ -18,12 +15,12 @@
             <td>{{book.name}}</td>
             <td>
                 <a href="#!/seller/book/{{book._id}}">
-                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span class="glyphicon glyphicon-pencil color-black"></span>
                 </a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a class="btn btn-block btn-success"
-       ng-click="model.createBook(model.userId)">Add Book</a>
+    <a class="btn btn-block c1-color-black"
+       ng-click="model.createBook(model.userId)"><span class="c1-color-white">Add Book</span></a>
 </div>

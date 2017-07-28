@@ -4,77 +4,77 @@
 
 <div class="container-fluid">
 
-    <div class="testbox">
+<div class="testbox">
         <h1>Registration</h1>
 
         <form action="/">
-            <hr>
-            <hr>
-            <label class="icon" for="username"><i class="glyphicon glyphicon-user"></i></label>
-            <input type="text"
-                   id="username"
-                   name="username"
-                   class="name"
-                   ng-model="username"
-                   ng-class="{submitted:model.submitted1}"
-                   placeholder="Username" required/>
-            <div ng-show="model.error1" class="alert alert-danger">
-                {{model.error1}}</div>
-            <label class="icon" for="password"><i class="glyphicon glyphicon-lock"></i></label>
-            <input type="password"
-                   name="name"
-                   class="name"
-                   id="password"
-                   ng-model="password"
-                   ng-class="{submitted:model.submitted2}"
-                   placeholder="Password" required/>
-            <div ng-show="model.error2" class="alert alert-danger">
-                {{model.error2}}
-            </div>
-            <label class="icon" for="re-enter"><i class="glyphicon glyphicon-lock"></i></label>
-            <input type="password"
-                   name="name"
-                   class="name"
-                   ng-model="password2"
-                   ng-class="{submitted:model.submitted3}"
-                   id="re-enter"
-                   placeholder="Verify Password" required/>
-            <div ng-show="model.error3" class="alert alert-danger">
-                {{model.error3}}
-            </div>
-            <div ng-show="model.error4" class="alert alert-danger">
-                {{model.error4}}
-            </div>
-            <div class="gender">
-                <input type="radio"
-                       value="BUYER"
-                       id="buyer"
-                       ng-model="role"
-                       name="gender" checked />
-                <label for="buyer" class="radio">Buyer</label>
-                <input type="radio"
-                       value="SELLER"
-                       id="seller"
-                       ng-model="role"
-                       ng-class="{submitted:model.submitted4}"
-                       name="gender" />
-                <label for="seller" class="radio">Seller</label>
-                <div ng-show="model.error5" class="alert alert-danger">
-                    {{model.error5}}
+                <hr>
+                <hr>
+                <label class="icon" for="username"><i class="glyphicon glyphicon-user"></i></label>
+                <input type="text"
+                       id="username"
+                       name="username"
+                       class="name"
+                       ng-model="username"
+                       ng-class="{submitted:model.submitted1}"
+                       placeholder="Username" required/>
+                <div ng-show="model.error1" class="alert alert-danger">
+                        {{model.error1}}</div>
+                <label class="icon" for="password"><i class="glyphicon glyphicon-lock"></i></label>
+                <input type="password"
+                       name="name"
+                       class="name"
+                       id="password"
+                       ng-model="password"
+                       ng-class="{submitted:model.submitted2}"
+                       placeholder="Password" required/>
+                <div ng-show="model.error2" class="alert alert-danger">
+                        {{model.error2}}
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-6">
-                    <a ng-click="model.register(username, password, password2, role)"
-                       class="button btn btn-primary btn-block">
-                        Register
-                    </a>
+                <label class="icon" for="re-enter"><i class="glyphicon glyphicon-lock"></i></label>
+                <input type="password"
+                       name="name"
+                       class="name"
+                       ng-model="password2"
+                       ng-class="{submitted:model.submitted3}"
+                       id="re-enter"
+                       placeholder="Verify Password" required/>
+                <div ng-show="model.error3" class="alert alert-danger">
+                        {{model.error3}}
                 </div>
-                <div class="col-xs-6">
-                    <a class="button btn btn-danger  btn-block"
-                       href="#!/login">Cancel</a>
+                <div ng-show="model.error4" class="alert alert-danger">
+                        {{model.error4}}
                 </div>
-            </div>
+                <div class="gender">
+                        <input type="radio"
+                               value="BUYER"
+                               id="buyer"
+                               ng-model="role"
+                               name="gender" checked />
+                        <label for="buyer" class="radio">Buyer</label>
+                        <input type="radio"
+                               value="SELLER"
+                               id="seller"
+                               ng-model="role"
+                               ng-class="{submitted:model.submitted4}"
+                               name="gender" />
+                        <label for="seller" class="radio">Seller</label>
+                        <div ng-show="model.error5" class="alert alert-danger">
+                                {{model.error5}}
+                        </div>
+                </div>
+                <div class="row">
+                   <div class="col-xs-6">
+                <a ng-click="model.register(username, password, password2, role)"
+                class="button btn btn-primary btn-block">
+                Register
+                </a>
+                   </div>
+                        <div class="col-xs-6">
+                <a class="button btn btn-danger  btn-block"
+                href="#!/login">Cancel</a>
+                        </div>
+                </div>
         </form>
-    </div>
+</div>
 </div>

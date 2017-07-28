@@ -5,9 +5,9 @@
     angular
         .module('WebAppMaker')
         .controller('pageNewController',pageNewController);
-    function pageNewController($location, pageService, $routeParams, $route) {
+    function pageNewController($location, pageService, $routeParams, $route, currentUser) {
         var model=this;
-        model.userId=$routeParams.userId;
+        model.userId=currentUser._id;
         model.websiteId=$routeParams.websiteId;
         model.createPage=createPage;
         model.reloadPage=reloadPage;
@@ -33,7 +33,7 @@
             pageService
                 .createPage(model.websiteId, model.newPage)
                 .then(function (newPage) {
-                    $location.url('/user/' + model.userId + '/website/' + model.websiteId + '/page');
+                    $location.url('/website/' + model.websiteId + '/page');
                 })
 
         }

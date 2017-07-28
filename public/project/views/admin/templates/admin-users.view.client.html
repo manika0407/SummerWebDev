@@ -1,0 +1,76 @@
+
+
+<div ng-include="'views/common/header-admin.view.client.html'"></div>
+
+<div class="container-fluid">
+    <h1>Users</h1>
+
+    <ul class="list-group">
+        <li class="list-group-item active">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    Username
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    Email
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    Roles
+                </div>
+                <div class="col-sm-1 col-xs-12">
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <input ng-model="model.user.username"
+                           class="form-control">
+                </div>
+                <div class="col-sm-5 col-xs-12">
+                    <input ng-model="model.user.email"
+                           class="form-control">
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    <input ng-model="model.user.roles"
+                           PLACEHOLDER="SELLER"
+                           class="form-control">
+                </div>
+                <div class="col-sm-1 col-xs-12">
+                    <span ng-click="model.updateUser(model.user);model.user={}"
+                          class="glyphicon glyphicon-ok pull-right">
+                    </span>
+                    <span ng-click="model.createUser(model.user);model.user={}"
+                          class="glyphicon glyphicon-plus pull-right">
+                    </span>
+                </div>
+            </div>
+        </li>
+
+        <li ng-repeat="user in model.users" class="list-group-item">
+            <div class="row">
+                <div class="col-md-4 col-xs-12" style="font-size: 15px">
+                    {{user.username}}
+                </div>
+                <div class="col-md-5 col-xs-12" style="font-size: 15px">
+                    {{user.email}}
+                </div>
+                <div class="col-md-2 col-xs-12" style="font-size: 15px">
+                    {{user.roles}}
+                </div>
+                <div class="col-md-1 col-xs-12">
+                     <span ng-click="model.selectUser(user)"
+                           class="glyphicon glyphicon-pencil pull-right">
+                    </span>
+                    <span ng-click="model.deleteUser(user)"
+                          class="glyphicon glyphicon-remove pull-right">
+                    </span>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+
+
+</div>

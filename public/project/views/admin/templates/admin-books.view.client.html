@@ -1,0 +1,86 @@
+
+
+<div ng-include="'views/common/header-admin.view.client.html'"></div>
+
+<div class="container-fluid">
+    <h1>Books</h1>
+
+    <ul class="list-group">
+        <li class="list-group-item active">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    BookID
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    ISBN
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    Inventory
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    Owner
+                </div>
+                <div class="col-sm-1 col-xs-12">
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    {{model.book._id}}
+                </div>
+                <div class="col-sm-3 col-xs-12">
+                    <input ng-model="model.book.isbn"
+                           class="form-control">
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    <input ng-model="model.book.inventory"
+                           class="form-control"
+                           type="number">
+                </div>
+                <div class="col-sm-2 col-xs-12">
+                    <input ng-model="model.book._user.username"
+                           PLACEHOLDER="SELLER"
+                           class="form-control">
+                </div>
+                <div class="col-sm-1 col-xs-12">
+                    <span ng-click="model.updateBook(model.book);model.book={}"
+                          class="glyphicon glyphicon-ok pull-right">
+                    </span>
+                    <span ng-click="model.createBook(model.book);model.book={}"
+                          class="glyphicon glyphicon-plus pull-right">
+                    </span>
+                </div>
+            </div>
+        </li>
+
+        <li ng-repeat="book in model.books" class="list-group-item">
+            <div class="row">
+                <div class="col-md-4 col-xs-12" style="font-size: 15px">
+                    {{book._id}}
+                </div>
+                <div class="col-md-3 col-xs-12" style="font-size: 15px">
+                    {{book.isbn}}
+                </div>
+                <div class="col-md-2 col-xs-12" style="font-size: 15px">
+                    {{book.inventory}}
+                </div>
+                <div class="col-md-2 col-xs-12" style="font-size: 15px">
+                    {{book._user.username}}
+                </div>
+                <div class="col-md-1 col-xs-12">
+                     <span ng-click="model.selectBook(book)"
+                           class="glyphicon glyphicon-pencil pull-right">
+                    </span>
+                    <span ng-click="model.deleteBook(book)"
+                          class="glyphicon glyphicon-remove pull-right">
+                    </span>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+
+
+
+</div>

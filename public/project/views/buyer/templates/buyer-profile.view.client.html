@@ -1,89 +1,69 @@
 
-<style>
-    .btn.btn-embossed {
-        color: #fff;
-        background-color: lightgreen;
-        font-size: 70%;
-        -webkit-box-shadow: 0 3px rgba(58,87,175,.75);
-        -moz-box-shadow: 0 3px rgba(58,87,175,.75);
-        box-shadow: 0 3px rgba(58,87,175,.75);
-        margin-bottom: 5px;
-    }
-    form {
-        border: ridge;
-        border-color: whitesmoke;
-    }
-    .text-center {
-        text-align: center;
-        color: #265a88;
-    }
 
-
-</style>
-
+<link href="../../../../project/css/profile-style.css" rel="stylesheet">
 <div ng-include="'views/common/header-buyer.view.client.html'"></div>
 <div class="row">
-    <div class="btn-group-vertical col-xs-4 col-md-2" role="group" aria-label="...">
-        <a class="btn btn-embossed" href="#!/profile/buyer">
-            <span class="glyphicon glyphicon-user"></span><br>
-            Profile
-        </a>
-        <a class="btn btn-embossed" href="#!/buyer/following">
-            <span class="glyphicon glyphicon-thumbs-up"></span><br>
-            Following
-        </a>
-        <a class="btn btn-embossed" href="#!/buyer/orders">
-            <span class="glyphicon glyphicon-star"></span><br>
-            Oders
-        </a>
-    </div>
-    <div class="container-fluid col-xs-8 col-md-10">
+<div class="btn-group-vertical col-xs-4 col-md-2" role="group" aria-label="...">
+    <a class="btn btn-embossed" href="#!/profile/buyer">
+        <span class="glyphicon glyphicon-user"></span><br>
+        Profile
+    </a>
+    <a class="btn btn-embossed" href="#!/buyer/following">
+        <span class="glyphicon glyphicon-thumbs-up"></span><br>
+       Following
+    </a>
+    <a class="btn btn-embossed" href="#!/buyer/orders">
+        <span class="glyphicon glyphicon-star"></span><br>
+        Orders
+    </a>
+</div>
+<div class="container-fluid col-xs-8 col-md-10">
 
-        <form>
-            <h1 class="text-center">Profile</h1>
-            <div style="padding: 5px">
-                <div class="form-group">
-                    <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
-                    <label for="username">Username</label>
-                    <input ng-model="model.user.username"
-                           type="text"
-                           class="form-control"
-                           id="username"
-                           placeholder="jannunzi">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input ng-model="model.user.email"
-                           type="email"
-                           class="form-control"
-                           id="email"
-                           placeholder="jannunzi@gmail.com">
-                </div>
-                <div class="form-group">
-                    <label for="first-name">First Name</label>
-                    <input ng-model="model.user.firstName"
-                           type="text"
-                           class="form-control"
-                           id="first-name"
-                           placeholder="Jose">
-                </div>
-                <div class="form-group">
-                    <label for="last-name">Last Name</label>
-                    <input ng-model="model.user.lastName"
-                           type="text"
-                           class="form-control"
-                           id="last-name"
-                           placeholder="Annunziato">
-                    <br>
-                    <a class="btn btn-block btn-success"
-                       ng-click="model.updateUser(model.userId, model.user)">Update</a>
-                    <a class="btn btn-block btn-danger"
-                       ng-click="model.unregister()">Unregister</a>
-                    <a class="btn btn-warning  btn-block"
-                       ng-click="model.logout()">Logout</a>
-                </div>
-            </div>
-        </form>
-    </div>
+    <form>
+        <h1 class="text-center">Profile</h1>
+        <div style="padding: 5px">
+        <div class="form-group">
+        <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+            <label for="username"><span class="c1-color-white" >Username</span></label>
+        <input readonly ng-model="model.user.username"
+        type="text"
+        class="form-control"
+        id="username"
+        placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="email"><span class="c1-color-white" >Email address</span></label>
+        <input ng-model="model.user.email"
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="first-name"><span class="c1-color-white" >First Name</span></label>
+        <input ng-model="model.user.firstName"
+        type="text"
+        class="form-control"
+        id="first-name"
+        placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label for="last-name"><span class="c1-color-white" >Last Name</span></label>
+        <input ng-model="model.user.lastName"
+        type="text"
+        class="form-control"
+        id="last-name"
+        placeholder="Last Name">
+            <br>
+            <a class="btn btn-block c1-color-black"
+               ng-click="model.updateUser(model.userId, model.user)"><span class="c1-color-white">Update</span></a>
+            <a class="btn btn-block c1-color-black"
+               ng-click="model.unregister()"><span class="c1-color-white"> Unregister</span></a>
+            <a class="btn btn-block c1-color-black"
+               ng-click="model.logout()"><span class="c1-color-white">Logout</span></a>
+        </div>
+        </div>
+    </form>
+</div>
 </div>
 

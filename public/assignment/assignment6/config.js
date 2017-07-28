@@ -31,7 +31,7 @@
                             currentUser: checkAdmin
                         }
                     })
-                    .when('/admin/user/',{
+                    .when('/admin/users/',{
                         templateUrl: 'views/admin/templates/admin-users.view.client.html',
                         controller: 'adminUserController',
                         controllerAs: 'model',
