@@ -2,32 +2,43 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">-->
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
             <a class="navbar-brand" href="#">Assignment</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#!/">Home</a></li>
-                <li ng-if="model.currentUser.roles.indexOf('ADMIN') >-1"><a href="#!/admin">Admin</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile">Profile</a></li>
-                <li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
+        <!--<div id="navbar" class="navbar-collapse collapse">-->
+            <!--<ul class="nav navbar-nav">-->
+                <!--<li class="active"><a href="#!/">Home</a></li>-->
+                <!--<li ng-if="model.currentUser.roles.indexOf('ADMIN') >-1"><a href="#!/admin">Admin</a></li>-->
+                <!--<li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>-->
+                <!--<li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>-->
+                <!--<li ng-show="model.currentUser._id"><a href="#!/profile">Profile</a></li>-->
+                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
+            <!--</ul>-->
+        <!--</div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
     </div>
 </nav>
 
 <div class="container theme-showcase" role="main">
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-        <h1>Web Development Assignment</h1>
+    <div class="well">
+        <h1 class="text-center">Web Development Assignment</h1>
         <p class="text-center">I use this page to create my assignments for Course CS 5610</p>
     </div>
+        <p class="lead text-center">
+       <a href="#!/admin" ng-if="model.currentUser.roles.indexOf('ADMIN') >-1"class="c1-text-bold btn btn-lg btn-default">Admin</a>
+       <a href="#!/login"  ng-show="!model.currentUser._id" class="c1-text-bold btn btn-lg btn-default">Login</a>
+       <a href="#!/register"  ng-show="!model.currentUser._id" class="c1-text-bold btn btn-lg btn-default">Register</a>
+        <a href="#!/profile" ng-show="model.currentUser._id"class="c1-text-bold btn btn-lg btn-default">Profile</a>
+        <a ng-click="model.logout()" ng-show="model.currentUser._id" class="c1-text-bold btn btn-lg btn-default">Logout</a>
+
+        </p>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <!--<div class="jumbotron">-->
+        <!--<h1>Web Development Assignment</h1>-->
+        <!--<p class="text-center">I use this page to create my assignments for Course CS 5610</p>-->
+    <!--</div>-->
 </div>
