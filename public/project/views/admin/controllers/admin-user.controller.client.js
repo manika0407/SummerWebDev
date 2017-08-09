@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module('BookAppMaker')
+        .module('MyBookApp')
         .controller('adminUsersController', adminUsersController);
 
     function adminUsersController(userService, currentUser,$location, bookService) {
@@ -26,7 +26,6 @@
 
 
         function updateUser(user) {
-            console.log(user);
             userService
                 .updateUser(user._id, user)
                 .then(findAllUsers);

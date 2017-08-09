@@ -1,5 +1,5 @@
 var app = require('../../express');
-var orderModel = require('../models/buyer/order.model.server');
+var orderModel = require('../models/orders/order.model.server');
 
 
 app.get("/api/project/user/:userId/order", findAllOrdersForUser);

@@ -1,7 +1,7 @@
 
 (function () {
       angular
-          .module('BookAppMaker')
+          .module('MyBookApp')
           .controller('profileController', profileController);
 
       function profileController(currentUser, $location, $routeParams, userService) {

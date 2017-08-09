@@ -1,7 +1,7 @@
 
 (function () {
     angular
-        .module('BookAppMaker')
+        .module('MyBookApp')
         .controller('bookInfoController', bookInfoController);
 
     function bookInfoController ($routeParams, bookService, $location, searchService,currentUser, userService,orderService) {
@@ -31,21 +31,21 @@
 
         function createOrder(order, userId, bookId) {
             if (order.venmo === null || order.venmo === '' || typeof order.venmo === 'undefined') {
-                model.error1 = "Venmo is required!";
+                model.error1 = "Venmo is required in order to avail transaction!";
                 model.error2 = null;
                 model.submitted1 = true;
                 return;
             }
             if (order.email === null || order.email === '' || typeof order.email === 'undefined') {
                 model.error1 = null;
-                model.error2 = "Email is required!";
+                model.error2 = "Valid Email required!";
                 model.submitted2 = true;
                 return;
             }
             if (order.quantity === null || order.quantity === '' || typeof order.quantity === 'undefined') {
                 model.error1 = null;
                 model.error2 = null;
-                model.error3 = "Quantity is required!";
+                model.error3 = "Quantity required to place any order!";
                 model.submitted3 = true;
                 return;
             }

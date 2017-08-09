@@ -1,0 +1,100 @@
+
+
+<link rel="stylesheet" href="../../../../project/css/book-edit-view.css">
+
+
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/">
+               ReadGood</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <!--<li class="active"><a href="#!/seller/home">Home</a></li>-->
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/seller/books">Books</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/seller">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
+                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div ng-show="model.message" class="alert alert-info">
+        {{model.message}}</div>
+
+        <u class="c1-color-white">
+        <h1 class="text-center">Sell A Book</h1>
+        </u>
+            <div class="row">
+                <div class="col-lg-4 col-xs-12">
+                <label>ISBN</label>
+                    <input type="text"
+                           class="form-control"
+                           ng-class="{submitted:model.submitted1}"
+                           ng-model="model.book.isbn" placeholder="International Standard Book Number">
+                    <div ng-show="model.error1" class="alert alert-danger">
+                        {{model.error1}}</div>
+            </div>
+
+                <div class="col-lg-4 col-xs-12">
+                    <label>
+                            Inventory
+                        </label>
+                        <input type="text"
+                               class="form-control"
+                               ng-class="{submitted:model.submitted2}"
+                               ng-model="model.book.inventory" placeholder="Copies of Book">
+                        <div ng-show="model.error2" class="alert alert-danger">
+                            {{model.error2}}</div>
+                </div>
+                <div class="col-lg-4 col-xs-12">
+                    <label>Price</label><input type="text" class="form-control"
+                                                 ng-class="{submitted:model.submitted3}"
+                                                 ng-model="model.book.price" placeholder="price at which you are selling">
+                        <div ng-show="model.error3" class="alert alert-danger">
+                            {{model.error3}}</div>
+                </div>
+                </div>
+    <div class="row">
+        <div class="color-white text-center">
+            Description Of Book
+        <textarea class="form-control"
+                  rows="5"
+                  ng-model="model.book.description"></textarea>
+        </div>
+    </div>
+        <br>
+        <center>
+            <a ng-click="model.updateBook(model.bookId,model.book)" class="btn btn-default btn-wide c1-color-black">
+            <span class="color-white">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                Update Book
+            </span>
+            </a>
+            <a ng-click="model.deleteBook(model.bookId)" class="btn btn-default btn-wide c1-color-black">
+                <span class="color-white">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                Delete Book
+                </span>
+            </a>
+        </center>
+        </div>
+</div>
+
+<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>
+

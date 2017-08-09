@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="../../../../project/css/buyer-following.css">
+
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/">
+                ReadGood</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <!--<li class="active"><a href="#!/buyer/home">Home</a></li>-->
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/buyer/books">Search Books</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/buyer">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
+                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+
+<div class="container-fluid">
+    <h1 class="text-center">The sellers that You follow</h1>
+    <ul class="inlineList">
+        <li class="borderlist" ng-repeat="seller in model.sellers">
+            {{seller.firstName}} {{seller.lastName}} ({{seller.username}})<br>
+            <a ng-click="model.unfollowSeller(model.userId, seller._id)"><span class="glyphicon glyphicon-remove" > Unfollow</span></a><br>
+            <a href="#!/books/list/seller/{{seller._id}}"><span class="glyphicon glyphicon-user">Other books of Seller</span> </a>
+        </li>
+
+    </ul>
+</div>
+
+
+<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>

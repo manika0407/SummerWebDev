@@ -1,5 +1,5 @@
 var app = require('../../express');
-var bookModel = require('../models/seller/book.model.server');
+var bookModel = require('../models/books/book.model.server');
 
 
 app.get("/api/project/user/:userId/book", findAllBooksForUser);
@@ -74,7 +74,6 @@ function findBookByName(req, res) {
 
 function findBookByAuthor(req, res) {
     var author = req.query['author'];
-    console.log(33+author);
 
     bookModel
         .findBookByAuthor(author)

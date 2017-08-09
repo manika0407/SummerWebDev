@@ -3,33 +3,33 @@ var mongoose = require('mongoose');
 
 var userSchema = require('./user.schema.server');
 
-var userModel = mongoose.model('UserModel', userSchema);
-// var orderModel = require('../buyer/order.model.server');
+var userProjectModel = mongoose.model('UserProjectModel', userSchema);
 
 
 
-userModel.createUser = createUser;
-userModel.findUserById = findUserById;
-userModel.findAllUsers = findAllUsers;
-userModel.findUserByUsername = findUserByUsername;
-userModel.findUserByCredentials = findUserByCredentials;
-userModel.updateUser = updateUser;
-userModel.deleteUser = deleteUser;
-userModel.addBook = addBook;
-userModel.deleteBook = deleteBook;
-userModel.findUserByGoogleId = findUserByGoogleId;
-userModel.addOrder = addOrder;
-userModel.deleteOrder = deleteOrder;
-userModel.findFollowSellerById = findFollowSellerById;
-userModel.followSeller = followSeller;
-userModel.unfollowSeller = unfollowSeller;
-userModel.createGoogleUser = createGoogleUser;
-userModel.userBookUpdate = userBookUpdate;
-userModel.findBuyer = findBuyer;
-userModel.findBuyerForOrderAdmin = findBuyerForOrderAdmin;
-userModel.findSellerForOrderAdmin = findSellerForOrderAdmin;
+userProjectModel.createUser = createUser;
+userProjectModel.findUserById = findUserById;
+userProjectModel.findAllUsers = findAllUsers;
+userProjectModel.findUserByUsername = findUserByUsername;
+userProjectModel.findUserByCredentials = findUserByCredentials;
+userProjectModel.updateUser = updateUser;
+userProjectModel.deleteUser = deleteUser;
+userProjectModel.addBook = addBook;
+userProjectModel.deleteBook = deleteBook;
+userProjectModel.findUserByGoogleId = findUserByGoogleId;
+userProjectModel.findUserByFacebookId = findUserByFacebookId;
+userProjectModel.addOrder = addOrder;
+userProjectModel.deleteOrder = deleteOrder;
+userProjectModel.findFollowSellerById = findFollowSellerById;
+userProjectModel.followSeller = followSeller;
+userProjectModel.unfollowSeller = unfollowSeller;
+userProjectModel.createGoogleUser = createGoogleUser;
+userProjectModel.userBookUpdate = userBookUpdate;
+userProjectModel.findBuyer = findBuyer;
+userProjectModel.findBuyerForOrderAdmin = findBuyerForOrderAdmin;
+userProjectModel.findSellerForOrderAdmin = findSellerForOrderAdmin;
 
-module.exports = userModel;
+module.exports = userProjectModel;
 
 
 
@@ -37,7 +37,7 @@ module.exports = userModel;
 
 
 function findSellerForOrderAdmin(userId) {
-    return userModel.findById(userId)
+    return userProjectModel.findById(userId)
         .populate('books')
         .exec();
 }
@@ -46,7 +46,7 @@ function findSellerForOrderAdmin(userId) {
 
 
 function findBuyerForOrderAdmin(userId) {
-    return userModel.findById(userId)
+    return userProjectModel.findById(userId)
         .populate('orders')
         .exec();
 }
@@ -54,35 +54,35 @@ function findBuyerForOrderAdmin(userId) {
 
 
 function findBuyer(userId) {
-    return userModel.findById(userId)
+    return userProjectModel.findById(userId)
                     .populate('follows')
                     .exec();
 }
 
 
 function userBookUpdate(newUser, oldUser, bookId) {
-    return userModel.update({username: newUser}, {$push: {books: bookId}})
+    return userProjectModel.update({username: newUser}, {$push: {books: bookId}})
                     .then(function (status) {
-                       return userModel.update({username: oldUser}, {$pull: {books: bookId}});
+                       return userProjectModel.update({username: oldUser}, {$pull: {books: bookId}});
                     })
 }
 
 
 function unfollowSeller(userId, sellerId) {
-    return userModel.update({_id: userId}, {$pull: {follows: sellerId}});
+    return userProjectModel.update({_id: userId}, {$pull: {follows: sellerId}});
 }
 
 
 
 function followSeller(userId, sellerId) {
-    return userModel.update({_id: userId}, {$push: {follows: sellerId}});
+    return userProjectModel.update({_id: userId}, {$push: {follows: sellerId}});
 }
 
 
 
 function findFollowSellerById(userId, sellerId) {
 
-    return userModel
+    return userProjectModel
              .findOne({follows: sellerId, _id:userId});
 
 
@@ -90,7 +90,7 @@ function findFollowSellerById(userId, sellerId) {
 
 
 function deleteOrder(orderId) {
-    return userModel
+    return userProjectModel
         .findOne({orders: orderId})
         .then(function (user) {
             var index = user.orders.indexOf(orderId);
@@ -102,7 +102,7 @@ function deleteOrder(orderId) {
 
 
 function addOrder(userId, orderId) {
-    return userModel
+    return userProjectModel
         .findUserById(userId)
         .then(function (user) {
             user.orders.push(orderId);
@@ -116,13 +116,17 @@ function addOrder(userId, orderId) {
 
 
 function findUserByGoogleId(googleId) {
-    console.log(googleId);
-    return userModel.findOne({'google.id': googleId});
+    return userProjectModel.findOne({'google.id': googleId});
+}
+
+function findUserByFacebookId(facebookId) {
+    return userProjectModel.findOne({'facebook.id': facebookId});
+
 }
 
 
 function deleteBook(bookId) {
-    return userModel
+    return userProjectModel
         .findOne({books:bookId})
         .then(function (user) {
             var index = user.books.indexOf(bookId);
@@ -134,7 +138,7 @@ function deleteBook(bookId) {
 
 
 function addBook(userId, bookId) {
-    return userModel
+    return userProjectModel
         .findUserById(userId)
         .then(function (user) {
            user.books.push(bookId);
@@ -150,31 +154,31 @@ function createUser(user) {
     } else {
         user.roles = ['BUYER'];
     }
-        return userModel.create(user);
+        return userProjectModel.create(user);
 
 
 }
 function createGoogleUser(user) {
     user.roles = 'BUYER';
-    return userModel.create(user);
+    return userProjectModel.create(user);
 
 
 }
 
 function findUserById(userId) {
-    return userModel.findById(userId);
+    return userProjectModel.findById(userId);
 }
 
 function findAllUsers() {
-    return userModel.find();
+    return userProjectModel.find();
 }
 
 function findUserByUsername(username) {
-    return userModel.findOne({username: username});
+    return userProjectModel.findOne({username: username});
 }
 
 function findUserByCredentials(username, password) {
-    return userModel.findOne({username: username});
+    return userProjectModel.findOne({username: username});
 }
 
 function updateUser(userId, newUser) {
@@ -184,10 +188,10 @@ function updateUser(userId, newUser) {
     if(typeof newUser.roles === 'string'){
         newUser.roles = newUser.roles.split(',');
     }
-    return userModel.update({_id: userId}, {$set: newUser});
+    return userProjectModel.update({_id: userId}, {$set: newUser});
 }
 
 function deleteUser(userId) {
-    return userModel.remove({_id: userId});
+    return userProjectModel.remove({_id: userId});
 
 }

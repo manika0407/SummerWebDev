@@ -19,7 +19,7 @@ var userSchema = mongoose.Schema({
     websites: [{type: mongoose.Schema.Types.ObjectId, ref: "WebsiteModel"}],
     dateCreated: {type: Date, default: Date.now()}
 
-}, {collection: "user"});
+}, {collection: "ProjectUser"});
 
 
 // Anybody who require this file is gonna get this instance

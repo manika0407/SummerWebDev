@@ -1,0 +1,21 @@
+body{
+    background: url("../../pictures/banner-bg.jpg")
+}
+h1, h3,p, u,h2 {
+    color: white;
+}
+p{
+    text-align: justify;
+}
+li#special{
+    background-color: black;
+}
+
+
+.width{
+    width: 77%
+}
+
+.red-color{
+    color: red;
+}

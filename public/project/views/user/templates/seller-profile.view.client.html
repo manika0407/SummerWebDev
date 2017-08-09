@@ -1,0 +1,97 @@
+
+
+<link href="../../../../project/css/profile-style.css" rel="stylesheet">
+
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/">ReadGood</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav pull-right">
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/seller/books">Books</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/seller">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-md-2 hidden-xs"></div>
+<div class="container-fluid col-xs-12 col-md-10">
+
+    <form>
+        <h1 class="text-center c1-color-white">Profile-Seller</h1>
+        <div style="padding: 5px">
+        <div class="form-group">
+        <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+            <label for="username"><span class="c1-color-white" >Username</span></label>
+        <input readonly ng-model="model.user.username"
+        type="text"
+        class="form-control"
+        id="username"
+        placeholder="User name">
+        </div>
+        <div class="form-group">
+            <label for="email"><span class="c1-color-white" >Email address</span></label>
+        <input ng-model="model.user.email"
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Email">
+        </div>
+            <label for="venmo"><span class="c1-color-white" >Venmo Payment ID</span></label>
+            <input ng-model="model.user.venmo"
+                   type="text"
+                   class="form-control"
+                   id="venmo"
+                   placeholder="venmo account">
+        </div>
+        <div class="form-group">
+            <label for="first-name"><span class="c1-color-white" >First Name</span></label>
+        <input ng-model="model.user.firstName"
+        type="text"
+        class="form-control"
+        id="first-name"
+        placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label for="last-name"><span class="c1-color-white" >Last Name</span></label>
+        <input ng-model="model.user.lastName"
+        type="text"
+        class="form-control"
+        id="last-name"
+        placeholder="LastName">
+            <br>
+            <a class="btn btn-block c1-color-black" href="#!/seller/books">
+                <span class="c1-color-white glyphicon glyphicon-book"><br>
+                Uploaded Books
+                     </span>
+            </a>
+            <a class="btn btn-block c1-color-black"  href="#!/seller/orders">
+                <span class="glyphicon glyphicon-shopping-cart c1-color-white"><br>
+                Recieved Orders</span>
+            </a>
+        <a class="btn btn-block c1-color-black"
+           ng-click="model.updateUser(model.userId, model.user)"><span class="c1-color-white">Update</span></a>
+        <a class="btn btn-block c1-color-black"
+           ng-click="model.unregister()"><span class="c1-color-white"> Unregister</span></a>
+        <a class="btn btn-block c1-color-black"
+           ng-click="model.logout()"><span class="c1-color-white">Logout</span></a>
+        </div>
+    </form>
+</div>
+</div>
+</div>
+
+<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>

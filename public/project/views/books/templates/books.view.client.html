@@ -1,0 +1,100 @@
+<link rel="stylesheet" href="../../../../project/css/seller-book-info.css">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/">
+                ReadGood</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                <!--<li class="active"><a href="#!/">Home</a></li>-->
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="!model.currentUser._id"><a ng-click="model.init()">Search Books</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile">Profile</a></li>
+                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div ng-show="model.message" class="alert alert-info">
+        {{model.message}}
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-md-2 hidden-xs">
+
+        </div>
+        <div class="col-lg-10 col-md-2 col-xs-12">
+            <div class="col-lg-2">
+                <select ng-model="selectedType" ng-init="selectedType = 'Name'"
+                        class="width">
+                    <option value="Name">Name</option>
+                    <option value="Author">Author</option>
+                    <option value="ISBN">ISBN</option>
+                </select>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-label="..." ng-model="searchText">
+                    <span class="input-group-btn">
+                   <a ng-click="model.searchBook(selectedType, searchText)"
+                      class="btn btn-default form-control"
+                      type="button">
+                   <span class="glyphicon glyphicon-search"></span>
+                   </a>
+                </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<br>
+<p class="text-center">Liking any of these books? Buy at reasonable prices by <a class="c1-color-white"
+                                                                                 href="#!/register"><u>Registering</u></a> on our website
+</p>
+
+
+<div id="content" class="container-fluid">
+
+
+    <div>
+        <ul class="inlineList">
+
+            <li id="special" ng-repeat="book in model.books">
+                <div>
+                    <a href="#!/buyer/books/{{book._id}}" ><img src="{{book.photo}}" width="350" height="350"></a>
+                    <p class="text-center wordwrap">{{book.name}}</p>
+                    <p class="text-center"> Posted By: {{book._user.username}}</p>
+                </div>
+                <div class="text-center red-color"> {{book.price}}</div>
+
+
+                <a href="#!/buyer/books/{{book._id}}"
+                   class="form-submit btn btn-success form-submit center-block"
+                   id="edit-add-to-cart"
+                   name="op"
+                   type="submit">
+                    Check this Book
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>
+
+

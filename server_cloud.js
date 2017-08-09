@@ -31,6 +31,6 @@ app.listen(port);
 require("./assignment/assignment4/app.js")(app);
 //require("./assignment/assignment5/app");
 require("./assignment/assignment6/app");
-//require("./project/app");
+require("./project/app");
 
 console.log("hello world! Listening from "+port);

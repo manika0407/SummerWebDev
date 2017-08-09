@@ -9,6 +9,10 @@
     background-position: center;
 }
 
+body{
+    font-family: "Roboto", sans-serif;
+}
+
 .home > h1{
     /*color: white;*/
     /*position: fixed;*/
@@ -25,17 +29,23 @@
 
 }
 
-h3.title {
-    color: #c9302c;
+.top-margin{
+    margin-top: 10px;
 }
+
+/*h3.title {*/
+    /*color: #c9302c;*/
+/*}*/
 h3.price {
-    color: gold;
+    color: red;
 }
 body{
     padding-top: 51px;
     height: 100vh;
 }
-
+.wrapper{
+    text-align: center;
+}
 div.row{
     margin-left: 20px;
     margin-right: 50px;
@@ -83,15 +93,46 @@ a.hover{
 .color-black{
     color: black;
 }
+.color-white{
+    color: white;
+}
 .inlineList li {
+    display: inline-block;
+    margin: 40px;
+    padding-bottom: 10px;
+}
+.smallList li{
     display: inline-block;
     margin: 10px;
 }
-.crop{
-    overflow:hidden;
-    white-space:nowrap;
-    text-overflow:ellipsis;
-    width:100%;
+.wordwrap{
+    width: 350px;
+    word-wrap: break-word;
+}
+
+.font-family{
+    font-family: Georgia, serif;
+}
+.black-link{
+    color: #000;
+}
+nav.navbar.navbar-default.navbar-fixed-top {
+    /*padding-right: 0px;*/
+    /*background-color: black;*/
+    /*background: black;*/
+    background-color: transparent;
+    background: rgba(255, 255, 255, 0.4);
+    border-color: transparent;
+}
+.alert-info {
+    color: black;
+    background-color: white;
+    border-color: blue;
+    text-align: center;
+}
+
+.top-state{
+    margin-top: 20px;
 }
 /*user*/
 

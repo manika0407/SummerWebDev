@@ -1,0 +1,115 @@
+
+<link rel="stylesheet" href="../../../../project/css/buyer-orders-view.css">
+
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/">
+               ReadGood</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <!--<li class="active"><a href="#!/buyer/home">Home</a></li>-->
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/buyer/books">Search Books</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/buyer">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
+                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+<!--<div class="container-fluid" >-->
+
+    <!--<div style="margin-top: 5px" ng-show="model.message" class="alert alert-info">-->
+        <!--{{model.message}}-->
+    <!--</div>-->
+    <!--<table class="table table-striped">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th class="hidden-xs">Photo</th>-->
+            <!--<th>Name</th>-->
+            <!--<th>Seller</th>-->
+            <!--<th>Quantity</th>-->
+            <!--<th></th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr ng-repeat="order in model.orders">-->
+            <!--<td class="hidden-xs"><img src="{{order.photo}}" alt="book cover" width="100" height="100"></td>-->
+            <!--<td>{{order.name}}</td>-->
+            <!--<td>{{order.seller}}</td>-->
+            <!--<td>{{order.quantity}}</td>-->
+
+            <!--<td>-->
+
+                <!--<div ng-show="order.request&&!order.reject" style="margin-right: 30px" class="pull-right">-->
+                    <!--<h3>Pending-->
+                    <!--</h3>-->
+                <!--</div>-->
+                <!--<div ng-show="!order.request&&!order.reject"  class="pull-right">-->
+                    <!--<h3>Shipping</h3>-->
+                    <!--<div class="divider-silver"></div>-->
+                    <!--<a class="hover" ng-click="model.deleteBothOrder(order._id, order.sorderId)">Received</a>-->
+                <!--</div>-->
+                <!--<div ng-show="order.reject"  class="pull-right">-->
+                    <!--<h3>Rejected</h3>-->
+                    <!--<div class="divider-silver"></div>-->
+                    <!--<a class="hover" ng-click="model.deleteOrder(order._id)">Delete</a>-->
+                <!--</div>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+
+<!--</div>-->
+
+<div class="container-fluid">
+    <div style="margin-top: 5px" ng-show="model.message" class="alert alert-info">
+        {{model.message}}
+    </div>
+
+    <div ng-repeat="order in model.orders">
+        <div class="row">
+            <div class="col-md-2 hidden-xs">
+                <img src="{{order.photo}}" class="pull-right">
+            </div>
+            <div class="col-md-8 col-xs-6">
+                <u><h3>{{order.name}}</h3></u>
+                sold By: {{order.seller}}<br>
+                You have ordered {{order.quantity}} copies of this Book.
+            </div>
+            <div class="col-md-2 col-xs-6">
+                <div ng-show="order.request&&!order.reject" style="margin-right: 30px" class="pull-right">
+                    <h3>Pending
+                    </h3>
+                </div>
+                <div ng-show="!order.request&&!order.reject"  class="pull-right">
+                    <h4>Shipping</h4>
+                    <div class="divider-silver"></div>
+                    <a class="btn btn-embossed" ng-click="model.deleteBothOrder(order._id, order.sorderId)">Received</a>
+                </div>
+                <div ng-show="order.reject"  class="pull-right">
+                    <h4>Rejected</h4>
+                    <div class="divider-silver"></div>
+                    <a class="btn btn-embossed btn-wide" ng-click="model.deleteOrder(order._id)">Delete</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>

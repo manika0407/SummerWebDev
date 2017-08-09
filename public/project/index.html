@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="BookAppMaker">
+<html lang="en" ng-app="MyBookApp">
 <head>
-    <!--the first three need to be in this order-->
     <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="../vendor/jquery/jquery-ui.min.js"></script>
     <script src="../vendor/jquery/jquery.ui.touch-punch.min.js"></script>
@@ -13,6 +12,9 @@
     <script src="../vendor/angular/angular.1.6.2.js"></script>
     <script src="app.js"></script>
     <script src="config.js"></script>
+    <script src="views/admin/admin-config.js"></script>
+    <script src="views/user/user-config.js"></script>
+    <script src="views/books/book-config.js"></script>
 
 
 
@@ -23,37 +25,37 @@
     <script src="views/user/controllers/login.controller.view.js"></script>
     <script src="views/user/controllers/register.controller.view.js"></script>
     <script src="views/user/controllers/profile.controller.view.js"></script>
-    <script src="services/user.service.client.js"></script>
-
+    <script src="views/user/controllers/seller-books.controller.view.js"></script>
+    <script src="views/user/controllers/book-edit.controller.view.js"></script>
+    <script src="views/user/controllers/seller-orders.controller.view.js"></script>
+    <script src="views/user/controllers/seller-orders-message.controller.view.js"></script>
+    <script src="views/user/controllers/buyer-orders.controller.view.js"></script>
+    <script src="views/user/controllers/buyer-following.controller.view.js"></script>
 
     <!--home-->
     <script src="views/home/controllers/operationhome.controller.client.js"></script>
     <script src="views/home/controllers/main.controller.client.js"></script>
-    <script src="services/home.service.client.js"></script>
     <script src="views/home/controllers/search.controller.client.js"></script>
-    <script src="services/search.service.client.js"></script>
-   <!--admin-->
+
+    <!--admin-->
     <script src="views/admin/controllers/admin-user.controller.client.js"></script>
     <script src="views/admin/controllers/admin-book.controller.client.js"></script>
     <script src="views/admin/controllers/admin-following.controller.client.js"></script>
     <script src="views/admin/controllers/admin-order.controller.client.js"></script>
 
-
-    <!--seller-->
-    <script src="views/seller/controllers/seller-books.controller.view.js"></script>
-    <script src="views/seller/controllers/book-edit.controller.view.js"></script>
-    <script src="views/seller/controllers/seller-orders.controller.view.js"></script>
-    <script src="views/seller/controllers/seller-orders-message.controller.view.js"></script>
-    <script src="services/book.service.client.js"></script>
-    <!--buyer-->
-    <script src="services/order.service.client.js"></script>
-    <script src="views/buyer/controllers/buyer-orders.controller.view.js"></script>
-    <script src="views/buyer/controllers/buyer-following.controller.view.js"></script>
-
     <!--books-->
     <script src="views/books/controllers/books.controller.view.js"></script>
     <script src="views/books/controllers/book-info.controller.view.js"></script>
-    <script src="views/buyer/controllers/buyer-seller-books.controller.view.js"></script>
+    <script src="views/user/controllers/buyer-seller-books.controller.view.js"></script>
+
+    <!-- Services -->
+    <script src="services/user.service.client.js"></script>
+    <script src="services/search.service.client.js"></script>
+    <script src="services/book.service.client.js"></script>
+    <script src="services/order.service.client.js"></script>
+
+
+
     <!-- directives -->
 
 
@@ -65,7 +67,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Project</title>
+    <title>ReadGood</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Bootstrap core CSS -->
     <!--<link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
@@ -73,6 +75,9 @@
     <link href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="vendor/bootstrap/theme.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/landing-page.css" rel="stylesheet">
+
     <link href="css/style.css" rel="stylesheet"/>
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>

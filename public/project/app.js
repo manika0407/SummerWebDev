@@ -1,7 +1,7 @@
 
 (function () {
       angular
-          .module('BookAppMaker', ['ngRoute'])
+          .module('MyBookApp', ['ngRoute'])
 
 
 })();

@@ -1,33 +1,27 @@
 (function () {
     angular
-        .module('BookAppMaker')
+        .module('MyBookApp')
         .service('bookService', bookService);
 
     function bookService($http) {
-        // any other function that is not tied to 'this' is private function
-        // only tied to 'this' can be publicly used outside
-        this.findAllBooksForUser = findAllBooksForUser;
-        this.findBookById = findBookById;
-        this.deleteBook = deleteBook;
-        this.createBook = createBook;
-        this.updateBook = updateBook;
-        this.findAllBooks = findAllBooks;
-        this.findBookByISBN = findBookByISBN;
-        this.findBookByAuthor = findBookByAuthor;
-        this.findBookByName = findBookByName;
-        this.updateInventory = updateInventory;
-        this.adminDelete = adminDelete;
-        this.adminUpdate = adminUpdate;
 
+        var api= {
 
+        findAllBooksForUser: findAllBooksForUser,
+        findBookById: findBookById,
+        deleteBook: deleteBook,
+        createBook: createBook,
+        updateBook: updateBook,
+        findAllBooks: findAllBooks,
+        findBookByISBN: findBookByISBN,
+        findBookByName : findBookByName,
+        findBookByAuthor : findBookByAuthor,
+        updateInventory : updateInventory,
+        adminDelete : adminDelete,
+        adminUpdate : adminUpdate
+    };
 
-
-
-
-
-
-
-
+    return api;
 
         function adminUpdate(bookId, book) {
             var url = "/api/project/admin/book/" + bookId;

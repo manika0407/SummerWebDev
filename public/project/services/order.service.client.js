@@ -1,21 +1,23 @@
 (function () {
     angular
-        .module('BookAppMaker')
+        .module('MyBookApp')
         .service('orderService', orderService);
 
     function orderService($http) {
-        // any other function that is not tied to 'this' is private function
-        // only tied to 'this' can be publicly used outside
-        this.findAllOrdersForUser = findAllOrdersForUser;
-        this.findOrderById = findOrderById;
-        this.deleteOrder = deleteOrder;
-        this.createOrder = createOrder;
-        this.updateOrder = updateOrder;
-        this.findAllOrders = findAllOrders;
-        this.acceptOrder = acceptOrder;
-        this.updateBuyerOrder = updateBuyerOrder;
-        this.updateBOrder = updateBOrder;
 
+        var api= {
+        findAllOrdersForUser : findAllOrdersForUser,
+        findOrderById : findOrderById,
+        deleteOrder : deleteOrder,
+        createOrder : createOrder,
+        updateOrder : updateOrder,
+        findAllOrders : findAllOrders,
+        acceptOrder : acceptOrder,
+        updateBuyerOrder : updateBuyerOrder,
+        updateBOrder : updateBOrder,
+    }
+
+    return api;
 
 
 

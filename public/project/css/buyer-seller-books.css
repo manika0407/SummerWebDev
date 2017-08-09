@@ -1,0 +1,17 @@
+body {
+    background:url("../../pictures/banner-bg.jpg");
+    overflow-x: hidden;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+label, h1,span,h3, p {
+    color: white;
+}
+
+li#special{
+    background-color: black;
+}
+
+.background-white{
+    background-color: white;
+}

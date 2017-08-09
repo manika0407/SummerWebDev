@@ -1,0 +1,190 @@
+
+<link rel="stylesheet" href="../../../../project/css/home.css">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/">
+                ReadGood</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                <!--<li class="active"><a href="#!/">Home</a></li>-->
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/home/books">Search Books</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li><a ng-if="model.currentUser.roles.indexOf('SELLER')>-1" href="#!/profile/seller">Profile</a></li>
+                <li><a ng-if="model.currentUser.roles.indexOf('Buyer')>-1" href="#!/profile/seller">Profile</a></li>
+
+
+
+                <!--<li ng-show="model.currentUser._id">Logged in as {{model.currentUser.username}}</li>-->
+
+                <li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+
+<div  class="container-fluid">
+<div class="text-center color-white">Welcome to ReadGood</div>
+
+    <div class="top-margin-big">
+        <img class="mySlides" src="../../../../pictures/slideshow1book.jpg" width="100%" height="400">
+        <img class="mySlides" src="../../../../pictures/slideshow2book.jpg" width="100%" height="400">
+        <img class="mySlides" src="../../../../pictures/slideshow3book.jpg" width="100%" height="400">
+        <img class="mySlides" src="../../../../pictures/slideshow4book.jpg" width="100%" height="400">
+    </div>
+    <a class="btn btn-lg btn-primary btn-block top-margin" href="#!/home/books">Search and Buy Books at a Reasonable Price !!</a>
+
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}
+            x[myIndex-1].style.display = "block";
+            setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+    </script>
+</div>
+
+
+
+<div class="guide-features pad">
+    <div class="container">
+        <h1 class="text-center color-white">Why Choose Us:</h1>
+        <div class="content-section-a">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Good price for books</h2>
+                        <p class="lead">This is a good place to buy books with pretty good price if you don't mind second hand books.</p>
+                    </div>
+                    <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                        <!--<img class="img-responsive" src="../../../../project/image/shopping.png" alt="">-->
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /.content-section-a -->
+
+        <div class="content-section-b">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading color-white">Good place to sell second hand books</h2>
+                        <p class="lead color-white">Are the piles of books annoying when you are moving? Or you wanna resource recycling, and get win-win results with your buyers</p>
+                    </div>
+                    <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                        <!--<img class="img-responsive" src="../../../../project/image/dollar.jpg" alt="">-->
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <div class="content-section-a">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                        <hr class="section-heading-spacer">
+                        <div class="clearfix"></div>
+                        <h2 class="section-heading">Follow sellers you like as buyer</h2>
+                        <p class="lead">Our sellers provide a diversity of good books, and some of them may share common interest with you,
+                            sell the types of books you like, follow them immediately on ReadGood!!</p>
+                    </div>
+                    <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                        <!--<img class="img-responsive" src="../../../../project/image/book.png" alt="">-->
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+    </div>
+
+    <!--<div class="banner">-->
+
+        <!--<div class="container">-->
+
+            <!--<div class="row">-->
+                <!--<div class="col-lg-6">-->
+                    <!--<h2>Connect to Us:</h2>-->
+                <!--</div>-->
+                <!--<div class="col-lg-6">-->
+                    <!--<ul class="list-inline banner-social-buttons">-->
+                        <!--&lt;!&ndash;<li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                        <!--<li>-->
+                            <!--<a href="https://github.com/manika0407/SummerWebDev" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="https://www.facebook.com/manika.ranjan" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--&lt;!&ndash; /.container &ndash;&gt;-->
+
+    <!--</div>-->
+
+        <!--<footer>-->
+            <!--<div class="container">-->
+                <!--<div class="row">-->
+                    <!--<div class="col-lg-12">-->
+
+                        <!--<p class="copyright text-muted small">Copyright &copy; Manika Sharma. All Rights Reserved</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</footer>-->
+
+<!--<div class="color-white">-->
+    <!--<div class="row">-->
+        <!--<p class="col-md-6">-->
+    <!--Love reading books? But can't due to the hefty prices of books available in Market. Don't Worry. We have your back. Make an account at ReadGood-->
+    <!--and buy books at a reasonable price that wont be too heavy on your pocket. We promise.-->
+        <!--</p>-->
+        <!--<p class="col-md-6">-->
+            <!--Moving to a another place and have a lump of books at your home that you want to get rid of? Make an account at ReadGood and sell those-->
+            <!--items to many interested buyers.-->
+        <!--</p>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+
+

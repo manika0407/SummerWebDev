@@ -1,7 +1,7 @@
 
 (function () {
     angular
-        .module('BookAppMaker')
+        .module('MyBookApp')
         .controller('adminFollowingController', adminFollowingController);
 
     function adminFollowingController(userService, currentUser,$location, bookService) {

@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="../../../../project/css/seller-book-info.css">
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/">
+               ReadGood</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/seller/books">Books</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/seller">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
+                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+<div class="container-fluid ">
+
+    <u>
+        <h1 ng-if="model.books.size >0" class="text-center">
+            Books Uploaded By You
+        </h1>
+    </u>
+    <ul class="inlineList">
+        <li id="special" ng-repeat="book in model.books">
+            <a href="#!/seller/books/{{book._id}}" >
+                <img src="{{book.photo}}" alt="book cover" width="350" height="350">
+            </a>
+                <p class="text-center wordwrap">{{book.name}}</p>
+            <center><a href="#!/seller/book/{{book._id}}" class="black-link"><u>Edit/Delete this book</u></a></center>
+        </li>
+    </ul>
+   <center><a class="btn btn-lg btn-default c1-color-black"
+       ng-click="model.createBook(model.userId)">
+       <span class="glyphicon glyphicon-plus-sign color-white"></span>
+       <span class="glyphicon glyphicon-book color-white"></span>
+
+       <span class="c1-color-white">Add New Book</span></a>
+   </center>
+</div>
+
+<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>

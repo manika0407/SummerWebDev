@@ -1,0 +1,24 @@
+body {
+    background:url("../../pictures/banner-bg.jpg");
+    overflow-x: hidden;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+label, h1,span,h3, li,a {
+    color: white;
+}
+
+.list-group-item{
+    background-color: transparent;
+    border-color: white;
+    margin-top: 6px;
+}
+.list-group{
+    background-color: transparent;
+
+}
+
+option{
+    color: black;
+    width: 77%;
+}

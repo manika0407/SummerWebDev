@@ -1,0 +1,98 @@
+
+
+<link href="../../../../project/css/profile-style.css" rel="stylesheet">
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/">
+               ReadGood</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <!--<li class="active"><a href="#!/buyer/home">Home</a></li>-->
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/buyer/books">Search Books</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/buyer">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
+                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="row">
+<div class="col-md-2 hidden-xs" role="group" aria-label="...">
+
+</div>
+<div class="container-fluid col-xs-12 col-md-10">
+
+    <form>
+        <h1 class="text-center">Profile-Buyer</h1>
+        <div>
+        <div class="form-group">
+        <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+            <label for="username"><span class="c1-color-white" >Username</span></label>
+        <input readonly ng-model="model.user.username"
+        type="text"
+        class="form-control"
+        id="username"
+        placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label for="email"><span class="c1-color-white" >Email address</span></label>
+        <input ng-model="model.user.email"
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="first-name"><span class="c1-color-white" >First Name</span></label>
+        <input ng-model="model.user.firstName"
+        type="text"
+        class="form-control"
+        id="first-name"
+        placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <label for="last-name"><span class="c1-color-white" >Last Name</span></label>
+        <input ng-model="model.user.lastName"
+        type="text"
+        class="form-control"
+        id="last-name"
+        placeholder="Last Name">
+            <br>
+            <a class="btn btn-block c1-color-black" href="#!/buyer/following">
+                <span class="c1-color-white glyphicon glyphicon-thumbs-up"><br>
+               Sellers You Follow
+                     </span>
+            </a>
+            <a class="btn btn-block c1-color-black"  href="#!/buyer/orders">
+                <span class="glyphicon glyphicon-shopping-cart c1-color-white"><br>
+                    Your Past Orders
+                    <br>
+               </span>
+            </a>
+            <a class="btn btn-block c1-color-black"
+               ng-click="model.updateUser(model.userId, model.user)"><span class="c1-color-white">Update</span></a>
+            <a class="btn btn-block c1-color-black"
+               ng-click="model.unregister()"><span class="c1-color-white"> Unregister</span></a>
+            <a class="btn btn-block c1-color-black"
+               ng-click="model.logout()"><span class="c1-color-white">Logout</span></a>
+        </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>

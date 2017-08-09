@@ -1,7 +1,7 @@
 
 (function () {
     angular
-        .module('BookAppMaker')
+        .module('MyBookApp')
         .controller('searchController', searchController);
 
     function searchController ($routeParams, searchService, $location) {

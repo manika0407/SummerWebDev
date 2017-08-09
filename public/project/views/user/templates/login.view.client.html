@@ -8,7 +8,7 @@
 
 
 <div class="container-fluid">
-    <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+    <div ng-show="model.message" class="alert alert-danger">{{model.message}}</div>
 
     <div class="login-page">
         <div class="form">
@@ -41,12 +41,13 @@
                 class="btn btn-primary btn-block">
                 Login
                 </button>
-                <a href="/auth/google" class="btn btn-primary btn-block">
+                <a href="/auth/google" class="btn btn-danger btn-block">
                     <span class="fa fa-google-plus"></span>
                     Google
                 </a>
-                <a href="#!/" class="btn btn-danger btn-block">
-                    Cancel
+                <a href="/auth/facebook" class="btn btn-primary btn-block">
+                    <span class="fa fa-facebook"></span>
+                    Facebook
                 </a>
                 <p class="message">Not registered? <a href="#!/register">Create an account</a></p>
             </form>

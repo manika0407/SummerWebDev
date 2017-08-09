@@ -1,7 +1,7 @@
 
 (function () {
       angular
-          .module('BookAppMaker')
+          .module('MyBookApp')
           .controller('loginController', loginController);
 
 

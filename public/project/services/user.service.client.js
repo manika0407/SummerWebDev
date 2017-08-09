@@ -1,14 +1,12 @@
 
 (function () {
     angular
-        .module('BookAppMaker')
+        .module('MyBookApp')
         .factory('userService', userService);
 
     function userService($http) {
-
-
-    // api is an object with attribute findUserById, the value of which is findUserById that
-    //     bind with the findUserById function below.
+    var userURL = '/api/project/user';
+    var projectURL = '/api/project'
         var api = {
             createUser: createUser,
             findUserById: findUserById,
@@ -37,7 +35,7 @@
 
 
         function findSellerForOrderAdmin(userId) {
-            var url = "/api/project/admin/seller/order/"+userId;
+            var url = projectURL+"/admin/seller/order/"+userId;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -47,7 +45,7 @@
 
 
         function findBuyerForOrderAdmin(userId) {
-            var url = "/api/project/admin/order/"+userId;
+            var url = projectURL+"/admin/order/"+userId;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -57,7 +55,7 @@
 
 
         function findBuyer(userId) {
-           var url = "/api/project/admin/buyer/user/"+userId;
+           var url = projectURL+"/admin/buyer/user/"+userId;
            return $http.get(url)
                .then(function (response) {
                    return response.data;
@@ -66,7 +64,7 @@
 
 
         function unfollowSeller(userId, sellerId) {
-            var url = "/api/project/unfollowseller/user/"+userId;
+            var url = projectURL+"unfollowseller/user/"+userId;
             var followId = {sellerId: sellerId};
             return $http.put(url, followId)
                 .then(function (response) {
@@ -76,7 +74,7 @@
 
 
         function followSeller(userId, sellerId) {
-            var url = "/api/project/followseller/user/"+userId;
+            var url = projectURL+"/followseller/user/"+userId;
             var followId = {sellerId: sellerId};
             return $http.put(url, followId)
                 .then(function (response) {
@@ -85,7 +83,7 @@
         }
 
         function findFollowSellerById(userId,sellerId) {
-            var url = "/api/project/follow/user/"+userId;
+            var url = projectURL+"follow/user/"+userId;
             var followId = {sellerId: sellerId};
             return $http.post(url, followId)
                 .then(function (response) {
@@ -97,7 +95,7 @@
 
 
         function updateBook(userId, newBook) {
-            var url = "/api/project/user/"+userId+newBook;
+            var url = userURL+'/'+ userId+newBook;
             return $http.put(url, newBook)
                 .then(function (response) {
                     return response.data;
@@ -109,7 +107,7 @@
 
 
         function unregister() {
-            var url = "/api/project/unregister";
+            var url = projectURL+"/unregister";
             return $http.post(url)
                 .then(function (response) {
                     return response.data;
@@ -119,7 +117,7 @@
 
 
         function findAllUsers() {
-            var url = "/api/project/users";
+            var url = projectURL+"/users";
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -130,7 +128,7 @@
 
 
         function checkAdmin() {
-            var url = "/api/project/checkAdmin";
+            var url = projectURL+"/checkAdmin";
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -140,7 +138,7 @@
 
 
         function register(userObj) {
-            var url = "/api/project/register";
+            var url = projectURL+"/register";
             return $http.post(url, userObj)
                 .then(function (response) {
                     return response.data;
@@ -149,7 +147,7 @@
         
         
         function logout() {
-            var url = "/api/project/logout";
+            var url = projectURL+"/logout";
             return $http.post(url)
                 .then(function (response) {
                     return response.data;
@@ -162,7 +160,7 @@
 
 
         function checkLoggedIn() {
-            var url = "/api/project/checkLoggedIn";
+            var url = projectURL+"/checkLoggedIn";
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -170,7 +168,7 @@
         }
         
         function login(username, password) {
-            var url = "/api/project/login";
+            var url = projectURL+"/login";
             var credentials = {
                 username: username,
                 password: password
@@ -185,7 +183,7 @@
         
         
         function updateUser (userId, user) {
-            var url = "/api/project/user/"+userId;
+            var url = userURL+'/'+userId;
             return $http.put(url, user)
                 .then(function (response) {
                     return response.data;
@@ -193,7 +191,7 @@
         }
 
         function deleteUser (userId) {
-            var url = "/api/project/user/"+userId;
+            var url = userURL+'/'+userId;
             return $http.delete(url)
                 .then(function (response) {
                     return response.data;
@@ -202,7 +200,7 @@
 
 
         function createUser(user) {
-            var url = "/api/project/user";
+            var url = userURL;
             return $http.post(url, user)
                 .then(function (response) {
                     return response.data;
@@ -210,7 +208,7 @@
         }
 
         function findUserByUsername(username) {
-            var url = "/api/project/user?username="+username;
+            var url = userURL+'?username='+username;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -222,14 +220,14 @@
 
 
         function findUserById(userId) {
-            var url = "/api/project/user/"+userId;
+            var url =userURL+'/'+userId;
             return $http.get(url)
                         .then(function (response) {
                             return response.data;
                         });
         }
         function findUserByCredentials(username, password) {
-           var url = "/api/project/user?username="+username+"&password="+password;
+           var url = userURL+"?username="+username+"&password="+password;
            return $http.get(url)
                        .then(function (response) {
                            return response.data;
