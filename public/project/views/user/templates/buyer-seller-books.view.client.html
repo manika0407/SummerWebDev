@@ -15,14 +15,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/buyer/books">
+                <li><a ng-if="buyerSellerBooksCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a href="#!/buyer/books">
                     <i class="fa fa-search" aria-hidden="true"></i>
                     <i class="fa fa-book" aria-hidden="true"></i>
                     Search Books</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/buyer"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Profile</a></li>
-                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
-                <li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
+                <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a href="#!/profile/buyer"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Profile</a></li>
+                <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a href="">Logged in as "{{buyerSellerBooksCtrl.currentUser.username}}"</a></li>
+                <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a ng-click="buyerSellerBooksCtrl.logout()">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -33,29 +33,29 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12 col-sm-2">
-            <div ng-show="!model.follow">
+            <div ng-show="!buyerSellerBooksCtrl.follow">
                 <a class="btn btn-success pull-right"
-                   ng-click="model.followSeller(model.userId, model.sellerId)">
+                   ng-click="buyerSellerBooksCtrl.followSeller(buyerSellerBooksCtrl.userId, buyerSellerBooksCtrl.sellerId)">
                     <span class="glyphicon glyphicon-plus"></span>
                     Follow
                 </a></div>
-            <div ng-show="model.follow">
+            <div ng-show="buyerSellerBooksCtrl.follow">
                 <a class="btn btn-info pull-right"
-                   ng-click="model.unfollowSeller(model.userId, model.sellerId)">
+                   ng-click="buyerSellerBooksCtrl.unfollowSeller(buyerSellerBooksCtrl.userId, buyerSellerBooksCtrl.sellerId)">
                     <span class="glyphicon glyphicon-minus"></span>
                     Unfollow
                 </a></div>
         </div>
         <div class="col-xs-12 col-sm-10">
             <div>
-                <h3>Seller Name :{{model.seller.firstName}} {{model.seller.lastName}} (username: {{model.seller.username}})</h3>
+                <h3>Seller Name :{{buyerSellerBooksCtrl.seller.firstName}} {{buyerSellerBooksCtrl.seller.lastName}} (username: {{buyerSellerBooksCtrl.seller.username}})</h3>
             </div>
         </div>
     </div>
 
     <div class="row">
         <ul class="inlineList">
-            <li id="special" ng-repeat="book in model.books">
+            <li id="special" ng-repeat="book in buyerSellerBooksCtrl.books">
                 <a href="#!/buyer/books/{{book._id}}">
                 <img src="{{book.photo}}" width="350" height="350">
                 </a>

@@ -4,7 +4,8 @@
         .service('bookService', bookService);
 
     function bookService($http) {
-
+        var projectURL='/api/project';
+        var bookURL='/api/project/book';
         var api= {
 
         findAllBooksForUser: findAllBooksForUser,
@@ -24,7 +25,7 @@
     return api;
 
         function adminUpdate(bookId, book) {
-            var url = "/api/project/admin/book/" + bookId;
+            var url = projectURL+"/admin/book/" + bookId;
             return $http.put(url, book)
                 .then(function (response) {
                     return response.data;
@@ -32,7 +33,7 @@
         }
 
         function adminDelete(userId) {
-            var url = "/api/project/admin/user/"+userId;
+            var url = projectURL+"/admin/user/"+userId;
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -41,7 +42,7 @@
 
 
         function updateInventory(bookId, quantity) {
-            var url = "/api/project/book/inventory/" + bookId;
+            var url = bookURL+"/inventory/" + bookId;
             var inv = {inventory: quantity};
             return $http.put(url, inv)
                 .then(function (response) {
@@ -52,21 +53,21 @@
 
 
         function findBookByISBN(isbn) {
-            return $http.get("/api/project/isbn/book?isbn=" + isbn)
+            return $http.get(projectURL+"/isbn/book?isbn=" + isbn)
                 .then(function (response) {
                     return response.data;
                 });
         }
 
         function findBookByAuthor(author) {
-            return $http.get("/api/project/author/book?author=" + author)
+            return $http.get(projectURL+"/author/book?author=" + author)
                 .then(function (response) {
                     return response.data;
                 });
         }
 
         function findBookByName(bookName) {
-            return $http.get("/api/project/name/book?bookName=" + bookName)
+            return $http.get(projectURL+"/name/book?bookName=" + bookName)
                 .then(function (response) {
                     return response.data;
                 });
@@ -80,7 +81,7 @@
 
 
         function findAllBooks() {
-            var url = "/api/project/books";
+            var url = projectURL+"/books";
             return $http.get(url)
                 .then(function (response) {
                     return response.data;
@@ -90,7 +91,7 @@
 
 
         function updateBook (bookId, book) {
-            var url = "/api/project/book/" + bookId;
+            var url = bookURL+"/" + bookId;
             return $http.put(url, book)
                         .then(function (response) {
                             return response.data;
@@ -98,7 +99,7 @@
         }
 
         function createBook(book, userId){
-            var url = "/api/project/user/"+userId+"/book";
+            var url = projectURL+"/user/"+userId+"/book";
             return $http
                         .post(url, book)
                         .then(function (response) {
@@ -109,7 +110,7 @@
 
 
         function deleteBook(userId, bookId) {
-            var url = "/api/project/book/" + bookId;
+            var url = bookURL+"/" + bookId;
             return $http.delete(url)
                         .then(function (response) {
                             return response.data;
@@ -119,7 +120,7 @@
 
 
         function findBookById(bookId) {
-            var url = " /api/project/book/" + bookId;
+            var url = bookURL+"/" + bookId;
             return $http.get(url)
                         .then(function (response) {
                             return response.data;
@@ -127,7 +128,7 @@
         }
 
         function findAllBooksForUser(userId) {
-            var url = "/api/project/user/"+userId+"/book";
+            var url = projectURL+"/user/"+userId+"/book";
             return $http.get(url)
                 .then(function (response) {
                     return response.data;

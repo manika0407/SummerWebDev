@@ -16,34 +16,34 @@
                        name="username"
                        class="name"
                        ng-model="username"
-                       ng-class="{submitted:model.submitted1}"
+                       ng-class="{submitted:registerCtrl.submitted1}"
                        placeholder="Username" required/>
-                <div ng-show="model.error1" class="alert alert-danger">
-                        {{model.error1}}</div>
+                <div ng-show="registerCtrl.error1" class="alert alert-danger">
+                        {{registerCtrl.error1}}</div>
                 <label class="icon" for="password"><i class="glyphicon glyphicon-lock"></i></label>
                 <input type="password"
                        name="name"
                        class="name"
                        id="password"
                        ng-model="password"
-                       ng-class="{submitted:model.submitted2}"
+                       ng-class="{submitted:registerCtrl.submitted2}"
                        placeholder="Password" required/>
-                <div ng-show="model.error2" class="alert alert-danger">
-                        {{model.error2}}
+                <div ng-show="registerCtrl.error2" class="alert alert-danger">
+                        {{registerCtrl.error2}}
                 </div>
                 <label class="icon" for="re-enter"><i class="glyphicon glyphicon-lock"></i></label>
                 <input type="password"
                        name="name"
                        class="name"
                        ng-model="password2"
-                       ng-class="{submitted:model.submitted3}"
+                       ng-class="{submitted:registerCtrl.submitted3}"
                        id="re-enter"
                        placeholder="Verify Password" required/>
-                <div ng-show="model.error3" class="alert alert-danger">
-                        {{model.error3}}
+                <div ng-show="registerCtrl.error3" class="alert alert-danger">
+                        {{registerCtrl.error3}}
                 </div>
-                <div ng-show="model.error4" class="alert alert-danger">
-                        {{model.error4}}
+                <div ng-show="registerCtrl.error4" class="alert alert-danger">
+                        {{registerCtrl.error4}}
                 </div>
                 <div class="gender">
                         <input type="radio"
@@ -56,16 +56,16 @@
                                value="SELLER"
                                id="seller"
                                ng-model="role"
-                               ng-class="{submitted:model.submitted4}"
+                               ng-class="{submitted:registerCtrl.submitted4}"
                                name="gender" />
                         <label for="seller" class="radio">Seller</label>
-                        <div ng-show="model.error5" class="alert alert-danger">
-                                {{model.error5}}
+                        <div ng-show="registerCtrl.error5" class="alert alert-danger">
+                                {{registerCtrl.error5}}
                         </div>
                 </div>
                 <div class="row">
                    <div class="col-xs-6">
-                <a ng-click="model.register(username, password, password2, role)"
+                <a ng-click="registerCtrl.register(username, password, password2, role)"
                 class="button btn btn-primary btn-block">
                 Register
                 </a>

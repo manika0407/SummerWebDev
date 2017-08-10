@@ -5,15 +5,15 @@
 
     function bookEditController (bookService,searchService,$routeParams, $location, currentUser,userService) {
 
-        var model = this;
+        var bookEditCtrl = this;
 
-        model.user = currentUser;
-        model.userId = currentUser._id;
-        model.bookId = $routeParams.bookId;
-        model.updateBook = updateBook;
-        model.deleteBook = deleteBook;
-        model.currentUser = currentUser;
-        model.logout = logout;
+        bookEditCtrl.user = currentUser;
+        bookEditCtrl.userId = currentUser._id;
+        bookEditCtrl.bookId = $routeParams.bookId;
+        bookEditCtrl.updateBook = updateBook;
+        bookEditCtrl.deleteBook = deleteBook;
+        bookEditCtrl.currentUser = currentUser;
+        bookEditCtrl.logout = logout;
 
 
         function logout() {
@@ -28,10 +28,10 @@
 
         function init() {
             bookService
-                .findBookById(model.bookId)
+                .findBookById(bookEditCtrl.bookId)
                 .then(function (book) {
-                    model.book = book;
-                    model.preBook = angular.copy(model.book);
+                    bookEditCtrl.book = book;
+                    bookEditCtrl.preBook = angular.copy(bookEditCtrl.book);
                 });
         }
 
@@ -43,25 +43,25 @@
 
         function updateBook(bookId, newBook) {
             if (newBook.isbn === null || newBook.isbn  === '' || typeof newBook.isbn  === 'undefined') {
-                model.error1 = 'Either ISBN, Name or Author is required ';
-                model.error2 = null;
-                model.error3 = null;
-                model.submitted1 = true;
+                bookEditCtrl.error1 = 'Either ISBN, Name or Author is required ';
+                bookEditCtrl.error2 = null;
+                bookEditCtrl.error3 = null;
+                bookEditCtrl.submitted1 = true;
                 return;
             }
 
             if (newBook.inventory === null || newBook.inventory === '' || typeof newBook.inventory === 'undefined') {
-                model.error1 = null;
-                model.error2 = 'Inventory is required!';
-                model.error3 = null;
-                model.submitted2 = true;
+                bookEditCtrl.error1 = null;
+                bookEditCtrl.error2 = 'Inventory is required!';
+                bookEditCtrl.error3 = null;
+                bookEditCtrl.submitted2 = true;
                 return;
             }
             if (newBook.price === null || newBook.price === '' || typeof newBook.price === 'undefined') {
-                model.error1 = null;
-                model.error2 = null;
-                model.error3 = 'Price is required!';
-                model.submitted3 = true;
+                bookEditCtrl.error1 = null;
+                bookEditCtrl.error2 = null;
+                bookEditCtrl.error3 = 'Price is required!';
+                bookEditCtrl.submitted3 = true;
                 return;
             }
             var isbn = newBook.isbn;
@@ -76,17 +76,17 @@
                         description: newBook.description,
                         isbn: newBook.isbn,
                         price: newBook.price,
-                        _user: model.userId,
+                        _user: bookEditCtrl.userId,
                         authors: item.authors[0]+item.authors[1]
                     };
                     bookService
                         .updateBook(bookId, book)
                         .then(function () {
-                            model.message = "Book Updated Successfully!!";
-                            $location.url('/seller/book/'+model.bookId);
+                            bookEditCtrl.message = "Book Updated Successfully!!";
+                            $location.url('/seller/book/'+bookEditCtrl.bookId);
                         });
                 }, function (err) {
-                    model.message = "Sorry, we cannot find this book!"
+                    bookEditCtrl.message = "Sorry, We are unable to find this book!"
                 });
 
 
@@ -94,7 +94,7 @@
 
         function deleteBook(bookId) {
             bookService
-                .deleteBook(model.userId, bookId)
+                .deleteBook(bookEditCtrl.userId, bookId)
                 .then(function () {
                     $location.url('/seller/books');
                 });

@@ -5,16 +5,16 @@
         .controller('sellerOrdersMessageController', sellerOrdersMessageController);
     
     function sellerOrdersMessageController(bookService, currentUser,$location, userService, orderService,$routeParams) {
-        var model = this;
+        var sellerOrderMessageCtrl = this;
 
-        model.userId = currentUser._id;//$routeParams['userId'];
-        model.currentUser = currentUser;
-        model.logout = logout;
-        model.orderId = $routeParams['orderId'];
+        sellerOrderMessageCtrl.userId = currentUser._id;//$routeParams['userId'];
+        sellerOrderMessageCtrl.currentUser = currentUser;
+        sellerOrderMessageCtrl.logout = logout;
+        sellerOrderMessageCtrl.orderId = $routeParams['orderId'];
 
         function init() {
             orderService
-                         .findOrderById(model.orderId)
+                         .findOrderById(sellerOrderMessageCtrl.orderId)
                          .then(renderMessage);
 
         }
@@ -38,8 +38,8 @@
 
 
         function renderMessage(order) {
-            model.message = order.message;
-            model.buyer=order.buyer;
+            sellerOrderMessageCtrl.message = order.message;
+            sellerOrderMessageCtrl.buyer=order.buyer;
         }
 
     }

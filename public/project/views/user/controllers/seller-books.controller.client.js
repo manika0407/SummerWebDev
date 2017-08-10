@@ -5,16 +5,16 @@
         .controller('sellerBooksController', sellerBooksController);
     
     function sellerBooksController(bookService, currentUser,$location, userService) {
-        var model = this;
+        var sellerBookCtrl = this;
 
-        model.userId = currentUser._id;//$routeParams['userId'];
-        model.createBook = createBook;
-        model.currentUser = currentUser;
-        model.logout = logout;
+        sellerBookCtrl.userId = currentUser._id;
+        sellerBookCtrl.createBook = createBook;
+        sellerBookCtrl.currentUser = currentUser;
+        sellerBookCtrl.logout = logout;
 
         function init() {
             bookService
-                         .findAllBooksForUser(model.userId)
+                         .findAllBooksForUser(sellerBookCtrl.userId)
                          .then(renderBooks);
 
         }
@@ -33,7 +33,7 @@
 
 
         function renderBooks(books) {
-            model.books = books;
+            sellerBookCtrl.books = books;
         }
 
         function createBook(userId) {

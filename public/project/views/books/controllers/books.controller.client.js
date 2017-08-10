@@ -4,20 +4,19 @@
         .controller('booksSearchController', booksSearchController);
     
     function booksSearchController(bookService,$location, userService, currentUser) {
-        var model = this;
+        var buyerBooksCtrl = this;
 
-        // model.userId = currentUser._id;//$routeParams['userId'];
-        model.findAllBooks = findAllBooks;
-        model.currentUser = currentUser;
-        model.renderBooks = renderBooks;
-        model.searchBook = searchBook;
-        model.logout = logout;
-        model.init = init;
+        buyerBooksCtrl.findAllBooks = findAllBooks;
+        buyerBooksCtrl.currentUser = currentUser;
+        buyerBooksCtrl.renderBooks = renderBooks;
+        buyerBooksCtrl.searchBook = searchBook;
+        buyerBooksCtrl.logout = logout;
+        buyerBooksCtrl.init = init;
 
 
         function init() {
             findAllBooks();
-            model.message = null;
+            buyerBooksCtrl.message = null;
         }
 
         init();
@@ -45,12 +44,12 @@
         }
 
         function renderBooks(books) {
-            model.books = books;
+            buyerBooksCtrl.books = books;
         }
 
         function searchBook(type, searchText) {
-            model.books = [];
-            model.message = null;
+            buyerBooksCtrl.books = [];
+            buyerBooksCtrl.message = null;
 
             if (searchText === null || searchText === "" || typeof searchText === 'undefined') {
                 bookService
@@ -58,10 +57,10 @@
                     .then(function (books) {
                         if(books.length !== 0){
 
-                            model.books = books;
+                            buyerBooksCtrl.books = books;
                         } else {
 
-                            model.message = "Sorry, no books!"
+                            buyerBooksCtrl.message = "Sorry, no books!"
                         }
                     });
                 return
@@ -75,10 +74,10 @@
                         .then(function (books) {
                             if(books.length !== 0){
 
-                                model.books = books;
+                                buyerBooksCtrl.books = books;
                             } else {
 
-                                model.message = "Sorry, no books match your search!"
+                                buyerBooksCtrl.message = "Sorry, no books match your search!"
                             }
                         });
                     break;
@@ -88,10 +87,10 @@
                         .then(function (books) {
                             if(books.length !== 0){
 
-                                model.books = books;
+                                buyerBooksCtrl.books = books;
                             } else {
 
-                                model.message = "Sorry, no books match your search!";
+                                buyerBooksCtrl.message = "Sorry, no books match your search!";
                             }
                         });
                     break;
@@ -101,10 +100,10 @@
                         .then(function (books) {
                             if(books.length !== 0){
 
-                                model.books = books;
+                                buyerBooksCtrl.books = books;
                             } else {
 
-                                model.message = "Sorry, no books match your search!"
+                                buyerBooksCtrl.message = "Sorry, no books match your search!"
                             }
                         });
                     break;

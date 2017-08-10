@@ -14,19 +14,19 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/seller/books">
+                <li><a ng-if="sellerOrderMessageCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li ng-show="!sellerOrderMessageCtrl.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="sellerOrderMessageCtrl.currentUser._id"><a href="#!/seller/books">
                     <i class="fa fa-book" aria-hidden="true"
                        data-toggle="tooltip" title="Books"><span>&nbsp; Books</span>
                     </i>
                 </a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
+                <li ng-show="!sellerOrderMessageCtrl.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="sellerOrderMessageCtrl.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
                                                                                    data-toggle="tooltip" title="Profile">
                     <span>&nbsp; Profile</span>
                 </i></a></li>
-                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
+                <li ng-show="sellerOrderMessageCtrl.currentUser._id"><a href="">Logged in as "{{sellerOrderMessageCtrl.currentUser.username}}"</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -34,7 +34,7 @@
 
     <div class="container-fluid text-center top-state">
         <img src="../../../../pictures/newmessage.gif" width="250" height="250" class="">
-        <h3>{{model.buyer}}'s message: {{model.message}}</h3>
+        <h3>{{sellerOrderMessageCtrl.buyer}}'s message: {{sellerOrderMessageCtrl.message}}</h3>
         <a href="#!/seller/orders" class="btn btn-default btn-wide c1-color-black">
              <span class="color-white">
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>

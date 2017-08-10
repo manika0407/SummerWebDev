@@ -21,17 +21,17 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
                 <!--<li class="active"><a href="#!/seller/home">Home</a></li>-->
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/seller/books"><i class="fa fa-book" aria-hidden="true"
+                <li><a ng-if="bookInfoCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li ng-show="!bookInfoCtrl.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="bookInfoCtrl.currentUser._id"><a href="#!/seller/books"><i class="fa fa-book" aria-hidden="true"
                                                                                  data-toggle="tooltip" title="Books"><span>&nbsp; Books</span>
                 </i></a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
+                <li ng-show="!bookInfoCtrl.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="bookInfoCtrl.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
                                                                                    data-toggle="tooltip" title="Profile">
                     <span>&nbsp; Profile</span>
                 </i></a></li>
-                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
+                <li ng-show="bookInfoCtrl.currentUser._id"><a href="">Logged in as "{{bookInfoCtrl.currentUser.username}}"</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -43,17 +43,17 @@
         <div class="col-md-11 col-xs-12">
             <div class="row">
                 <div class="col-md-3 col-xs-12">
-                <img src="{{model.book.photo}}" width="250" height="350">
+                <img src="{{bookInfoCtrl.book.photo}}" width="250" height="350">
                 </div>
                 <div class="col-md-9 col-xs-12">
-                    <h2>{{model.item.title}}</h2>
+                    <h2>{{bookInfoCtrl.item.title}}</h2>
                     <hr>
-                    <h3 ng-repeat="author in model.item.authors">Author: {{author}}</h3>
+                    <h3 ng-repeat="author in bookInfoCtrl.item.authors">Author: {{author}}</h3>
                     <hr>
-                    <p>{{model.item.description}}</p>
-                    <p class="pull-left">Page Count: {{model.item.pageCount}}</p>
+                    <p>{{bookInfoCtrl.item.description}}</p>
+                    <p class="pull-left">Page Count: {{bookInfoCtrl.item.pageCount}}</p>
                     <p class="pull-right">
-                        <a href="https://books.google.com/books?isbn={{model.book.isbn}}" class="btn btn-embossed btn-block btn-primary c1-color-black">
+                        <a href="https://books.google.com/books?isbn={{bookInfoCtrl.book.isbn}}" class="btn btn-embossed btn-block btn-primary c1-color-black">
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
                             Go directly to Google Books to have a preview
                         </a>
@@ -65,20 +65,20 @@
             <hr>
             <div class="row">
                 <u><h3 class="text-center">Further Details About this Item</h3></u>
-                <h3 class="pull-left">Posted By: {{model.book._user.username}}</h3>
-                <h3 class="pull-right">Priced at {{model.book.price}}</h3>
+                <h3 class="pull-left">Posted By: {{bookInfoCtrl.book._user.username}}</h3>
+                <h3 class="pull-right">Priced at {{bookInfoCtrl.book.price}}</h3>
             </div>
             <div class="row">
                 <div class="pull-left">
-                    <div ng-show="model.book.description">
-                        <h3>{{model.book.description}}</h3>
+                    <div ng-show="bookInfoCtrl.book.description">
+                        <h3>{{bookInfoCtrl.book.description}}</h3>
                     </div>
                 </div>
-                <h2 class="pull-right">Books Available in your inventory: {{model.book.inventory}}</h2>
+                <h2 class="pull-right">Books Available in your inventory: {{bookInfoCtrl.book.inventory}}</h2>
             </div>
             <div class="row">
-                <h3 class="pull-left">Publishers of this Book: {{model.item.publisher}}</h3>
-                <h3 class="pull-right">Published on: {{model.item.publishedDate}}</h3>
+                <h3 class="pull-left">Publishers of this Book: {{bookInfoCtrl.item.publisher}}</h3>
+                <h3 class="pull-right">Published on: {{bookInfoCtrl.item.publishedDate}}</h3>
             </div>
         </div>
     </div>

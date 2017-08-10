@@ -5,17 +5,17 @@
         .controller('buyerOrdersController', buyerOrdersController);
     
     function buyerOrdersController(bookService, currentUser,$location, userService, orderService) {
-        var model = this;
+        var buyerOrderCtrl = this;
 
-        model.userId = currentUser._id;//$routeParams['userId'];
-        model.currentUser = currentUser;
-        model.logout = logout;
-        model.deleteOrder = deleteOrder;
-        model.deleteBothOrder = deleteBothOrder;
+        buyerOrderCtrl.userId = currentUser._id;//$routeParams['userId'];
+        buyerOrderCtrl.currentUser = currentUser;
+        buyerOrderCtrl.logout = logout;
+        buyerOrderCtrl.deleteOrder = deleteOrder;
+        buyerOrderCtrl.deleteBothOrder = deleteBothOrder;
 
         function init() {
             orderService
-                         .findAllOrdersForUser(model.userId)
+                         .findAllOrdersForUser(buyerOrderCtrl.userId)
                          .then(renderOrders);
 
         }
@@ -34,7 +34,7 @@
                         .deleteOrder(sorderId)
                         .then(function () {
                             orderService
-                                .findAllOrdersForUser(model.userId)
+                                .findAllOrdersForUser(buyerOrderCtrl.userId)
                                 .then(renderOrders);
                         });
                 });
@@ -47,7 +47,7 @@
                 .deleteOrder(orderId)
                 .then(function () {
                     orderService
-                        .findAllOrdersForUser(model.userId)
+                        .findAllOrdersForUser(buyerOrderCtrl.userId)
                         .then(renderOrders);
               });
         }
@@ -69,7 +69,7 @@
 
 
         function renderOrders(orders) {
-            model.orders = orders;
+            buyerOrderCtrl.orders = orders;
         }
 
     }

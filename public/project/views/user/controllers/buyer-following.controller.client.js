@@ -5,19 +5,19 @@
         .controller('buyerFollowingController', buyerFollowingController);
 
     function buyerFollowingController(bookService, currentUser,$location, userService, orderService) {
-        var model = this;
+        var buyerFollowingCtrl = this;
 
-        model.userId = currentUser._id;//$routeParams['userId'];
-        model.currentUser = currentUser;
-        model.logout = logout;
-        model.unfollowSeller = unfollowSeller;
-        model.init = init;
+        buyerFollowingCtrl.userId = currentUser._id;//$routeParams['userId'];
+        buyerFollowingCtrl.currentUser = currentUser;
+        buyerFollowingCtrl.logout = logout;
+        buyerFollowingCtrl.unfollowSeller = unfollowSeller;
+        buyerFollowingCtrl.init = init;
 
         function init() {
 
             userService
-                         .findUserById(model.userId)
-                         .then(renderFollowing);
+                         .findUserById(buyerFollowingCtrl.userId)
+                         .then(renderFollowers);
 
         }
         init();
@@ -36,14 +36,6 @@
                 });
         }
 
-
-        
-        
-        
-        
-
-
-
         function logout() {
             userService
                 .logout()
@@ -53,17 +45,16 @@
         }
 
 
+        function renderFollowers(user) {
+            buyerFollowingCtrl.following = user.follows;
 
-        function renderFollowing(user) {
-            model.following = user.follows;
-
-            for(var f = 0; f<model.following.length; f++){
-                model.sellers = [];
+            for(var i = 0; i<buyerFollowingCtrl.following.length; i++){
+                buyerFollowingCtrl.sellers = [];
                 userService
-                    .findUserById(model.following[f])
+                    .findUserById(buyerFollowingCtrl.following[i])
                     .then(function (seller) {
 
-                        model.sellers.push(seller);
+                        buyerFollowingCtrl.sellers.push(seller);
 
                     });
             }

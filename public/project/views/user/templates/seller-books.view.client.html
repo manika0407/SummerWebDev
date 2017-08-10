@@ -15,18 +15,15 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <!--<li ng-show="model.currentUser._id"><a href="#!/seller/books"><i class="fa fa-book" aria-hidden="true"-->
-                                                                                 <!--data-toggle="tooltip" title="Books"><span>&nbsp; Books</span>-->
-                <!--</i></a></li>-->
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
+                <li><a ng-if="sellerBookCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!sellerBookCtrl.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="!sellerBookCtrl.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="sellerBookCtrl.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
                                                                                    data-toggle="tooltip" title="Profile">
                     <span>&nbsp; Profile</span>
                 </i></a></li>
-                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
-                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
+                <li ng-show="sellerBookCtrl.currentUser._id"><a href="">Logged in as "{{sellerBookCtrl.currentUser.username}}"</a></li>
+                <!--<li ng-show="sellerBookCtrl.currentUser._id"><a ng-click="sellerBookCtrl.logout()">Logout</a></li>-->
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -36,12 +33,12 @@
 <div class="container-fluid ">
 
     <u>
-        <h1 ng-if="model.books.size >0" class="text-center">
+        <h1 ng-if="sellerBookCtrl.books.size >0" class="text-center">
             Books Uploaded By You
         </h1>
     </u>
     <ul class="inlineList">
-        <li id="special" ng-repeat="book in model.books">
+        <li id="special" ng-repeat="book in sellerBookCtrl.books">
             <a href="#!/seller/books/{{book._id}}" >
                 <img src="{{book.photo}}" alt="book cover" width="350" height="350">
             </a>
@@ -53,7 +50,7 @@
         </li>
     </ul>
    <center><a class="btn btn-lg btn-default c1-color-black"
-       ng-click="model.createBook(model.userId)">
+       ng-click="sellerBookCtrl.createBook(sellerBookCtrl.userId)">
        <span class="glyphicon glyphicon-plus-sign color-white"></span>
        <span class="glyphicon glyphicon-book color-white"></span>
 

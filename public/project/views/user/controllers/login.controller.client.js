@@ -7,16 +7,14 @@
 
       function loginController($location, userService) {
 
-          var model = this;
+          var loginCtrl = this;
 
-          model.login = login;
+          loginCtrl.login = login;
 
 
           function login(username, password) {
-              // var found = userService.findUserByCredentials(username, password);
               if(username && password){
               userService
-              // .findUserByCredentials(username, password)
                   .login(username, password)
                   .then(login, loginError);
               function login(user) {
@@ -28,16 +26,15 @@
                           $location.url('/profile/seller');
 
                       } else {
-
                           $location.url('/admin');
                       }
                   } else {
-                      model.message = "Sorry, " + username + " not found. Please try again!";
+                      loginCtrl.message = "Sorry, " + username + " not found. Please try again!";
                   }
               }
 
               function loginError() {
-                  model.message = "Sorry, not found. Please try again!";
+                  loginCtrl.message = "Sorry, not found. Please try again!";
               }
           }
           }

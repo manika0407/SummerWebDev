@@ -5,18 +5,18 @@
         .controller('sellerOrdersController', sellerOrdersController);
     
     function sellerOrdersController(bookService, currentUser,$location, userService, orderService) {
-        var model = this;
+        var sellerOrderCtrl = this;
 
-        model.userId = currentUser._id;//$routeParams['userId'];
-        model.currentUser = currentUser;
-        model.logout = logout;
-        model.acceptOrder = acceptOrder;
-        model.deleteOrder = deleteOrder;
+        sellerOrderCtrl.userId = currentUser._id;
+        sellerOrderCtrl.currentUser = currentUser;
+        sellerOrderCtrl.logout = logout;
+        sellerOrderCtrl.acceptOrder = acceptOrder;
+        sellerOrderCtrl.deleteOrder = deleteOrder;
 
 
         function init() {
             orderService
-                         .findAllOrdersForUser(model.userId)
+                         .findAllOrdersForUser(sellerOrderCtrl.userId)
                          .then(renderOrders);
 
         }
@@ -34,7 +34,7 @@
                         .updateBOrder(borderId)
                         .then(function (status) {
                             orderService
-                                .findAllOrdersForUser(model.userId)
+                                .findAllOrdersForUser(sellerOrderCtrl.userId)
                                 .then(renderOrders);
 
                         })
@@ -49,7 +49,7 @@
                .findBookById(bookId)
                .then(function (book) {
                    if(book.inventory < quantity){
-                       model.message = "The requested quantity by Buyer is more than What you have in stock!! Please upload your inventory."
+                       sellerOrderCtrl.message = "The requested quantity by Buyer is more than What you have in stock!! Please update your inventory."
                    } else {
                        var number = book.inventory - quantity;
                        bookService
@@ -59,7 +59,7 @@
                                    .acceptOrder(orderId, borderId)
                                    .then(function () {
                                        orderService
-                                           .findAllOrdersForUser(model.userId)
+                                           .findAllOrdersForUser(sellerOrderCtrl.userId)
                                            .then(renderOrders);
 
                                    });
@@ -83,7 +83,7 @@
 
 
         function renderOrders(orders) {
-            model.orders = orders;
+            sellerOrderCtrl.orders = orders;
         }
 
     }

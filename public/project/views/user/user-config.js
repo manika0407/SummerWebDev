@@ -11,19 +11,19 @@
             .when('/login', {
                 templateUrl: 'views/user/templates/login.view.client.html',
                 controller: 'loginController',
-                controllerAs: 'model'
+                controllerAs: 'loginCtrl'
             })
             .when('/register', {
                 templateUrl: 'views/user/templates/register.view.client.html',
                 controller: 'registerController',
-                controllerAs: 'model'
+                controllerAs: 'registerCtrl'
             })
 
             //buyer
             .when('/books/list/seller/:sellerId', {
                 templateUrl: 'views/user/templates/buyer-seller-books.view.client.html',
                 controller: 'sellerBooksListController',
-                controllerAs: 'model',
+                controllerAs: 'buyerSellerBooksCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -31,7 +31,7 @@
             .when('/buyer/following', {
                 templateUrl: 'views/user/templates/buyer-following.view.client.html',
                 controller: 'buyerFollowingController',
-                controllerAs: 'model',
+                controllerAs: 'buyerFollowingCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -39,7 +39,7 @@
             .when('/buyer/books', {
                 templateUrl: 'views/user/templates/buyer-books.view.client.html',
                 controller: 'booksSearchController',
-                controllerAs: 'model',
+                controllerAs: 'buyerBooksCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -47,7 +47,7 @@
             .when('/buyer/books/:bookId', {
                 templateUrl: 'views/user/templates/buyer-book-info.view.client.html',
                 controller: 'bookInfoController',
-                controllerAs: 'model',
+                controllerAs: 'bookInfoCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -55,7 +55,7 @@
             .when('/profile/buyer',{
                 templateUrl: 'views/user/templates/buyer-profile.view.client.html',
                 controller:'profileController',
-                controllerAs: 'model',
+                controllerAs: 'profileCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -64,28 +64,30 @@
             .when('/buyer/orders',{
                 templateUrl: 'views/user/templates/buyer-orders.view.client.html',
                 controller:'buyerOrdersController',
-                controllerAs: 'model',
+                controllerAs: 'buyerOrderCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
             })
             // seller
 
-            .when('/seller/header/books', {
-                templateUrl: 'views/user/templates/seller-books-header.view.client.html',
-                controller: 'booksSearchController',
-                controllerAs: 'model',
-                resolve:{
-                    currentUser: checkLoggedIn
-                }
-            })
+
+
+            // .when('/seller/header/books', {
+            //     templateUrl: 'views/user/templates/seller-books-header.view.client.html',
+            //     controller: 'booksSearchController',
+            //     controllerAs: 'model',
+            //     resolve:{
+            //         currentUser: checkLoggedIn
+            //     }
+            // })
 
 
 
             .when('/seller/books/:bookId', {
                 templateUrl: 'views/user/templates/seller-book-info.view.client.html',
                 controller: 'bookInfoController',
-                controllerAs: 'model',
+                controllerAs: 'bookInfoCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -94,7 +96,7 @@
             .when('/profile/seller',{
                 templateUrl: 'views/user/templates/seller-profile.view.client.html',
                 controller:'profileController',
-                controllerAs: 'model',
+                controllerAs: 'profileCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -103,7 +105,7 @@
             .when('/seller/books',{
                 templateUrl: 'views/user/templates/seller-books.view.client.html',
                 controller:'sellerBooksController',
-                controllerAs: 'model',
+                controllerAs: 'sellerBookCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -111,7 +113,7 @@
             .when('/seller/orders',{
                 templateUrl: 'views/user/templates/seller-orders.view.client.html',
                 controller:'sellerOrdersController',
-                controllerAs: 'model',
+                controllerAs: 'sellerOrderCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -119,7 +121,7 @@
             .when('/seller/orders/message/:orderId',{
                 templateUrl: 'views/user/templates/seller-orders-message.view.client.html',
                 controller:'sellerOrdersMessageController',
-                controllerAs: 'model',
+                controllerAs: 'sellerOrderMessageCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -128,7 +130,7 @@
             .when('/seller/book/:bookId',{
                 templateUrl: 'views/user/templates/seller-book-edit.view.client.html',
                 controller: 'bookEditController',
-                controllerAs: 'model',
+                controllerAs: 'bookEditCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }

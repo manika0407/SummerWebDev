@@ -14,10 +14,10 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
 
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <!--<li ng-show="model.currentUser._id"><a ng-click="model.init()">Books</a></li>-->
-                <li ng-show="model.currentUser._id"><a href="#!/profile/buyer">
+                <li><a ng-if="buyerBooksCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!buyerBooksCtrl.currentUser._id"><a href="#!/login">Login</a></li>
+                <!--<li ng-show="buyerBooksCtrl.currentUser._id"><a ng-click="buyerBooksCtrl.init()">Books</a></li>-->
+                <li ng-show="buyerBooksCtrl.currentUser._id"><a href="#!/profile/buyer">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     Profile</a></li>
 
@@ -29,8 +29,8 @@
 
 
 <div class="container-fluid">
-    <div ng-show="model.message" class="alert alert-info">
-        {{model.message}}
+    <div ng-show="buyerBooksCtrl.message" class="alert alert-danger">
+        {{buyerBooksCtrl.message}}
     </div>
 
     <div class="row">
@@ -50,7 +50,7 @@
             <div class="input-group">
                 <input type="text" class="form-control" aria-label="..." ng-model="searchText">
                 <span class="input-group-btn">
-                   <a ng-click="model.searchBook(selectedType, searchText)"
+                   <a ng-click="buyerBooksCtrl.searchBook(selectedType, searchText)"
                       class="btn btn-default form-control"
                       type="button">
                    <span class="glyphicon glyphicon-search"></span>
@@ -73,7 +73,7 @@
     <div>
         <ul class="inlineList">
 
-            <li id="special" ng-repeat="book in model.books">
+            <li id="special" ng-repeat="book in buyerBooksCtrl.books">
                 <div>
                     <a href="#!/buyer/books/{{book._id}}" ><img src="{{book.photo}}" width="350" height="350"></a>
                     <p class="text-center wordwrap">{{book.name}}</p>

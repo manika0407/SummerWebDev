@@ -1,14 +1,7 @@
-
-
-
-
 <link href="../../../../project/css/login-style.css" rel="stylesheet">
 
-
-
-
 <div class="container-fluid">
-    <div ng-show="model.message" class="alert alert-danger">{{model.message}}</div>
+    <div ng-show="loginCtrl.message" class="alert alert-danger">{{loginCtrl.message}}</div>
 
     <div class="login-page">
         <div class="form">
@@ -36,7 +29,7 @@
                      ng-show="form.$submitted && form.password.$error.required">
                     Password is required
                 </div>
-                <button ng-click="model.login(username, password)"
+                <button ng-click="loginCtrl.login(username, password)"
                 type="submit"
                 class="btn btn-primary btn-block">
                 Login

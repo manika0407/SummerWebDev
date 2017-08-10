@@ -6,19 +6,19 @@
 
     function bookInfoController ($routeParams, bookService, $location, searchService,currentUser, userService,orderService) {
 
-        var model = this;
+        var bookInfoCtrl = this;
 
-        model.bookId = $routeParams['bookId'];
-        model.searchBook = searchBook;
-        model.googleBook = googleBook;
-        model.currentUser = currentUser;
-        model.logout = logout;
-        model.userId = currentUser._id;
-        model.createOrder = createOrder;
+        bookInfoCtrl.bookId = $routeParams['bookId'];
+        bookInfoCtrl.searchBook = searchBook;
+        bookInfoCtrl.googleSearch = googleSearch;
+        bookInfoCtrl.currentUser = currentUser;
+        bookInfoCtrl.logout = logout;
+        bookInfoCtrl.userId = currentUser._id;
+        bookInfoCtrl.createOrder = createOrder;
 
 
         function init() {
-            searchBook(model.bookId);
+            searchBook(bookInfoCtrl.bookId);
         }
         init();
 
@@ -31,22 +31,22 @@
 
         function createOrder(order, userId, bookId) {
             if (order.venmo === null || order.venmo === '' || typeof order.venmo === 'undefined') {
-                model.error1 = "Venmo is required in order to avail transaction!";
-                model.error2 = null;
-                model.submitted1 = true;
+                bookInfoCtrl.error1 = "Venmo is required in order to avail transaction!";
+                bookInfoCtrl.error2 = null;
+                bookInfoCtrl.submitted1 = true;
                 return;
             }
             if (order.email === null || order.email === '' || typeof order.email === 'undefined') {
-                model.error1 = null;
-                model.error2 = "Valid Email required!";
-                model.submitted2 = true;
+                bookInfoCtrl.error1 = null;
+                bookInfoCtrl.error2 = "Valid Email required!";
+                bookInfoCtrl.submitted2 = true;
                 return;
             }
             if (order.quantity === null || order.quantity === '' || typeof order.quantity === 'undefined') {
-                model.error1 = null;
-                model.error2 = null;
-                model.error3 = "Quantity required to place any order!";
-                model.submitted3 = true;
+                bookInfoCtrl.error1 = null;
+                bookInfoCtrl.error2 = null;
+                bookInfoCtrl.error3 = "Quantity required to place any order!";
+                bookInfoCtrl.submitted3 = true;
                 return;
             }
              bookService
@@ -83,7 +83,7 @@
                     orderService
                         .createOrder(newOrder,book._user._id)
                         .then(function (sellerOrder) {
-                            model.message = "Your buying request sent successfully!!";
+                            bookInfoCtrl.message = "Your buying request sent successfully!!";
                             // $location.url('/buyer/books/'+bookId);
                             orderService
                                 .updateBuyerOrder(buyerOder._id,sellerOrder._id)
@@ -110,16 +110,16 @@
             bookService
                 .findBookById(bookId)
                 .then(function (book) {
-                    model.book = book;
-                    var isbn = model.book.isbn;
-                    model.googleBook(isbn);
+                    bookInfoCtrl.book = book;
+                    var isbn = bookInfoCtrl.book.isbn;
+                    bookInfoCtrl.googleSearch(isbn);
                 });
         }
-        function googleBook(isbn) {
+        function googleSearch(isbn) {
             searchService
                 .searchBook(isbn)
                 .then(function (response) {
-                    model.item = response.data.items[0].volumeInfo;});
+                    bookInfoCtrl.item = response.data.items[0].volumeInfo;});
         }
 
 

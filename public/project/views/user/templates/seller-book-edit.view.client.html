@@ -19,17 +19,17 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/seller/books"><i class="fa fa-book" aria-hidden="true"
+                <li><a ng-if="bookEditCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!bookEditCtrl.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="bookEditCtrl.currentUser._id"><a href="#!/seller/books"><i class="fa fa-book" aria-hidden="true"
                                                                                  data-toggle="tooltip" title="Books"><span>&nbsp; Books</span>
                 </i></a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
+                <li ng-show="!bookEditCtrl.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="bookEditCtrl.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
                                                                                    data-toggle="tooltip" title="Profile">
                     <span>&nbsp; Profile</span>
                 </i></a></li>
-                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
+                <li ng-show="bookEditCtrl.currentUser._id"><a href="">Logged in as "{{bookEditCtrl.currentUser.username}}"</a></li>
             </ul>
         </div>
     </div>
@@ -37,8 +37,8 @@
 
 
 <div class="container-fluid">
-    <div ng-show="model.message" class="alert alert-info">
-        {{model.message}}</div>
+    <div ng-show="bookEditCtrl.message" class="alert alert-info">
+        {{bookEditCtrl.message}}</div>
 
         <u class="c1-color-white">
         <h1 class="text-center">Sell A Book</h1>
@@ -48,10 +48,10 @@
                 <label>ISBN/Name/Author</label>
                     <input type="text"
                            class="form-control"
-                           ng-class="{submitted:model.submitted1}"
-                           ng-model="model.book.isbn" placeholder="International Standard Book Number/Book Name/Book Author">
-                    <div ng-show="model.error1" class="alert alert-danger">
-                        {{model.error1}}</div>
+                           ng-class="{submitted:bookEditCtrl.submitted1}"
+                           ng-model="bookEditCtrl.book.isbn" placeholder="International Standard Book Number/Book Name/Book Author">
+                    <div ng-show="bookEditCtrl.error1" class="alert alert-danger">
+                        {{bookEditCtrl.error1}}</div>
             </div>
 
                 <div class="col-lg-4 col-xs-12">
@@ -60,17 +60,17 @@
                         </label>
                         <input type="text"
                                class="form-control"
-                               ng-class="{submitted:model.submitted2}"
-                               ng-model="model.book.inventory" placeholder="Copies of Book">
-                        <div ng-show="model.error2" class="alert alert-danger">
-                            {{model.error2}}</div>
+                               ng-class="{submitted:bookEditCtrl.submitted2}"
+                               ng-model="bookEditCtrl.book.inventory" placeholder="Copies of Book">
+                        <div ng-show="bookEditCtrl.error2" class="alert alert-danger">
+                            {{bookEditCtrl.error2}}</div>
                 </div>
                 <div class="col-lg-4 col-xs-12">
                     <label>Price</label><input type="text" class="form-control"
-                                                 ng-class="{submitted:model.submitted3}"
-                                                 ng-model="model.book.price" placeholder="price at which you are selling">
-                        <div ng-show="model.error3" class="alert alert-danger">
-                            {{model.error3}}</div>
+                                                 ng-class="{submitted:bookEditCtrl.submitted3}"
+                                                 ng-model="bookEditCtrl.book.price" placeholder="price at which you are selling">
+                        <div ng-show="bookEditCtrl.error3" class="alert alert-danger">
+                            {{bookEditCtrl.error3}}</div>
                 </div>
                 </div>
     <div class="row">
@@ -78,18 +78,18 @@
             Description Of Book
         <textarea class="form-control"
                   rows="5"
-                  ng-model="model.book.description"></textarea>
+                  ng-model="bookEditCtrl.book.description"></textarea>
         </div>
     </div>
         <br>
         <center>
-            <a ng-click="model.updateBook(model.bookId,model.book)" class="btn btn-default btn-wide c1-color-black">
+            <a ng-click="bookEditCtrl.updateBook(bookEditCtrl.bookId,bookEditCtrl.book)" class="btn btn-default btn-wide c1-color-black">
             <span class="color-white">
                 <i class="fa fa-pencil" aria-hidden="true"></i>
                 Update Book
             </span>
             </a>
-            <a ng-click="model.deleteBook(model.bookId)" class="btn btn-default btn-wide c1-color-black">
+            <a ng-click="bookEditCtrl.deleteBook(bookEditCtrl.bookId)" class="btn btn-default btn-wide c1-color-black">
                 <span class="color-white">
                     <i class="fa fa-trash-o" aria-hidden="true"></i>
                 Delete Book

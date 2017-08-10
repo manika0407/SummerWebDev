@@ -6,15 +6,15 @@
 
       function profileController(currentUser, $location, $routeParams, userService) {
 
-              var model = this;
-              model.currentUser = currentUser;
-              model.userId = currentUser._id;//$routeParams['userId'];
-              model.user = currentUser;
+              var profileCtrl = this;
+              profileCtrl.currentUser = currentUser;
+              profileCtrl.userId = currentUser._id;
+              profileCtrl.user = currentUser;
 
-              model.updateUser = updateUser;
-              modeldeleteUser = deleteUser;
-              model.logout = logout;
-              model.unregister = unregister;
+              profileCtrl.updateUser = updateUser;
+              profileCtrl.deleteUser = deleteUser;
+              profileCtrl.logout = logout;
+              profileCtrl.unregister = unregister;
 
 
 
@@ -38,18 +38,18 @@
           
           
               function userError(error) {
-                  model.error = "User not found";
+                  profileCtrl.error = "User not found";
               }
 
-              model.updateUser = updateUser;
-              model.deleteUser = deleteUser;
+              profileCtrl.updateUser = updateUser;
+              profileCtrl.deleteUser = deleteUser;
 
 
 
           function updateUser (userId, user) {
               userService.updateUser(userId, user)
                          .then(function () {
-                             model.message = "User update was successful!!";
+                             profileCtrl.message = "User updated Successfully!!";
                          });
           }
 
@@ -58,7 +58,7 @@
                          .then(function () {
                              $location.url('/login');
                          }, function () {
-                             model.error = "Unable to delete you!";
+                             profileCtrl.error = "Unable to delete this user";
                          });
           }
 

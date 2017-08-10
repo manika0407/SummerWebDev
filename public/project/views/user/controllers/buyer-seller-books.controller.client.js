@@ -4,30 +4,30 @@
         .controller('sellerBooksListController', sellerBooksListController);
     
     function sellerBooksListController(bookService, currentUser,$location, userService,$routeParams) {
-        var model = this;
-        model.sellerId = $routeParams['sellerId'];
-        model.userId = currentUser._id;//$routeParams['userId'];
-        model.currentUser = currentUser;
-        model.logout = logout;
-        model.followSeller = followSeller;
-        model.unfollowSeller =unfollowSeller;
+        var buyerSellerBooksCtrl = this;
+        buyerSellerBooksCtrl.sellerId = $routeParams['sellerId'];
+        buyerSellerBooksCtrl.userId = currentUser._id;//$routeParams['userId'];
+        buyerSellerBooksCtrl.currentUser = currentUser;
+        buyerSellerBooksCtrl.logout = logout;
+        buyerSellerBooksCtrl.followSeller = followSeller;
+        buyerSellerBooksCtrl.unfollowSeller =unfollowSeller;
 
         function init() {
             bookService
-                         .findAllBooksForUser(model.sellerId)
+                         .findAllBooksForUser(buyerSellerBooksCtrl.sellerId)
                          .then(renderBooks);
             userService
-                .findUserById(model.sellerId)
+                .findUserById(buyerSellerBooksCtrl.sellerId)
                 .then(function (seller) {
-                    model.seller = seller;
+                    buyerSellerBooksCtrl.seller = seller;
                     userService
-                        .findFollowSellerById(model.userId,model.seller._id)
+                        .findFollowSellerById(buyerSellerBooksCtrl.userId,buyerSellerBooksCtrl.seller._id)
                         .then(function (user) {
                             if(user){
-                                model.follow = true;
+                                buyerSellerBooksCtrl.follow = true;
 
                             } else{
-                                model.follow = false;
+                                buyerSellerBooksCtrl.follow = false;
 
                             }
                         });
@@ -76,7 +76,7 @@
 
 
         function renderBooks(books) {
-            model.books = books;
+            buyerSellerBooksCtrl.books = books;
         }
 
     }

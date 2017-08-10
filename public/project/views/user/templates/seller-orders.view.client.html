@@ -15,31 +15,32 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/seller/books"><i class="fa fa-book" aria-hidden="true"
+                <li><a ng-if="sellerOrderCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li ng-show="sellerOrderCtrl.currentUser._id"><a href="#!/seller/books"><i class="fa fa-book" aria-hidden="true"
                                                                                  data-toggle="tooltip" title="Books"><span>&nbsp; Books</span>
                 </i></a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
+                <li ng-show="sellerOrderCtrl.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
                                                                                    data-toggle="tooltip" title="Profile">
                     <span>&nbsp; Profile</span>
                 </i></a></li>
-                <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
+                <li ng-show="sellerOrderCtrl.currentUser._id"><a href="">Logged in as "{{sellerOrderCtrl.currentUser.username}}"</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 
 <div class="container-fluid">
-    <div style="margin-top: 5px" ng-show="model.message" class="alert alert-info">
-        {{model.message}}
+    <div ng-show="sellerOrderCtrl.message" class="alert alert-danger">
+        {{sellerOrderCtrl.message}}
     </div>
 
       <ul class="inlineList">
-        <li id="special" ng-repeat="order in model.orders">
+        <li id="special" ng-repeat="order in sellerOrderCtrl.orders">
             <img src="{{order.photo}}" width="300" height="300">
             <h4 class="text-center">{{order.name}}</h4>
             <h4 class="text-center">Requested By: {{order.buyer}}</h4>
-            <h4 class="pull-left">Quantity: {{order.quantity}}</h4>
+            <h4 class="text-center">Requested On: {{order.dateCreated.toDateString()}}</h4>
+            <h4 class="text-center">Quantity: {{order.quantity}}</h4>
             <h4 class="pull-right"><a href="#!/seller/orders/message/{{order._id}}" class="btn btn-default c1-color-black">
                 <span class="color-white">
                    Read Message
@@ -47,10 +48,10 @@
             </a></h4>
             <div class="row">
             <div ng-show="order.request">
-                <a class="hover" ng-click="model.acceptOrder(order._id,order.quantity, order.bookId, order.borderId)">Accept
+                <a class="hover" ng-click="sellerOrderCtrl.acceptOrder(order._id,order.quantity, order.bookId, order.borderId)">Accept
                 </a>
                 <div class="divider-silver"></div>
-                <a class="hover" ng-click="model.deleteOrder(order._id, order.borderId)">Decline</a>
+                <a class="hover" ng-click="sellerOrderCtrl.deleteOrder(order._id, order.borderId)">Decline</a>
             </div>
             <div ng-show="!order.request"  class="pull-right">
                 <h3>Item Being Shipped!!</h3>

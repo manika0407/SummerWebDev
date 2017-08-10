@@ -6,7 +6,7 @@
 
     function userService($http) {
     var userURL = '/api/project/user';
-    var projectURL = '/api/project'
+    var projectURL = '/api/project';
         var api = {
             createUser: createUser,
             findUserById: findUserById,
@@ -64,7 +64,7 @@
 
 
         function unfollowSeller(userId, sellerId) {
-            var url = projectURL+"unfollowseller/user/"+userId;
+            var url = projectURL+"/unfollowseller/user/"+userId;
             var followId = {sellerId: sellerId};
             return $http.put(url, followId)
                 .then(function (response) {
@@ -83,7 +83,7 @@
         }
 
         function findFollowSellerById(userId,sellerId) {
-            var url = projectURL+"follow/user/"+userId;
+            var url = projectURL+"/"+"follow/user/"+userId;
             var followId = {sellerId: sellerId};
             return $http.post(url, followId)
                 .then(function (response) {
