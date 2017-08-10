@@ -18,7 +18,7 @@ label, h1,span,h3, li,a {
 
 }
 
-option{
+option,select{
     color: black;
     width: 77%;
 }

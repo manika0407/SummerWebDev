@@ -13,23 +13,24 @@
                 ReadGood</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav pull-right">
 
                 <!--<li class="active"><a href="#!/">Home</a></li>-->
                 <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/home/books">Search Books</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li><a ng-if="model.currentUser.roles.indexOf('SELLER')>-1" href="#!/profile/seller">Profile</a></li>
-                <li><a ng-if="model.currentUser.roles.indexOf('Buyer')>-1" href="#!/profile/seller">Profile</a></li>
+                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login"><i class="fa fa-sign-in"
+                                                                                          aria-hidden="true" data-toggle="tooltip"
+                                                                                          title="Login"></i><span
+                        class="hidden-xs">&nbsp Login</span></a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register"><i class="fa fa-user-plus" aria-hidden="true"></i><span
+                        class="hidden-xs">&nbsp Sign up</span></a></li>
+                <li><a ng-if="model.currentUser.roles.indexOf('SELLER')>-1" href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
+                data-toggle="tooltip" title="Profile"><span>&nbsp; Profile</span> </i> </a></li>
+                <li><a ng-if="model.currentUser.roles.indexOf('BUYER')>-1" href="#!/profile/buyer">
+                    <i class="fa fa-user" aria-hidden="true" data-toggle="tooltip" title="Profile"><span>&nbsp; Profile</span> </i>
+                </a></li>
 
-
-
-                <!--<li ng-show="model.currentUser._id">Logged in as {{model.currentUser.username}}</li>-->
-
-                <li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
 

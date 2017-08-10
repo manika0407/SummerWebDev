@@ -43,7 +43,7 @@
 
         function updateBook(bookId, newBook) {
             if (newBook.isbn === null || newBook.isbn  === '' || typeof newBook.isbn  === 'undefined') {
-                model.error1 = 'ISBN is required!! An ISBN is essentially a product identifier used by publishers, booksellers, libraries, internet retailers and other supply chain participants for ordering, listing, sales records and stock control purposes. ';
+                model.error1 = 'Either ISBN, Name or Author is required ';
                 model.error2 = null;
                 model.error3 = null;
                 model.submitted1 = true;

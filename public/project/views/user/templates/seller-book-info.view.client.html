@@ -19,15 +19,19 @@
                ReadGood</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#!/seller/home">Home</a></li>
+            <ul class="nav navbar-nav pull-right">
+                <!--<li class="active"><a href="#!/seller/home">Home</a></li>-->
                 <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/seller/books">Books</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/seller/books"><i class="fa fa-book" aria-hidden="true"
+                                                                                 data-toggle="tooltip" title="Books"><span>&nbsp; Books</span>
+                </i></a></li>
                 <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/seller">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
+                                                                                   data-toggle="tooltip" title="Profile">
+                    <span>&nbsp; Profile</span>
+                </i></a></li>
                 <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
-                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -47,13 +51,15 @@
                     <h3 ng-repeat="author in model.item.authors">Author: {{author}}</h3>
                     <hr>
                     <p>{{model.item.description}}</p>
-                    <p class="pull-left">ISBN: {{model.book.isbn}}</p>
+                    <p class="pull-left">Page Count: {{model.item.pageCount}}</p>
                     <p class="pull-right">
                         <a href="https://books.google.com/books?isbn={{model.book.isbn}}" class="btn btn-embossed btn-block btn-primary c1-color-black">
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
                             Go directly to Google Books to have a preview
                         </a>
                     </p>
+                    <br>
+
                 </div>
             </div>
             <hr>
@@ -68,7 +74,7 @@
                         <h3>{{model.book.description}}</h3>
                     </div>
                 </div>
-                <h2 class="pull-right">Books Available: {{model.book.inventory}}</h2>
+                <h2 class="pull-right">Books Available in your inventory: {{model.book.inventory}}</h2>
             </div>
             <div class="row">
                 <h3 class="pull-left">Publishers of this Book: {{model.item.publisher}}</h3>

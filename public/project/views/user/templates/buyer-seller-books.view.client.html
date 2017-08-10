@@ -14,13 +14,13 @@
                ReadGood</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <!--<li class="active"><a href="#!/buyer/home">Home</a></li>-->
+            <ul class="nav navbar-nav pull-right">
                 <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/buyer/books">Search Books</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/buyer">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/buyer/books">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    Search Books</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/buyer"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Profile</a></li>
                 <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
                 <li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
             </ul>
@@ -56,7 +56,9 @@
     <div class="row">
         <ul class="inlineList">
             <li id="special" ng-repeat="book in model.books">
+                <a href="#!/buyer/books/{{book._id}}">
                 <img src="{{book.photo}}" width="350" height="350">
+                </a>
                 <p class="text-center">{{book.name}}</p>
                 <u><center><a href="#!/buyer/books/{{book._id}}"><p><span class="glyphicon glyphicon-book"></span>
                     Book Details</p></a></center>

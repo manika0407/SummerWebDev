@@ -29,7 +29,7 @@
 
                       } else {
 
-                          $location.url('/manage');
+                          $location.url('/admin');
                       }
                   } else {
                       model.message = "Sorry, " + username + " not found. Please try again!";

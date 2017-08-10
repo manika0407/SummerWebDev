@@ -14,12 +14,17 @@
                ReadGood</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav pull-right">
                 <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/seller/books">Books</a></li>
+                <!--<li ng-show="model.currentUser._id"><a href="#!/seller/books"><i class="fa fa-book" aria-hidden="true"-->
+                                                                                 <!--data-toggle="tooltip" title="Books"><span>&nbsp; Books</span>-->
+                <!--</i></a></li>-->
                 <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/seller">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
+                                                                                   data-toggle="tooltip" title="Profile">
+                    <span>&nbsp; Profile</span>
+                </i></a></li>
                 <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
                 <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
             </ul>
@@ -41,7 +46,10 @@
                 <img src="{{book.photo}}" alt="book cover" width="350" height="350">
             </a>
                 <p class="text-center wordwrap">{{book.name}}</p>
-            <center><a href="#!/seller/book/{{book._id}}" class="black-link"><u>Edit/Delete this book</u></a></center>
+            <center><a href="#!/seller/book/{{book._id}}" class="c1-color-white">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+            </a></center>
         </li>
     </ul>
    <center><a class="btn btn-lg btn-default c1-color-black"
@@ -53,4 +61,4 @@
    </center>
 </div>
 
-<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>
+<!--<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>-->

@@ -13,15 +13,20 @@
                ReadGood</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#!/seller/home">Home</a></li>
+            <ul class="nav navbar-nav pull-right">
                 <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/seller/books">Books</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/seller/books">
+                    <i class="fa fa-book" aria-hidden="true"
+                       data-toggle="tooltip" title="Books"><span>&nbsp; Books</span>
+                    </i>
+                </a></li>
                 <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/seller">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/seller"><i class="fa fa-user" aria-hidden="true"
+                                                                                   data-toggle="tooltip" title="Profile">
+                    <span>&nbsp; Profile</span>
+                </i></a></li>
                 <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
-                <li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

@@ -12,7 +12,7 @@
     function configuration($routeProvider) {
         $routeProvider
 
-            .when('/manage', {
+            .when('/admin', {
                 templateUrl: 'views/admin/templates/admin.view.client.html',
                 controller: 'mainController',
                 controllerAs: 'model',

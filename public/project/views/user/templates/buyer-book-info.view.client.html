@@ -14,15 +14,17 @@
                 ReadGood</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <!--<li class="active"><a href="#!/buyer/home">Home</a></li>-->
+            <ul class="nav navbar-nav pull-right">
                 <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/buyer/books">Search Books</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/buyer/books"><i class="fa fa-search" aria-hidden="true"></i>
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    Search Books</a></li>
                 <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a href="#!/profile/buyer">Profile</a></li>
+                <li ng-show="model.currentUser._id"><a href="#!/profile/buyer">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    Profile</a></li>
                 <li ng-show="model.currentUser._id"><a href="">Logged in as "{{model.currentUser.username}}"</a></li>
-                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -31,23 +33,29 @@
 <div class="container-fluid">
 
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-3 hidden-xs">
                     <img src="{{model.book.photo}}" width="250" height="350">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 col-xs-12">
                     <h2>{{model.item.title}}</h2>
                     <hr>
                     <h3 ng-repeat="author in model.item.authors">Author: {{author}}</h3>
                     <h3>Buy: {{model.book.price}}</h3>
                     <hr>
                     <p>{{model.item.description}}</p>
-                    <p class="pull-left">ISBN: {{model.book.isbn}}</p>
+                    <div class="row">
+                    <p class="pull-left">Page Count: {{model.item.pageCount}}</p>
                     <p class="pull-right">
                         <a href="https://books.google.com/books?isbn={{model.book.isbn}}" class="btn btn-embossed btn-block btn-primary c1-color-black">
                             <i class="fa fa-google-plus" aria-hidden="true"></i>
                             Go directly to Google Books to have a preview
                         </a>
                     </p>
+                    </div>
+                    <div class="row">
+                        <p class="pull-left">Publisher: {{model.item.publisher}}</p>
+                        <p class="pull-right">Published On: {{model.item.publishedDate}}</p>
+                    </div>
                 </div>
             </div>
 <hr>
@@ -58,9 +66,8 @@
                         Seller Details
                     </h3>
                         <h4> Posted By:
-                            <a class="btn btn-embossed" href="#!/books/list/seller/{{model.book._user._id}}">
-                                <h4>{{model.book._user.firstName}} {{model.book._user.lastName}} ({{model.book._user.username}})<br>
-                                    <u>Find more books uploaded by this Seller</u></h4>
+                            <a class="btn btn-embossed c1-color-white" href="#!/books/list/seller/{{model.book._user._id}}">
+                                {{model.book._user.firstName}} {{model.book._user.lastName}} ({{model.book._user.username}}) (Click on Seller to Find other books uploaded by {{model.book._user.username}})<br>
                             </a>
                         </h4>
                     <h4>Seller Venmo Payment Id: {{model.book._user.venmo}}</h4>

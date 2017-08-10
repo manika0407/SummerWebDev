@@ -13,12 +13,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#!/admin/home">Home</a></li>
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/manage">Admin</a></li>
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
                 <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
-            <!--</ul>-->
+
+            </ul>
         </div>
     </div>
 </nav>
@@ -81,22 +80,22 @@
         <li ng-repeat="buyer in model.buyers" class="list-group-item">
             <div ng-repeat="order in buyer.orders">
             <div class="row">
-                <div class="col-md-2 col-xs-12" style="font-size: 15px">
+                <div class="col-md-2 col-xs-12" >
                     {{buyer.username}}
                 </div>
-                <div class="col-md-2 col-xs-12" style="font-size: 15px">
+                <div class="col-md-2 col-xs-12" >
                     {{order.seller}}
                 </div>
-                <div class="col-md-4 col-xs-12" style="font-size: 15px">
+                <div class="col-md-4 col-xs-12" >
                     {{order.name}}
                 </div>
-                <div ng-show="order.request&&!order.reject" class="col-md-2 col-xs-12" style="font-size: 15px">
+                <div ng-show="order.request&&!order.reject" class="col-md-2 col-xs-12" >
                     pending
                 </div>
-                <div ng-show="!order.request&&!order.reject" class="col-md-2 col-xs-12" style="font-size: 15px">
+                <div ng-show="!order.request&&!order.reject" class="col-md-2 col-xs-12" >
                     shipping
                 </div>
-                <div ng-show="order.request&&order.reject" class="col-md-2 col-xs-12" style="font-size: 15px">
+                <div ng-show="order.request&&order.reject" class="col-md-2 col-xs-12">
                     rejected
                 </div>
                 <div class="col-md-2 col-xs-12">

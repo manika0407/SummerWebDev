@@ -7,10 +7,10 @@
         var model = this;
         model.deleteBook = deleteBook;
         model.findAllBooks = findAllBooks;
+        model.currentUser = currentUser;
         model.createBook = createBook;
         model.selectBook = selectBook;
         model.updateBook = updateBook;
-        model.currentUser = currentUser;
         model.logout = logout;
 
         function logout() {

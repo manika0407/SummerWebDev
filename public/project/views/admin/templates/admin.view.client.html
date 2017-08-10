@@ -13,14 +13,15 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#!/admin/home">Home</a></li>
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/manage">Admin</a></li>
+                <!--<li class="active"><a href="#!/admin/home">Home</a></li>-->
+                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
                 <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
                 <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
             </ul>
         </div><!--/.nav-collapse -->
     </div>
+</nav>
 
 <div class="container-fluid">
     <h1>Admin</h1>
