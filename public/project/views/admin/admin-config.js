@@ -21,7 +21,7 @@
                 }
             })
             .when('/admin/user', {
-                templateUrl: 'views/admin/templates/admin-users.view.client.html',
+                templateUrl: 'views/admin/templates/adminUsers.view.client.html',
                 controller: 'adminUsersController',
                 controllerAs: 'adminUserCtrl',
                 resolve:{
@@ -29,7 +29,7 @@
                 }
             })
             .when('/admin/books', {
-                templateUrl: 'views/admin/templates/admin-books.view.client.html',
+                templateUrl: 'views/admin/templates/adminBooks.view.client.html',
                 controller: 'adminBooksController',
                 controllerAs: 'adminBookCtrl',
                 resolve:{
@@ -37,7 +37,7 @@
                 }
             })
             .when('/admin/following', {
-                templateUrl: 'views/admin/templates/admin-following.view.client.html',
+                templateUrl: 'views/admin/templates/adminFollowing.view.client.html',
                 controller: 'adminFollowingController',
                 controllerAs: 'adminFollowingCtrl',
                 resolve:{
@@ -45,7 +45,7 @@
                 }
             })
             .when('/admin/orders', {
-                templateUrl: 'views/admin/templates/admin-orders.view.client.html',
+                templateUrl: 'views/admin/templates/adminOrders.view.client.html',
                 controller: 'adminOrdersController',
                 controllerAs: 'adminOrderCtrl',
                 resolve:{

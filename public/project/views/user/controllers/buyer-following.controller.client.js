@@ -6,7 +6,6 @@
 
     function buyerFollowingController(bookService, currentUser,$location, userService, orderService) {
         var buyerFollowingCtrl = this;
-
         buyerFollowingCtrl.userId = currentUser._id;//$routeParams['userId'];
         buyerFollowingCtrl.currentUser = currentUser;
         buyerFollowingCtrl.logout = logout;
