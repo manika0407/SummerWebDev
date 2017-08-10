@@ -48,23 +48,23 @@
             </div>
             <div class="col-md-8 col-xs-6">
                 <u><h3>{{order.name}}</h3></u>
-                sold By: {{order.seller}}<br>
+                Sold By: {{order.seller}}<br>
                 You have ordered {{order.quantity}} copies of this Book.
             </div>
             <div class="col-md-2 col-xs-6">
                 <div ng-show="order.request&&!order.reject" style="margin-right: 30px" class="pull-right">
-                    <h3>Pending
+                    <h3>Seller has not responded anything yet!!
                     </h3>
                 </div>
                 <div ng-show="!order.request&&!order.reject"  class="pull-right">
-                    <h4>Shipping</h4>
+                    <h4>Item is Being Shipped To You</h4>
                     <div class="divider-silver"></div>
-                    <a class="btn btn-embossed" ng-click="buyerOrderCtrl.deleteBothOrder(order._id, order.sorderId)">Received</a>
+                    <a class="btn btn-embossed" ng-click="buyerOrderCtrl.deleteOrderFromSellerBuyer(order._id, order.sorderId)">Click If You have Recieved the order</a>
                 </div>
                 <div ng-show="order.reject"  class="pull-right">
-                    <h4>Rejected</h4>
+                    <h4>Sorry, But Request Has been Rejected</h4>
                     <div class="divider-silver"></div>
-                    <a class="btn btn-embossed btn-wide" ng-click="buyerOrderCtrl.deleteOrder(order._id)">Delete</a>
+                    <a class="btn btn-embossed btn-wide" ng-click="buyerOrderCtrl.deleteOrder(order._id)">Delete this Order</a>
                 </div>
             </div>
 

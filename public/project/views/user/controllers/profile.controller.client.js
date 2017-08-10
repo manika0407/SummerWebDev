@@ -58,7 +58,7 @@
                          .then(function () {
                              $location.url('/login');
                          }, function () {
-                             profileCtrl.error = "Unable to delete this user";
+                             profileCtrl.error = "Sorry, Unable to delete this user";
                          });
           }
 

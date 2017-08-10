@@ -11,7 +11,7 @@
         buyerOrderCtrl.currentUser = currentUser;
         buyerOrderCtrl.logout = logout;
         buyerOrderCtrl.deleteOrder = deleteOrder;
-        buyerOrderCtrl.deleteBothOrder = deleteBothOrder;
+        buyerOrderCtrl.deleteOrderFromSellerBuyer = deleteOrderFromSellerBuyer;
 
         function init() {
             orderService
@@ -26,7 +26,7 @@
 
 
         
-        function deleteBothOrder(orderId, sorderId) {
+        function deleteOrderFromSellerBuyer(orderId, sorderId) {
             orderService
                 .deleteOrder(orderId)
                 .then(function () {
