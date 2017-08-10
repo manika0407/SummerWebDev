@@ -5,10 +5,10 @@
         .controller('mainController', mainController);
     
     function mainController(currentUser, userService, $location) {
-        var model = this;
-        model.currentUser = currentUser;
+        var mainCtrl = this;
+        mainCtrl.currentUser = currentUser;
 
-        model.logout = logout;
+        mainCtrl.logout = logout;
 
         function logout() {
             userService

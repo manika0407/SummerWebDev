@@ -4,14 +4,14 @@
         .controller('adminUsersController', adminUsersController);
 
     function adminUsersController(userService, currentUser,$location, bookService) {
-        var model = this;
-        model.deleteUser = deleteUser;
-        model.findAllUsers = findAllUsers;
-        model.createUser = createUser;
-        model.selectUser = selectUser;
-        model.updateUser = updateUser;
-        model.currentUser = currentUser;
-        model.logout = logout;
+        var adminUserCtrl = this;
+        adminUserCtrl.deleteUser = deleteUser;
+        adminUserCtrl.findAllUsers = findAllUsers;
+        adminUserCtrl.createUser = createUser;
+        adminUserCtrl.selectUser = selectUser;
+        adminUserCtrl.updateUser = updateUser;
+        adminUserCtrl.currentUser = currentUser;
+        adminUserCtrl.logout = logout;
 
         function logout() {
             userService
@@ -32,7 +32,7 @@
         }
 
         function selectUser(user) {
-             model.user = angular.copy(user);
+             adminUserCtrl.user = angular.copy(user);
          }
 
 
@@ -60,7 +60,7 @@
             userService
                 .findAllUsers()
                 .then(function (users) {
-                    model.users = users;
+                    adminUserCtrl.users = users;
 
                 });
         }

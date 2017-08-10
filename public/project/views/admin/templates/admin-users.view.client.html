@@ -14,10 +14,10 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
 
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>
+                <li><a ng-if="adminUserCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!adminUserCtrl.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="!adminUserCtrl.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="adminUserCtrl.currentUser._id"><a ng-click="adminUserCtrl.logout()">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -50,39 +50,39 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-md-2 col-xs-12">
-                    <input ng-model="model.user.username"
+                    <input ng-model="adminUserCtrl.user.username"
                            class="form-control">
                 </div>
                 <div class="col-md-2 col-xs-12">
-                    <input ng-model="model.user.firstName"
+                    <input ng-model="adminUserCtrl.user.firstName"
                            class="form-control">
                 </div>
                 <div class="col-md-2 col-xs-12">
-                    <input ng-model="model.user.lastName"
+                    <input ng-model="adminUserCtrl.user.lastName"
                            class="form-control">
                 </div>
 
                 <div class="col-md-2 col-xs-12">
-                    <input ng-model="model.user.email"
+                    <input ng-model="adminUserCtrl.user.email"
                            class="form-control">
                 </div>
                 <div class="col-md-2 col-xs-12">
-                    <input ng-model="model.user.roles"
-                           PLACEHOLDER="SELLER"
+                    <input ng-model="adminUserCtrl.user.roles"
+                           PLACEHOLDER="User Role"
                            class="form-control">
                 </div>
                 <div class="col-sm-1 col-xs-12">
-                    <span ng-click="model.updateUser(model.user);model.user={}"
+                    <span ng-click="adminUserCtrl.updateUser(adminUserCtrl.user);adminUserCtrl.user={}"
                           class="glyphicon glyphicon-ok pull-right">
                     </span>
-                    <span ng-click="model.createUser(model.user);model.user={}"
+                    <span ng-click="adminUserCtrl.createUser(adminUserCtrl.user);adminUserCtrl.user={}"
                           class="glyphicon glyphicon-plus pull-right">
                     </span>
                 </div>
             </div>
         </li>
 
-        <li ng-repeat="user in model.users" class="list-group-item">
+        <li ng-repeat="user in adminUserCtrl.users" class="list-group-item">
             <div class="row">
                 <div class="col-md-2 col-xs-12" style="font-size: 15px">
                     {{user.username}}
@@ -100,10 +100,10 @@
                     {{user.roles}}
                 </div>
                 <div class="col-md-1 col-xs-12">
-                     <span ng-click="model.selectUser(user)"
+                     <span ng-click="adminUserCtrl.selectUser(user)"
                            class="glyphicon glyphicon-pencil pull-right">
                     </span>
-                    <span ng-click="model.deleteUser(user)"
+                    <span ng-click="adminUserCtrl.deleteUser(user)"
                           class="glyphicon glyphicon-remove pull-right">
                     </span>
                 </div>

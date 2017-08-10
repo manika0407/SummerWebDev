@@ -15,7 +15,7 @@
             .when('/admin', {
                 templateUrl: 'views/admin/templates/admin.view.client.html',
                 controller: 'mainController',
-                controllerAs: 'model',
+                controllerAs: 'mainCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -23,7 +23,7 @@
             .when('/admin/user', {
                 templateUrl: 'views/admin/templates/admin-users.view.client.html',
                 controller: 'adminUsersController',
-                controllerAs: 'model',
+                controllerAs: 'adminUserCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -31,7 +31,7 @@
             .when('/admin/books', {
                 templateUrl: 'views/admin/templates/admin-books.view.client.html',
                 controller: 'adminBooksController',
-                controllerAs: 'model',
+                controllerAs: 'adminBookCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -39,7 +39,7 @@
             .when('/admin/following', {
                 templateUrl: 'views/admin/templates/admin-following.view.client.html',
                 controller: 'adminFollowingController',
-                controllerAs: 'model',
+                controllerAs: 'adminFollowingCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }
@@ -47,7 +47,7 @@
             .when('/admin/orders', {
                 templateUrl: 'views/admin/templates/admin-orders.view.client.html',
                 controller: 'adminOrdersController',
-                controllerAs: 'model',
+                controllerAs: 'adminOrderCtrl',
                 resolve:{
                     currentUser: checkLoggedIn
                 }

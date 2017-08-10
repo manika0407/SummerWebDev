@@ -15,10 +15,10 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <!--<li class="active"><a href="#!/admin/home">Home</a></li>-->
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
+                <li><a ng-if="adminFollowingCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li class="active" ng-show="!adminFollowingCtrl.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="!adminFollowingCtrl.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="adminFollowingCtrl.currentUser._id"><a ng-click="adminFollowingCtrl.logout()">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -43,30 +43,30 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-5">
-                    <div ng-show="model.buyers.length===0">No Buyers yet!</div>
+                    <div ng-show="adminFollowingCtrl.buyers.length===0">No Buyers yet!</div>
                     <select ng-model="buyerId"
-                            ng-show="model.buyers.length!==0"
+                            ng-show="adminFollowingCtrl.buyers.length!==0"
                             >
-                        <option value="{{buyer._id}}" ng-repeat="buyer in model.buyers">{{buyer.username}}</option>
+                        <option value="{{buyer._id}}" ng-repeat="buyer in adminFollowingCtrl.buyers">{{buyer.username}}</option>
                     </select>
                 </div>
                 <div class="col-xs-5">
-                    <div ng-show="model.sellers.length===0">No Sellers yet!</div>
+                    <div ng-show="adminFollowingCtrl.sellers.length===0">No Sellers yet!</div>
                     <select ng-model="sellerId"
-                            ng-show="model.sellers.length!==0"
+                            ng-show="adminFollowingCtrl.sellers.length!==0"
                     >
-                        <option value="{{seller._id}}" ng-repeat="seller in model.sellers">{{seller.username}}</option>
+                        <option value="{{seller._id}}" ng-repeat="seller in adminFollowingCtrl.sellers">{{seller.username}}</option>
                     </select>
                 </div>
                 <div class="col-xs-2">
-                    <span ng-click="model.followSeller(buyerId, sellerId)"
+                    <span ng-click="adminFollowingCtrl.followSeller(buyerId, sellerId)"
                           class="glyphicon glyphicon-plus pull-right">
                     </span>
                 </div>
             </div>
         </li>
 
-        <li ng-repeat="buyer in model.buyers" class="list-group-item">
+        <li ng-repeat="buyer in adminFollowingCtrl.buyers" class="list-group-item">
             <div ng-repeat="seller in buyer.follows">
             <div class="row">
                 <div class="col-xs-5">
@@ -76,7 +76,7 @@
                     {{seller.username}}
                 </div>
                 <div class="col-xs-2">
-                    <span ng-click="model.unfollowSeller(buyer._id,seller._id)"
+                    <span ng-click="adminFollowingCtrl.unfollowSeller(buyer._id,seller._id)"
                           class="glyphicon glyphicon-remove pull-right">
                     </span>
                 </div>

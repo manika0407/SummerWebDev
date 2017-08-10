@@ -13,10 +13,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
-
+                <li><a ng-if="adminOrderCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
+                <li ng-show="!adminOrderCtrl.currentUser._id"><a href="#!/login">Login</a></li>
+                <li ng-show="!adminOrderCtrl.currentUser._id"><a href="#!/register">Register</a></li>
+                <li ng-show="adminOrderCtrl.currentUser._id"><a ng-click="adminOrderCtrl.logout()">Logout</a></li>
             </ul>
         </div>
     </div>
@@ -46,38 +46,35 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-md-2 col-xs-12">
-                    <div ng-show="model.buyers.length===0">No Buyers yet!</div>
+                    <div ng-show="adminOrderCtrl.buyers.length===0">No Buyers yet!</div>
                     <select ng-model="buyerId"
-                            ng-show="model.buyers.length!==0"
-                            style="width: 77%;">
-                        <option value="{{buyer._id}}" ng-repeat="buyer in model.buyers">{{buyer.username}}</option>
+                            ng-show="adminOrderCtrl.buyers.length!==0">
+                        <option value="{{buyer._id}}" ng-repeat="buyer in adminOrderCtrl.buyers">{{buyer.username}}</option>
                     </select>
                 </div>
                 <div class="col-md-2 col-xs-12">
                 </div>
                 <div class="col-md-4 col-xs-12">
-                      <select ng-model="bookId"
-                              style="width: 77%;">
-                      <option value="{{book._id}}" ng-repeat="book in model.books">{{book.name}}</option>
+                      <select ng-model="bookId">
+                      <option value="{{book._id}}" ng-repeat="book in adminOrderCtrl.books">{{book.name}}</option>
                         </select>
                 </div>
                 <div class="col-md-2 col-xs-12">
-                    <select ng-model="Status"
-                            style="width: 77%;">
+                    <select ng-model="Status">
                         <option value="Pending">pending</option>
                         <option value="Shipping">shipping</option>
                         <option value="Rejected">rejected</option>
                     </select>
                 </div>
                 <div class="col-md-2 col-xs-12">
-                    <span ng-click="model.addOrder(buyerId, bookId, Status)"
+                    <span ng-click="adminOrderCtrl.addOrder(buyerId, bookId, Status)"
                           class="glyphicon glyphicon-plus pull-right">
                     </span>
                 </div>
             </div>
         </li>
 
-        <li ng-repeat="buyer in model.buyers" class="list-group-item">
+        <li ng-repeat="buyer in adminOrderCtrl.buyers" class="list-group-item">
             <div ng-repeat="order in buyer.orders">
             <div class="row">
                 <div class="col-md-2 col-xs-12" >
@@ -99,7 +96,7 @@
                     rejected
                 </div>
                 <div class="col-md-2 col-xs-12">
-                    <span ng-click="model.deleteOrder(order)"
+                    <span ng-click="adminOrderCtrl.deleteOrder(order)"
                           class="glyphicon glyphicon-remove pull-right">
                     </span>
                 </div>

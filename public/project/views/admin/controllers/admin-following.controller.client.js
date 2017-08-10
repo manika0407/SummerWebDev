@@ -5,12 +5,12 @@
         .controller('adminFollowingController', adminFollowingController);
 
     function adminFollowingController(userService, currentUser,$location, bookService) {
-        var model = this;
-        model.followSeller = followSeller;
-        model.unfollowSeller = unfollowSeller;
-        model.findAllUsers = findAllUsers;
-        model.currentUser = currentUser;
-        model.logout = logout;
+        var adminFollowingCtrl = this;
+        adminFollowingCtrl.followSeller = followSeller;
+        adminFollowingCtrl.unfollowSeller = unfollowSeller;
+        adminFollowingCtrl.findAllUsers = findAllUsers;
+        adminFollowingCtrl.currentUser = currentUser;
+        adminFollowingCtrl.logout = logout;
 
         function logout() {
             userService
@@ -62,8 +62,8 @@
                             sellers.push(users[u]);
                         }
                     }
-                    model.buyers = buyers;
-                    model.sellers = sellers;
+                    adminFollowingCtrl.buyers = buyers;
+                    adminFollowingCtrl.sellers = sellers;
 
                 });
         }

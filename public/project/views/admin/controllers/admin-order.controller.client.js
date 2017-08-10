@@ -4,12 +4,12 @@
         .controller('adminOrdersController', adminOrdersController);
 
     function adminOrdersController(userService, currentUser,$location, bookService, orderService) {
-        var model = this;
-        model.deleteOrder = deleteOrder;
-        model.findAllUsers = findAllUsers;
-        model.addOrder = addOrder;
-        model.currentUser = currentUser;
-        model.logout = logout;
+        var adminOrderCtrl = this;
+        adminOrderCtrl.deleteOrder = deleteOrder;
+        adminOrderCtrl.findAllUsers = findAllUsers;
+        adminOrderCtrl.addOrder = addOrder;
+        adminOrderCtrl.currentUser = currentUser;
+        adminOrderCtrl.logout = logout;
 
 
         function logout() {
@@ -134,12 +134,12 @@
 
                         }
                     }
-                    model.buyers = buyers;
-                    model.sellers = sellers;
+                    adminOrderCtrl.buyers = buyers;
+                    adminOrderCtrl.sellers = sellers;
                    bookService
                        .findAllBooks()
                        .then(function (books) {
-                           model.books = books;
+                           adminOrderCtrl.books = books;
                        });
 
 
