@@ -182,7 +182,6 @@ function findUserByCredentials(username, password) {
 }
 
 function updateUser(userId, newUser) {
-    // things we don't wanna update
     delete newUser.username;
     delete newUser.password;
     if(typeof newUser.roles === 'string'){

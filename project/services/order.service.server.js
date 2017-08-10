@@ -1,15 +1,24 @@
 var app = require('../../express');
+
 var orderModel = require('../models/orders/order.model.server');
 
 
 app.get("/api/project/user/:userId/order", findAllOrdersForUser);
+
 app.post("/api/project/user/:userId/order", createOrder);
+
 app.get("/api/project/order/:orderId", findOrderById);
+
 app.put("/api/project/order/:orderId", updateOrder);
+
 app.delete("/api/project/order/:orderId", deleteOrder);
+
 app.get("/api/project/orders", findAllOrders);
+
 app.put("/api/project/accept/order/:orderId", acceptOrder);
+
 app.put("/api/project/buyer/order/:orderId", updateBuyerOrder);
+
 app.put("/api/project/reject/order/:orderId", updateBOrder);
 
 
@@ -63,7 +72,25 @@ function findAllOrders(req, res) {
         });
 }
 
+function findOrderById(req, res) {
 
+    var orderId = req.params.orderId;
+    orderModel
+        .findOrderById(orderId)
+        .then(function (order) {
+            res.json(order);
+        });
+}
+
+function createOrder(req, res) {
+    var order = req.body;
+    var userId = req.params.userId;
+    orderModel
+        .createOrderForUser(userId, order)
+        .then(function (order) {
+            res.json(order);
+        });
+}
 
 function deleteOrder(req, res) {
     var orderId = req.params.orderId;
@@ -86,25 +113,7 @@ function updateOrder(req, res) {
 
 
 
-function findOrderById(req, res) {
 
-    var orderId = req.params.orderId;
-    orderModel
-        .findOrderById(orderId)
-        .then(function (order) {
-            res.json(order);
-        });
-}
-
-function createOrder(req, res) {
-    var order = req.body;
-    var userId = req.params.userId;
-    orderModel
-        .createOrderForUser(userId, order)
-        .then(function (order) {
-            res.json(order);
-        });
-}
 
 function findAllOrdersForUser(req, res) {
     var results = [];

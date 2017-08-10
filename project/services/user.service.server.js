@@ -1,42 +1,71 @@
 var app = require('../../express');
+
 var userProjectModel = require('../models/user/user.model.server');
+
 var passport  = require('passport');
+
 var bcrypt = require("bcrypt-nodejs");
+
 var LocalStrategy = require('passport-local').Strategy;
+
 passport.use(new LocalStrategy(localStrategy));
+
 passport.serializeUser(serializeUser);
+
 passport.deserializeUser(deserializeUser);
 
+
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
 var googleConfig = {
     clientID     : process.env.GOOGLE_CLIENT_ID,
     clientSecret : process.env.GOOGLE_CLIENT_SECRET,
     callbackURL  : process.env.GOOGLE_CALLBACK_PROJECTURL,
     profileFields: ['email']
 };
+
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
 
 
+
 app.post('/api/project/login', passport.authenticate('local'), login);
+
 app.get('/api/project/checkLoggedIn', checkLoggedIn);
+
 app.post('/api/project/logout', logout);
+
 app.post('/api/project/register', register);
+
 app.get('/api/project/checkAdmin', checkAdmin );
+
 app.post('/api/project/unregister', unregister);
+
 app.post('/api/project/follow/user/:userId', findFollowSellerById );
+
 app.put('/api/project/followseller/user/:userId', followSeller);
+
 app.put('/api/project/unfollowseller/user/:userId', unfollowSeller);
+
 app.get('/api/project/admin/buyer/user/:userId', findBuyer);
+
 app.get('/api/project/admin/order/:userId', findBuyerForOrderAdmin);
+
 app.get('/api/project/admin/seller/order/:userId', findSellerForOrderAdmin);
 
 
+
+
 app.get('/api/project/user/:userId', findUserById);
-app.get    ('/api/project/user', findUser);
-app.get    ('/api/project/users', isAdmin, findAllUsers);
+
+app.get('/api/project/user', findUser);
+
+app.get('/api/project/users', isAdmin, findAllUsers);
+
 app.post('/api/project/user',isAdmin, createUser);
+
 app.put('/api/project/user/:userId', updateUser);
+
 app.delete('/api/project/user/:userId', isAdmin, deleteUser);
 
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile','email'] }));
@@ -88,17 +117,21 @@ function googleStrategy(token, refreshToken, profile, done) {
 
 
 var FacebookStrategy = require('passport-facebook').Strategy;
+
 var facebookConfig = {
     clientID     : process.env.FACEBOOK_CLIENT_PROJECTID,
     clientSecret : process.env.FACEBOOK_CLIENT_PROJECTSECRET,
     callbackURL  : process.env.FACEBOOK_CALLBACK_PROJECTURL,
     profileFields: ['id', 'emails','displayName', 'name']
 };
+
 passport.use(new FacebookStrategy(facebookConfig, facebookStrategy));
 
 //from client to facebook
+
 app.get ('/auth/facebook', passport.authenticate('facebook', { scope : ['public_profile','email']}));
 //coming back from facebook
+
 app.get('/auth/project/facebook/callback',
     passport.authenticate('facebook', {
         successRedirect: '/project/index.html#!/profile/buyer',

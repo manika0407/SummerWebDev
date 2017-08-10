@@ -3,7 +3,7 @@ var orderSchema = require('./order.schema.server');
 var orderModel = mongoose.model('OrderModel', orderSchema);
 var userProjectModel = require('../user/user.model.server');
 
-//api
+
 orderModel.findAllOrders = findAllOrders;
 orderModel.createOrderForUser = createOrderForUser;
 orderModel.findAllOrdersForUser = findAllOrdersForUser;
@@ -51,6 +51,15 @@ function findOrderById(orderId) {
 
 }
 
+
+function findAllOrders() {
+    return orderModel.find()
+        .populate('_user')
+        .exec();
+}
+
+
+
 function deleteOrderFromUser(orderId) {
     return orderModel
         .remove({_id: orderId})
@@ -59,16 +68,6 @@ function deleteOrderFromUser(orderId) {
                    .deleteOrder(orderId);
         });
 }
-
-
-function findAllOrdersForUser(userId) {
-    return orderModel
-                    .find({_user: userId})
-                    .populate('_user')
-                    .exec();
-}
-
-
 
 
 function createOrderForUser(userId, order) {
@@ -85,10 +84,16 @@ function createOrderForUser(userId, order) {
 
 
 
-
-function findAllOrders() {
- return orderModel.find()
-        .populate('_user')
-        .exec();
+function findAllOrdersForUser(userId) {
+    return orderModel
+                    .find({_user: userId})
+                    .populate('_user')
+                    .exec();
 }
+
+
+
+
+
+
 

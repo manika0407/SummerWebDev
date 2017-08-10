@@ -31,7 +31,7 @@
 
         function createOrder(order, userId, bookId) {
             if (order.venmo === null || order.venmo === '' || typeof order.venmo === 'undefined') {
-                bookInfoCtrl.error1 = "Venmo is required in order to avail transaction!";
+                bookInfoCtrl.error1 = "Address is required For Shipping Purposes!";
                 bookInfoCtrl.error2 = null;
                 bookInfoCtrl.submitted1 = true;
                 return;

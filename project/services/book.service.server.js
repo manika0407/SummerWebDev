@@ -1,22 +1,31 @@
 var app = require('../../express');
+
 var bookModel = require('../models/books/book.model.server');
 
 
 app.get("/api/project/user/:userId/book", findAllBooksForUser);
+
 app.post("/api/project/user/:userId/book", createBook);
+
 app.get("/api/project/book/:bookId", findBookById);
+
 app.put("/api/project/book/:bookId", updateBook);
+
 app.delete("/api/project/book/:bookId", deleteBook);
+
 app.get("/api/project/books", findAllBooks);
+
 app.get("/api/project/name/book", findBookByName);
+
 app.get("/api/project/author/book", findBookByAuthor);
+
 app.get("/api/project/isbn/book", findBookByISBN);
+
 app.put("/api/project/book/inventory/:bookId", updateInventory);
+
 app.get("/api/project/admin/user/:userId", adminDelete);
+
 app.put("/api/project/admin/book/:bookId", adminUpdate);
-
-
-
 
 
 function adminUpdate(req, res) {
@@ -142,6 +151,3 @@ function findAllBooksForUser(req, res) {
                 res.json(books);
             });
 }
-
-
-

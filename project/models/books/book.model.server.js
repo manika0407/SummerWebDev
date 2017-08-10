@@ -5,7 +5,6 @@ var bookModel = mongoose.model('BookModel', bookSchema);
 var userProjectModel = require('../user/user.model.server');
 var q = require('q');
 
-//api
 bookModel.findAllBooks = findAllBooks;
 bookModel.createBookForUser = createBookForUser;
 bookModel.findAllBooksForUser = findAllBooksForUser;
@@ -62,11 +61,10 @@ function findBookByName(bookName) {
 
 
     var searchOptions = {
-        fieldToSearch:'name',// which field you want to search
-        caseSensitive: false // apply case sensitivity to your search
+        fieldToSearch:'name',
+        caseSensitive: false
     };
 
-   // return bookModel.regexSearch(bookName,searchOptions);
     var deferred = q.defer();
     bookModel.regexSearch(bookName, searchOptions, function(err, book){
         if(err) {
@@ -84,11 +82,11 @@ function findBookByName(bookName) {
 function findBookByAuthor(author) {
 
     var searchOptions = {
-        fieldToSearch: 'authors', // which field you want to search
-        caseSensitive: false // apply case sensitivity to your search
+        fieldToSearch: 'authors',
+        caseSensitive: false
     };
 
-    // return bookModel.regexSearch(bookName,searchOptions);
+
     var deferred = q.defer();
     bookModel.regexSearch(author, searchOptions, function(err, book){
         if(err) {
@@ -104,11 +102,11 @@ function findBookByAuthor(author) {
 function findBookByISBN(isbn) {
 
     var searchOptions = {
-        fieldToSearch: 'isbn', // which field you want to search
-        caseSensitive: false // apply case sensitivity to your search
+        fieldToSearch: 'isbn',
+        caseSensitive: false
     };
 
-    // return bookModel.regexSearch(bookName,searchOptions);
+
     var deferred = q.defer();
     bookModel.regexSearch(isbn, searchOptions, function(err, book){
         if(err) {
