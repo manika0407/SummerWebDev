@@ -27,12 +27,12 @@
                 controller:'profileController',
                 controllerAs: 'model',
                 resolve:{
-                    currentUser:checkLoggedIn
+                    currentUser:validateSession
                 }
 
             })
 
-        function checkLoggedIn($q, $location, userService) {
+        function validateSession($q, $location, userService) {
             var deferred=   $q.defer();
             userService
                 .checkLoggedIn()

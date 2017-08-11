@@ -14,9 +14,6 @@ body{
 }
 
 .home > h1{
-    /*color: white;*/
-    /*position: fixed;*/
-    /*top: 35%;*/
     display: block;
     font-size: 2em;
     -webkit-margin-before: 0.67em;
@@ -33,12 +30,6 @@ body{
     margin-top: 10px;
 }
 
-/*h3.title {*/
-    /*color: #c9302c;*/
-/*}*/
-h3.price {
-    color: red;
-}
 body{
     padding-top: 51px;
     height: 100vh;
@@ -109,6 +100,10 @@ a.hover{
     width: 350px;
     word-wrap: break-word;
 }
+.orderwordwrap{
+    width: 300px;
+    word-wrap: break-word;
+}
 
 .font-family{
     font-family: Georgia, serif;
@@ -117,9 +112,6 @@ a.hover{
     color: #000;
 }
 nav.navbar.navbar-default.navbar-fixed-top {
-    /*padding-right: 0px;*/
-    /*background-color: black;*/
-    /*background: black;*/
     background-color: transparent;
     background: rgba(255, 255, 255, 0.4);
     border-color: transparent;
@@ -134,7 +126,5 @@ nav.navbar.navbar-default.navbar-fixed-top {
 .top-state{
     margin-top: 20px;
 }
-/*user*/
 
-/*login*/
 

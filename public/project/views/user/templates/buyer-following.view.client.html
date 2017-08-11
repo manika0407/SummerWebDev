@@ -33,6 +33,13 @@
 
 
 <div class="container-fluid">
+    <div ng-if="!buyerFollowingCtrl.sellers || buyerFollowingCtrl.sellers.length === 0 ">
+        <h1 class="lead text-center"><span
+                > Looks like you dont follow any Seller yet </span></h1>
+    </div>
+
+    <div ng-if="buyerFollowingCtrl.sellers && buyerFollowingCtrl.sellers.length !== 0 ">
+
     <h1 class="text-center">The sellers that You follow</h1>
     <ul class="inlineList">
         <li class="borderlist" ng-repeat="seller in buyerFollowingCtrl.sellers">
@@ -42,6 +49,7 @@
         </li>
 
     </ul>
+    </div>
 </div>
 
 

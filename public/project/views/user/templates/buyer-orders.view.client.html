@@ -41,6 +41,10 @@
         {{buyerOrderCtrl.message}}
     </div>
 
+    <div ng-if="!buyerOrderCtrl.orders || buyerOrderCtrl.orders.length === 0 ">
+        <h1 class="lead text-center">Looks Like You havent placed any orders Yet!!</h1>
+    </div>
+
     <div ng-repeat="order in buyerOrderCtrl.orders">
         <div class="row">
             <div class="col-md-2 hidden-xs">
@@ -62,7 +66,7 @@
                     <a class="btn btn-embossed" ng-click="buyerOrderCtrl.deleteOrderFromSellerBuyer(order._id, order.sorderId)">Click If You have Recieved the order</a>
                 </div>
                 <div ng-show="order.reject"  class="pull-right">
-                    <h4>Sorry, But Request Has been Rejected</h4>
+                    <h4>Sorry, But Your Request Has been Rejected</h4>
                     <div class="divider-silver"></div>
                     <a class="btn btn-embossed btn-wide" ng-click="buyerOrderCtrl.deleteOrder(order._id)">Delete this Order</a>
                 </div>

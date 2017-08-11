@@ -32,11 +32,12 @@
 
 <div class="container-fluid ">
 
-    <u>
-        <h1 ng-if="sellerBookCtrl.books.size >0" class="text-center">
-            Books Uploaded By You
-        </h1>
-    </u>
+
+    <div ng-if="!sellerBookCtrl.books || sellerBookCtrl.books.length === 0 ">
+        <h1 class="text-center">You havent uploaded any Books yet</h1>
+    </div>
+
+
     <ul class="inlineList">
         <li id="special" ng-repeat="book in sellerBookCtrl.books">
             <a href="#!/seller/books/{{book._id}}" >
@@ -49,13 +50,13 @@
             </a></center>
         </li>
     </ul>
-   <center><a class="btn btn-lg btn-default c1-color-black"
+        </div>
+            <center><a class="btn btn-lg btn-default c1-color-black"
        ng-click="sellerBookCtrl.createBook(sellerBookCtrl.userId)">
        <span class="glyphicon glyphicon-plus-sign color-white"></span>
        <span class="glyphicon glyphicon-book color-white"></span>
 
        <span class="c1-color-white">Add New Book</span></a>
    </center>
-</div>
 
 <!--<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>-->

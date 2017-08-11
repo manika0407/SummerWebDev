@@ -148,7 +148,6 @@ function addBook(userId, bookId) {
 
 
 function createUser(user) {
-    console.log(user);
     if(user.roles){
         user.roles = user.roles.split(',');
     } else {

@@ -73,15 +73,6 @@
 
 
 
-            // .when('/seller/header/books', {
-            //     templateUrl: 'views/user/templates/seller-books-header.view.client.html',
-            //     controller: 'booksSearchController',
-            //     controllerAs: 'model',
-            //     resolve:{
-            //         currentUser: checkLoggedIn
-            //     }
-            // })
-
 
 
             .when('/seller/books/:bookId', {
