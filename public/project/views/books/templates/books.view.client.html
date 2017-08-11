@@ -13,17 +13,22 @@
                 ReadGood</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav pull-right">
 
-                <!--<li class="active"><a href="#!/">Home</a></li>-->
                 <li><a ng-if="model.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
-                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="!model.currentUser._id"><a ng-click="model.init()">Search Books</a></li>
-                <li ng-show="!model.currentUser._id"><a href="#!/register">Register</a></li>
+                <li class="active" ng-show="!model.currentUser._id"><a href="#!/login"><i class="fa fa-sign-in"
+                                                                                          aria-hidden="true" data-toggle="tooltip"
+                                                                                          title="Login"></i><span
+                >&nbsp Login</span></a></li>
+                <li ng-show="!model.currentUser._id"><a ng-click="model.init()">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    Search Books</a></li>
+                <li ng-show="!model.currentUser._id"><a href="#!/register"><i class="fa fa-user-plus" aria-hidden="true"></i><span
+                >&nbsp Sign up</span></a></li>
                 <li ng-show="model.currentUser._id"><a href="#!/profile">Profile</a></li>
-                <!--<li ng-show="model.currentUser._id"><a ng-click="model.logout()">Logout</a></li>-->
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
 
@@ -63,6 +68,15 @@
 
 </div>
 <br>
+<div ng-if="!model.books || model.books.length === 0 ">
+    <h1 class="lead text-center">
+            <span>
+                Sorry, No Books Yet, Please come back later!!
+            </span>
+    </h1>
+</div>
+
+<div ng-if="model.books && model.books.length !== 0 ">
 <p class="text-center">Liking any of these books? Buy at reasonable prices by <a class="c1-color-white"
                                                                                  href="#!/register"><u>Registering</u></a> on our website
 </p>
@@ -93,6 +107,7 @@
             </li>
         </ul>
     </div>
+</div>
 </div>
 
 <div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>

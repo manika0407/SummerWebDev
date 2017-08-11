@@ -79,20 +79,21 @@
         placeholder="LastName">
             <br>
             <a class="btn btn-block c1-color-black" href="#!/seller/books">
-                <span class="c1-color-white glyphicon glyphicon-book"><br>
-                Uploaded Books
-                     </span>
+                <i class="fa fa-book fa-2x" aria-hidden="true"></i><span>&nbsp;Uploaded Books</span>
             </a>
             <a class="btn btn-block c1-color-black"  href="#!/seller/orders">
-                <span class="glyphicon glyphicon-shopping-cart c1-color-white"><br>
-                Recieved Orders</span>
+                <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i><span>&nbsp;Recieved Orders</span>
             </a>
         <a class="btn btn-block c1-color-black"
-           ng-click="profileCtrl.updateUser(profileCtrl.userId, profileCtrl.user)"><span class="c1-color-white">Update</span></a>
+           ng-click="profileCtrl.updateUser(profileCtrl.userId, profileCtrl.user)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+        <span>&nbsp;Update</span></a>
         <a class="btn btn-block c1-color-black"
-           ng-click="profileCtrl.unregister()"><span class="c1-color-white"> Unregister</span></a>
+           ng-click="profileCtrl.unregister()"><i class="fa fa-trash-o fa-2x"></i><span>&nbsp;Unregister</span></a>
         <a class="btn btn-block c1-color-black"
-           ng-click="profileCtrl.logout()"><span class="c1-color-white">Logout</span></a>
+           ng-click="profileCtrl.logout()">
+            <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>
+            <span>&nbsp;Logout</span>
+        </a>
         </div>
     </form>
 </div>

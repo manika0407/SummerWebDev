@@ -51,16 +51,12 @@
             <h3>Buy: {{model.book.price}}</h3>
             <hr>
             <p>{{model.item.description}}</p>
-            <p class="pull-left">ISBN: {{model.book.isbn}}</p>
+            <p class="pull-left">ISBN-10: {{bookInfoCtrl.item.industryIdentifiers[1].identifier}}</p>
             <p class="pull-right">
-                <a href="https://books.google.com/books?isbn={{model.book.isbn}}" class="btn btn-embossed btn-block btn-primary c1-color-black">
-                    <i class="fa fa-google-plus" aria-hidden="true"></i>
-                    Go directly to Google Books to have a preview
-                </a>
+                Page Count: {{bookInfoCtrl.item.pageCount}}
             </p>
-            <!--<p>-->
-            <!--<a class="btn btn-block btn-embossed c1-color-white popup" onclick="myFunction()">Interested in Buying this?</a>-->
-            <!--</p>-->
+            <a class="btn btn-block btn-embossed c1-color-white popup" onclick="myFunction()">Interested in Buying this?</a>
+            </p>
         </div>
     </div>
     <hr>

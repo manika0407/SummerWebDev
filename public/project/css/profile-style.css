@@ -6,6 +6,6 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
-h1{
+h1,span,i{
     color: white;
 }

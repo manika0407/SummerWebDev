@@ -45,12 +45,10 @@
                     <h3 ng-repeat="author in bookInfoCtrl.item.authors">Author: {{author}}</h3>
                     <hr>
                     <p>{{bookInfoCtrl.item.description}}</p>
-                    <p class="pull-left">Page Count: {{bookInfoCtrl.item.pageCount}}</p>
+
+                    <p class="pull-left">ISBN-10: {{bookInfoCtrl.item.industryIdentifiers[1].identifier}}</p>
                     <p class="pull-right">
-                        <a href="https://books.google.com/books?isbn={{bookInfoCtrl.book.isbn}}" class="btn btn-embossed btn-block btn-primary c1-color-black">
-                            <i class="fa fa-google-plus" aria-hidden="true"></i>
-                            Go directly to Google Books to have a preview
-                        </a>
+                        Page Count: {{bookInfoCtrl.item.pageCount}}
                     </p>
                     <br>
 

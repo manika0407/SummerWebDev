@@ -16,3 +16,10 @@ body {
 p{
     text-align: justify;
 }
+
+.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
