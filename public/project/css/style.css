@@ -127,4 +127,10 @@ nav.navbar.navbar-default.navbar-fixed-top {
     margin-top: 20px;
 }
 
+.navbar-inverse .navbar-brand {
+    color:white;
+}
 
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+}
