@@ -10,6 +10,6 @@ label, h1,span,h3 , li{
 
 .borderlist {
     list-style-position:inside;
-    border: 1px solid white;
+    border: 5px solid white;
     padding: 10px;
 }

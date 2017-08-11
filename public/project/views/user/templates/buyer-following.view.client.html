@@ -50,13 +50,13 @@
             {{seller.firstName}} {{seller.lastName}} ({{seller.username}})<br>
             <a ng-click="buyerFollowingCtrl.unfollowSeller(buyerFollowingCtrl.userId, seller._id)">
                 <span class="glyphicon glyphicon-remove" >
-                    Unfollow
+                    Unfollow {{seller.username}}
                 </span>
             </a>
             <br>
             <a href="#!/books/list/seller/{{seller._id}}">
                 <span class="glyphicon glyphicon-user">
-                    Other books of Seller
+                    Other books of {{seller.username}}
                 </span>
             </a>
         </li>
