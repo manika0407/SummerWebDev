@@ -23,9 +23,8 @@
                     <span>&nbsp; Profile</span>
                 </i></a></li>
                 <li ng-show="sellerBookCtrl.currentUser._id"><a href="">Logged in as "{{sellerBookCtrl.currentUser.username}}"</a></li>
-                <!--<li ng-show="sellerBookCtrl.currentUser._id"><a ng-click="sellerBookCtrl.logout()">Logout</a></li>-->
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
 
@@ -34,7 +33,7 @@
 
 
     <div ng-if="!sellerBookCtrl.books || sellerBookCtrl.books.length === 0 ">
-        <h1 class="text-center">You havent uploaded any Books yet</h1>
+        <h1 class="lead text-center">Hey {{sellerBookCtrl.currentUser.username}}, You havent uploaded any Books yet</h1>
     </div>
 
 

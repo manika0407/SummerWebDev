@@ -16,13 +16,12 @@
 
                 <li><a ng-if="buyerBooksCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li class="active" ng-show="!buyerBooksCtrl.currentUser._id"><a href="#!/login">Login</a></li>
-                <!--<li ng-show="buyerBooksCtrl.currentUser._id"><a ng-click="buyerBooksCtrl.init()">Books</a></li>-->
-                <li ng-show="buyerBooksCtrl.currentUser._id"><a href="#!/profile/buyer">
+                 <li ng-show="buyerBooksCtrl.currentUser._id"><a href="#!/profile/buyer">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     Profile</a></li>
 
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
 
@@ -75,13 +74,19 @@
 
             <li id="special" ng-repeat="book in buyerBooksCtrl.books">
                 <div>
-                    <a href="#!/buyer/books/{{book._id}}" ><img src="{{book.photo}}" width="350" height="350"></a>
-                    <p class="text-center wordwrap">{{book.name}}</p>
-                    <p class="text-center"> Posted By: {{book._user.username}}</p>
+                    <a href="#!/buyer/books/{{book._id}}" >
+                        <img src="{{book.photo}}" width="350" height="350">
+                    </a>
+                    <p class="text-center wordwrap">
+                        {{book.name}}
+                    </p>
+                    <p class="text-center">
+                        Posted By: {{book._user.username}}
+                    </p>
                 </div>
-                <div class="text-center red-color"> {{book.price}}</div>
-
-
+                <div class="text-center red-color">
+                    {{book.price}}
+                </div>
                         <a href="#!/buyer/books/{{book._id}}"
                            class="form-submit btn btn-success form-submit center-block"
                            id="edit-add-to-cart"

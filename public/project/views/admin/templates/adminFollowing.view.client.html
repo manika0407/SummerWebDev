@@ -20,7 +20,7 @@
                 <li ng-show="!adminFollowingCtrl.currentUser._id"><a href="#!/register">Register</a></li>
                 <li ng-show="adminFollowingCtrl.currentUser._id"><a ng-click="adminFollowingCtrl.logout()">Logout</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
 <div class="container-fluid">
@@ -69,10 +69,10 @@
         <li ng-repeat="buyer in adminFollowingCtrl.buyers" class="list-group-item">
             <div ng-repeat="seller in buyer.follows">
             <div class="row">
-                <div class="col-xs-5">
+                <div class="col-xs-5 wordwrap">
                     {{buyer.username}}
                 </div>
-                <div class="col-xs-5">
+                <div class="col-xs-5 wordwrap">
                     {{seller.username}}
                 </div>
                 <div class="col-xs-2">

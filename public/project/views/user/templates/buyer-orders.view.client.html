@@ -17,7 +17,6 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav pull-right">
-                <!--<li class="active"><a href="#!/buyer/home">Home</a></li>-->
                 <li><a ng-if="buyerOrderCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li ng-show="buyerOrderCtrl.currentUser._id"><a href="#!/buyer/books">
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -37,12 +36,15 @@
 
 
 <div class="container-fluid">
-    <div style="margin-top: 5px" ng-show="buyerOrderCtrl.message" class="alert alert-info">
+    <div ng-show="buyerOrderCtrl.message" class="alert alert-info top-buffer">
         {{buyerOrderCtrl.message}}
     </div>
 
     <div ng-if="!buyerOrderCtrl.orders || buyerOrderCtrl.orders.length === 0 ">
-        <h1 class="lead text-center">Looks Like You havent placed any orders Yet!!</h1>
+        <h1 class="lead text-center">
+            Hey {{buyerOrderCtrl.currentUser.username}}, It looks Like You havent placed any orders Yet!!
+        <br>Explore Books in our Extensive Collection and Make an Order
+        </h1>
     </div>
 
     <div ng-repeat="order in buyerOrderCtrl.orders">
@@ -51,24 +53,41 @@
                 <img src="{{order.photo}}" class="pull-right">
             </div>
             <div class="col-md-8 col-xs-6">
-                <u><h3>{{order.name}}</h3></u>
-                Sold By: {{order.seller}}<br>
+                <u>
+                    <h3>
+                        {{order.name}}
+                    </h3>
+                </u>
+                Sold By: {{order.seller}}
+                <br>
                 You have ordered {{order.quantity}} copies of this Book.
             </div>
             <div class="col-md-2 col-xs-6">
                 <div ng-show="order.request&&!order.reject" style="margin-right: 30px" class="pull-right">
-                    <h3>Seller has not responded anything yet!!
+                    <h3>
+                        Seller has not responded anything yet!!
                     </h3>
                 </div>
                 <div ng-show="!order.request&&!order.reject"  class="pull-right">
-                    <h4>Item is Being Shipped To You</h4>
+                    <h4>
+                        Item is Being Shipped To You
+                    </h4>
                     <div class="divider-silver"></div>
-                    <a class="btn btn-embossed" ng-click="buyerOrderCtrl.deleteOrderFromSellerBuyer(order._id, order.sorderId)">Click If You have Recieved the order</a>
+                    <a class="btn btn-embossed" ng-click="buyerOrderCtrl.deleteOrderFromSellerBuyer(order._id, order.sorderId)">
+                        Click If You have Recieved the order
+                    </a>
                 </div>
                 <div ng-show="order.reject"  class="pull-right">
-                    <h4>Sorry, But Your Request Has been Rejected</h4>
-                    <div class="divider-silver"></div>
-                    <a class="btn btn-embossed btn-wide" ng-click="buyerOrderCtrl.deleteOrder(order._id)">Delete this Order</a>
+                    <h4>
+                        Sorry, But Your Request Has been Rejected
+                    </h4>
+                    <div class="divider-silver">
+
+                    </div>
+                    <a class="btn btn-embossed btn-wide"
+                       ng-click="buyerOrderCtrl.deleteOrder(order._id)">
+                        Delete this Order
+                    </a>
                 </div>
             </div>
 

@@ -25,7 +25,7 @@
                 </i></a></li>
                 <li ng-show="sellerOrderCtrl.currentUser._id"><a href="">Logged in as "{{sellerOrderCtrl.currentUser.username}}"</a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
 
@@ -35,7 +35,7 @@
     </div>
 
     <div ng-if="!sellerOrderCtrl.orders || sellerOrderCtrl.orders.length === 0 ">
-        <h1 class="text-center">Looks Like You dont have any Pending Orders as of now!!</h1>
+        <h1 class="text-center lead">Hey {{sellerOrderCtrl.currentUser.username}}, It looks Like You dont have any Pending Orders as of now!!</h1>
     </div>
 
       <ul class="inlineList">
