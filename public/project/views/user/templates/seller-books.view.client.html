@@ -22,7 +22,9 @@
                                                                                    data-toggle="tooltip" title="Profile">
                     <span>&nbsp; Profile</span>
                 </i></a></li>
-                <li ng-show="sellerBookCtrl.currentUser._id"><a href="">Logged in as "{{sellerBookCtrl.currentUser.username}}"</a></li>
+                <li ng-show="sellerBookCtrl.currentUser._id"><a href=""><i>Logged in as "{{sellerBookCtrl.currentUser.username}}"</i></a></li>
+                <li ng-show="sellerBookCtrl.currentUser._id"><a ng-click="sellerBookCtrl.logout()">
+                    <i class="fa fa-sign-out" aria-hidden="true"><span>Logout</span></i></a></li>
             </ul>
         </div>
     </div>
@@ -58,4 +60,4 @@
        <span class="c1-color-white">Add New Book</span></a>
    </center>
 
-<!--<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>-->
+<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>

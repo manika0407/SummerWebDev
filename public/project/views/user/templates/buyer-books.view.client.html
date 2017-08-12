@@ -16,9 +16,18 @@
 
                 <li><a ng-if="buyerBooksCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li class="active" ng-show="!buyerBooksCtrl.currentUser._id"><a href="#!/login">Login</a></li>
-                 <li ng-show="buyerBooksCtrl.currentUser._id"><a href="#!/profile/buyer">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    Profile</a></li>
+                <li ng-show="buyerBooksCtrl.currentUser._id"><a href="#!/buyer/books">
+                    <i class="fa fa-search"></i>
+                    <i class="fa fa-book" aria-hidden="true"
+                                                                                      data-toggle="tooltip" title="Books"><span>&nbsp;Search Books</span>
+                </i></a></li>
+                <li ng-show="buyerBooksCtrl.currentUser._id"><a href="#!/profile/buyer"><i class="fa fa-user" aria-hidden="true"
+                                                                                        data-toggle="tooltip" title="Profile">
+                    <span>&nbsp; Profile</span>
+                </i></a></li>
+                <li ng-show="buyerBooksCtrl.currentUser._id"><a href=""><i>Logged in as "{{buyerBooksCtrl.currentUser.username}}"</i></a></li>
+                <li ng-show="buyerBooksCtrl.currentUser._id"><a ng-click="buyerBooksCtrl.logout()">
+                    <i class="fa fa-sign-out" aria-hidden="true"><span>Logout</span></i></a></li>
 
             </ul>
         </div>
@@ -42,7 +51,7 @@
                     class="width">
                 <option value="Name">Name</option>
                 <option value="Author">Author</option>
-                <option value="ISBN">ISBN</option>
+                <!--<option value="ISBN">ISBN</option>-->
             </select>
         </div>
         <div class="col-lg-6">

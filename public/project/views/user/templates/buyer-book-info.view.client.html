@@ -17,14 +17,18 @@
             <ul class="nav navbar-nav pull-right">
                 <li><a ng-if="bookInfoCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li class="active" ng-show="!bookInfoCtrl.currentUser._id"><a href="#!/login">Login</a></li>
-                <li ng-show="bookInfoCtrl.currentUser._id"><a href="#!/buyer/books"><i class="fa fa-search" aria-hidden="true"></i>
-                    <i class="fa fa-book" aria-hidden="true"></i>
-                    Search Books</a></li>
-                <li ng-show="!bookInfoCtrl.currentUser._id"><a href="#!/register">Register</a></li>
-                <li ng-show="bookInfoCtrl.currentUser._id"><a href="#!/profile/buyer">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    Profile</a></li>
-                <li ng-show="bookInfoCtrl.currentUser._id"><a href="">Logged in as "{{bookInfoCtrl.currentUser.username}}"</a></li>
+                <li ng-show="bookInfoCtrl.currentUser._id"><a href="#!/buyer/books">
+                    <i class="fa fa-search"></i>
+                    <i class="fa fa-book" aria-hidden="true"
+                       data-toggle="tooltip" title="Books"><span>&nbsp;Search Books</span>
+                    </i></a></li>
+                <li ng-show="bookInfoCtrl.currentUser._id"><a href="#!/profile/buyer"><i class="fa fa-user" aria-hidden="true"
+                                                                                           data-toggle="tooltip" title="Profile">
+                    <span>&nbsp; Profile</span>
+                </i></a></li>
+                <li ng-show="bookInfoCtrl.currentUser._id"><a href=""><i>Logged in as "{{bookInfoCtrl.currentUser.username}}"</i></a></li>
+                <li ng-show="bookInfoCtrl.currentUser._id"><a ng-click="bookInfoCtrl.logout()">
+                    <i class="fa fa-sign-out" aria-hidden="true"><span>Logout</span></i></a></li>
             </ul>
         </div>
     </div>
@@ -73,12 +77,13 @@
                     <h3>
                         Seller Details
                     </h3>
-                        <h4> Posted By:
+                        <h3> Posted By:  {{bookInfoCtrl.book._user.firstName}} {{bookInfoCtrl.book._user.lastName}} ({{bookInfoCtrl.book._user.username}})
                             <a class="btn btn-embossed c1-color-white"
                                href="#!/books/list/seller/{{bookInfoCtrl.book._user._id}}">
-                                {{bookInfoCtrl.book._user.firstName}} {{bookInfoCtrl.book._user.lastName}} ({{bookInfoCtrl.book._user.username}}) (Click on Seller to Find other books uploaded by {{bookInfoCtrl.book._user.username}})<br>
+
+                                (Click on Seller to Find other books uploaded by {{bookInfoCtrl.book._user.username}})<br>
                             </a>
-                        </h4>
+                        </h3>
                     <h4>
                         Seller Venmo Payment Id: {{bookInfoCtrl.book._user.venmo}}
                     </h4>
@@ -153,7 +158,6 @@
 
 
 </div>
-<br>
-<br>
+<div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>
 
 

@@ -134,3 +134,7 @@ nav.navbar.navbar-default.navbar-fixed-top {
 .navbar-inverse .navbar-nav > li > a {
     color: white;
 }
+
+.padding{
+    padding-bottom: 70px;
+}

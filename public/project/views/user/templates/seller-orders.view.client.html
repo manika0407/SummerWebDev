@@ -23,7 +23,9 @@
                                                                                    data-toggle="tooltip" title="Profile">
                     <span>&nbsp; Profile</span>
                 </i></a></li>
-                <li ng-show="sellerOrderCtrl.currentUser._id"><a href="">Logged in as "{{sellerOrderCtrl.currentUser.username}}"</a></li>
+                <li ng-show="sellerOrderCtrl.currentUser._id"><a href=""><i>Logged in as "{{sellerOrderCtrl.currentUser.username}}"</i></a></li>
+                <li ng-show="sellerOrderCtrl.currentUser._id"><a ng-click="sellerOrderCtrl.logout()">
+                    <i class="fa fa-sign-out" aria-hidden="true"><span>Logout</span></i></a></li>
             </ul>
         </div>
     </div>
@@ -43,7 +45,7 @@
             <img src="{{order.photo}}" width="300" height="300">
             <h4 class="text-center orderwordwrap">{{order.name}}</h4>
             <h4 class="text-center orderwordwrap">Requested By: {{order.buyer}}</h4>
-            <h4 class="text-center orderwordwrap">Requested On: {{order.dateCreated | date:'med}}</h4>
+            <h4 class="text-center orderwordwrap">Requested On: {{order.dateCreated | date:'medium'}}</h4>
             <h4 class="text-center">Quantity: {{order.quantity}}</h4>
             <h4 class="pull-right"><a href="#!/seller/orders/message/{{order._id}}" class="btn btn-default c1-color-black">
                 <span class="color-white">

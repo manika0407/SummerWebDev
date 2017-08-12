@@ -17,12 +17,17 @@
             <ul class="nav navbar-nav pull-right">
                 <li><a ng-if="buyerSellerBooksCtrl.currentUser.roles.indexOf('ADMIN')>-1" href="#!/admin">Admin</a></li>
                 <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a href="#!/buyer/books">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    <i class="fa fa-book" aria-hidden="true"></i>
-                    Search Books</a></li>
-                <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a href="#!/profile/buyer"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Profile</a></li>
-                <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a href="">Logged in as "{{buyerSellerBooksCtrl.currentUser.username}}"</a></li>
-                <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a ng-click="buyerSellerBooksCtrl.logout()">Logout</a></li>
+                    <i class="fa fa-search"></i>
+                    <i class="fa fa-book" aria-hidden="true"
+                       data-toggle="tooltip" title="Books"><span>&nbsp;Search Books</span>
+                    </i></a></li>
+                <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a href="#!/profile/buyer"><i class="fa fa-user" aria-hidden="true"
+                                                                                           data-toggle="tooltip" title="Profile">
+                    <span>&nbsp;Profile</span>
+                </i></a></li>
+                <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a href=""><i>Logged in as "{{buyerSellerBooksCtrl.currentUser.username}}"</i></a></li>
+                <li ng-show="buyerSellerBooksCtrl.currentUser._id"><a ng-click="buyerSellerBooksCtrl.logout()">
+                    <i class="fa fa-sign-out" aria-hidden="true"><span>Logout</span></i></a></li>
             </ul>
         </div>
     </div>
@@ -48,7 +53,7 @@
         </div>
         <div class="col-xs-12 col-sm-10">
             <div>
-                <h3>Seller Name :{{buyerSellerBooksCtrl.seller.firstName}} {{buyerSellerBooksCtrl.seller.lastName}} (username: {{buyerSellerBooksCtrl.seller.username}})</h3>
+                <h3>Seller Name :&nbsp;{{buyerSellerBooksCtrl.seller.firstName}} {{buyerSellerBooksCtrl.seller.lastName}} (username: {{buyerSellerBooksCtrl.seller.username}})</h3>
             </div>
         </div>
     </div>
@@ -60,9 +65,8 @@
                 <img src="{{book.photo}}" width="350" height="350">
                 </a>
                 <p class="text-center wordwrap">{{book.name}}</p>
-                <u><center><a href="#!/buyer/books/{{book._id}}"><p><span class="glyphicon glyphicon-book"></span>
-                    Book Details</p></a></center>
-                </u>
+                <center><a href="#!/buyer/books/{{book._id}}"><p><span class="glyphicon glyphicon-book"></span>
+                    <u>Book Details</u></p></a></center>
             </li>
         </ul>
     </div>

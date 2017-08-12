@@ -25,9 +25,11 @@
                                                                                    data-toggle="tooltip" title="Profile">
                     <span>&nbsp; Profile</span>
                 </i></a></li>
-                <li ng-show="bookInfoCtrl.currentUser._id"><a href="">Logged in as "{{bookInfoCtrl.currentUser.username}}"</a></li>
+                <li ng-show="bookInfoCtrl.currentUser._id"><a href=""><i>Logged in as "{{bookInfoCtrl.currentUser.username}}"</i></a></li>
+                <li ng-show="bookInfoCtrl.currentUser._id"><a ng-click="bookInfoCtrl.logout()">
+                    <i class="fa fa-sign-out" aria-hidden="true"><span>Logout</span></i></a></li>
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
 
