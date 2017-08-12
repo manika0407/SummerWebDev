@@ -25,10 +25,17 @@
         init();
 
         function createOrder(order, userId, bookId) {
+            if (order === null || typeof order === 'undefined') {
+                    bookInfoCtrl.error1 = "Address is required For Shipping Purposes!";
+                    bookInfoCtrl.error2 = null;
+                    bookInfoCtrl.error3 = null;
+                    bookInfoCtrl.submitted1 = true;
+                    return;
+            }
             if (order.venmo === null || order.venmo === '' || typeof order.venmo === 'undefined') {
                 bookInfoCtrl.error1 = "Address is required For Shipping Purposes!";
                 bookInfoCtrl.error2 = null;
-                bookInfoCtrl.error3=null;
+                bookInfoCtrl.error3 = null;
                 bookInfoCtrl.submitted1 = true;
                 return;
             }
