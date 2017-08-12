@@ -60,7 +60,7 @@
 
             if (newBook.inventory <= 0) {
                 bookEditCtrl.error1 = null;
-                bookEditCtrl.error2 = 'Inventory should be more than 0 !';
+                bookEditCtrl.error2 = 'Inventory must be more than 0 !';
                 bookEditCtrl.error3 = null;
                 bookEditCtrl.submitted2 = true;
                 return;
@@ -75,6 +75,16 @@
                 bookEditCtrl.submitted3 = true;
                 return;
             }
+
+            if (newBook.price <= 0) {
+                bookEditCtrl.error1 = null;
+                bookEditCtrl.error2 = null;
+                bookEditCtrl.error3 = 'Price of book must not be less than 0 !';
+                bookEditCtrl.submitted2 = true;
+                return;
+            }
+
+
             var isbn = newBook.isbn;
             searchService
                 .searchBook(isbn)
