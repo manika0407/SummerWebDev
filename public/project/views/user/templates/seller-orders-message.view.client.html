@@ -35,7 +35,15 @@
 </nav>
 
     <div class="container-fluid text-center top-state">
-        <img src="../../../../pictures/newmessage.gif" width="250" height="250" class="">
+
+
+        <div ng-if="!sellerOrderMessageCtrl.message || sellerOrderMessageCtrl.message.length === 0 ">
+            <h1 class="lead text-center">
+                Sorry Pal, No Message Left By {{sellerOrderMessageCtrl.buyer}}
+            </h1>
+        </div>
+        <div ng-if="sellerOrderMessageCtrl.message && sellerOrderMessageCtrl.message.length!==0">
+            <img src="../../../../pictures/newmessage.gif" width="250" height="250" class="">
         <h3>{{sellerOrderMessageCtrl.buyer}}'s message: {{sellerOrderMessageCtrl.message}}</h3>
         <a href="#!/seller/orders" class="btn btn-default btn-wide c1-color-black">
              <span class="color-white">
@@ -43,6 +51,7 @@
                 Go Back
             </span>
         </a>
+        </div>
     </div>
 
 <div ng-include="'views/user/templates/websitefooter.view.client.html'"></div>

@@ -18,21 +18,17 @@
 
 
         function init() {
+
+
             searchBook(bookInfoCtrl.bookId);
         }
         init();
-
-
-
-
-
-
-
 
         function createOrder(order, userId, bookId) {
             if (order.venmo === null || order.venmo === '' || typeof order.venmo === 'undefined') {
                 bookInfoCtrl.error1 = "Address is required For Shipping Purposes!";
                 bookInfoCtrl.error2 = null;
+                bookInfoCtrl.error3=null;
                 bookInfoCtrl.submitted1 = true;
                 return;
             }
@@ -46,6 +42,13 @@
                 bookInfoCtrl.error1 = null;
                 bookInfoCtrl.error2 = null;
                 bookInfoCtrl.error3 = "Quantity required to place any order!";
+                bookInfoCtrl.submitted3 = true;
+                return;
+            }
+            if (order.quantity > bookInfoCtrl.book.inventory) {
+                bookInfoCtrl.error1 = null;
+                bookInfoCtrl.error2 = null;
+                bookInfoCtrl.error3 = "Quantity > Inventory of Book. Please Update your Order";
                 bookInfoCtrl.submitted3 = true;
                 return;
             }
@@ -113,7 +116,15 @@
                     bookInfoCtrl.book = book;
                     var isbn = bookInfoCtrl.book.isbn;
                     bookInfoCtrl.googleSearch(isbn);
+
+                    if (bookInfoCtrl.book.inventory === 0) {
+                        bookInfoCtrl.messageSeller="This Book is out of stock!! Update Your Inventory";
+                        bookInfoCtrl.messageBuyer="Sorry, But This Book is out of stock!! ";
+                        return;
+                    }
                 });
+
+
         }
         function googleSearch(isbn) {
             searchService

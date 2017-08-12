@@ -57,6 +57,17 @@
                 bookEditCtrl.submitted2 = true;
                 return;
             }
+
+            if (newBook.inventory <= 0) {
+                bookEditCtrl.error1 = null;
+                bookEditCtrl.error2 = 'Inventory should be more than 0 !';
+                bookEditCtrl.error3 = null;
+                bookEditCtrl.submitted2 = true;
+                return;
+            }
+
+
+
             if (newBook.price === null || newBook.price === '' || typeof newBook.price === 'undefined') {
                 bookEditCtrl.error1 = null;
                 bookEditCtrl.error2 = null;

@@ -35,7 +35,9 @@
 </nav>
 
 <div class="container-fluid">
-
+    <div ng-show="bookInfoCtrl.messageBuyer" class="alert alert-danger text-center top-margin">
+        {{bookInfoCtrl.messageBuyer}}
+    </div>
             <div class="row">
                 <div class="col-md-3 hidden-xs">
                     <img src="{{bookInfoCtrl.book.photo}}"
