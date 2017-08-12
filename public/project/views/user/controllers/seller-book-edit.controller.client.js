@@ -108,6 +108,7 @@
                         });
                 }, function (err) {
                     bookEditCtrl.message = "Sorry, We are unable to find this book!"
+                    return;
                 });
 
 

@@ -122,6 +122,12 @@ nav.navbar.navbar-default.navbar-fixed-top {
     border-color: blue;
     text-align: center;
 }
+.alert-danger {
+    color: black;
+    background-color: white;
+    border-color: red;
+    text-align: center;
+}
 
 .top-state{
     margin-top: 20px;
