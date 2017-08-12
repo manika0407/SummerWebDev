@@ -138,3 +138,8 @@ nav.navbar.navbar-default.navbar-fixed-top {
 .padding{
     padding-bottom: 70px;
 }
+
+.img-fitColumn {
+    max-width: 100%;
+    height: 38px;
+}
