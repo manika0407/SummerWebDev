@@ -119,9 +119,9 @@ function googleStrategy(token, refreshToken, profile, done) {
 var FacebookStrategy = require('passport-facebook').Strategy;
 
 var facebookConfig = {
-    clientID     : process.env.FACEBOOK_CLIENT_PROJECTID,
-    clientSecret : process.env.FACEBOOK_CLIENT_PROJECTSECRET,
-    callbackURL  : process.env.FACEBOOK_CALLBACK_PROJECTURL,
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL,
     profileFields: ['id', 'emails','displayName', 'name']
 };
 
