@@ -90,9 +90,10 @@
                     <h4>
                         Seller Venmo Payment Id: {{bookInfoCtrl.book._user.venmo}}
                     </h4>
-                    <h4>
-                        Description Posted By Seller:{{bookInfoCtrl.book.description}}
-                    </h4>
+                        <div ng-show="bookInfoCtrl.book.description">
+                            <h4>Description posted by Seller: {{bookInfoCtrl.book.description}}</h4>
+                        </div>
+
                     <h4>
                         Number of Copies of this Book: {{bookInfoCtrl.book.inventory}}</h4>
                 </div>
