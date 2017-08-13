@@ -40,6 +40,8 @@
 
 
 <div class="container-fluid">
+    <div ng-show="bookEditCtrl.messageError" class="alert alert-danger">
+        {{bookEditCtrl.messageError}}</div>
     <div ng-show="bookEditCtrl.message" class="alert alert-info">
         {{bookEditCtrl.message}}</div>
 

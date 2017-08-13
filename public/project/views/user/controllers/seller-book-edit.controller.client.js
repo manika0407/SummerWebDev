@@ -89,6 +89,12 @@
             searchService
                 .searchBook(isbn)
                 .then(function (response) {
+                    if(response.data.totalItems <= 50)
+                    {
+                        bookEditCtrl.messageError="Sorry, No Results Found, Please try searching Something else!! "
+                        return;
+                    }
+
                     var item = response.data.items[0].volumeInfo;
                     var book = {
                         name: item.title,
