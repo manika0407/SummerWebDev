@@ -99,16 +99,16 @@ function findBookByAuthor(author) {
 
 }
 
-function findBookByISBN(isbn) {
+function findBookByISBN(isbnno) {
 
     var searchOptions = {
-        fieldToSearch: 'isbn',
+        fieldToSearch: 'isbnno',
         caseSensitive: false
     };
 
 
     var deferred = q.defer();
-    bookModel.regexSearch(isbn, searchOptions, function(err, book){
+    bookModel.regexSearch(isbnno, searchOptions, function(err, book){
         if(err) {
             deferred.reject(err);
         } else {

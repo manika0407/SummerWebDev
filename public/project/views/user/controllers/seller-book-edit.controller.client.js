@@ -96,6 +96,7 @@
                         inventory: newBook.inventory,
                         description: newBook.description,
                         isbn: newBook.isbn,
+                        isbnno: item.industryIdentifiers[1].identifier,
                         price: newBook.price,
                         _user: bookEditCtrl.userId,
                         authors: item.authors[0]+item.authors[1]
